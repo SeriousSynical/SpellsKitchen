@@ -7,6 +7,7 @@ public class Container extends Item {
     protected boolean isLocked;
     protected ArrayList<Object> contents;
 
+
     // Constructors
     public Container(String name, String description, boolean[] interactions) {
 
@@ -23,6 +24,46 @@ public class Container extends Item {
         this.contents = new ArrayList<>();
         this.isLocked = isLocked;
         this.lock = lock;
+
+    }
+
+
+    // Getters
+    public Lock getLock() {
+
+        return lock;
+
+    }
+
+    public boolean isLocked() {
+
+        return isLocked;
+
+    }
+
+    public ArrayList<Object> getContents() {
+
+        return contents;
+
+    }
+
+
+    // Setters
+    public void setLock(Lock lock) {
+
+        this.lock = lock;
+
+    }
+
+    public void setLocked(boolean locked) {
+
+        isLocked = locked;
+
+    }
+
+    public void setContents(ArrayList<Object> contents) {
+
+        this.contents = contents;
 
     }
 

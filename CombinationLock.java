@@ -4,11 +4,40 @@ public class CombinationLock extends Lock {
     protected int[] key;
     protected int[] combination;
 
+
     // Constructors
     public CombinationLock(Container container, int[] key, int[] combination) {
 
         super(container);
         this.key = key;
+        this.combination = combination;
+
+    }
+
+
+    // Getters
+    public int[] getKey() {
+
+        return key;
+
+    }
+
+    public int[] getCombination() {
+
+        return combination;
+
+    }
+
+
+    // Setters
+    public void setKey(int[] key) {
+
+        this.key = key;
+
+    }
+
+    public void setCombination(int[] combination) {
+
         this.combination = combination;
 
     }
