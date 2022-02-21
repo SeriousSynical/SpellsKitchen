@@ -6,9 +6,9 @@ public class Player extends Character {
     protected ArrayList<Object> inventory;
 
     // Constructors
-    public Player(String name, String description, boolean[] interactions) {
+    public Player(String name, Pronouns pronouns, String description, boolean[] interactions) {
 
-        super(name, description, interactions);
+        super(name, pronouns, description, interactions);
         this.inventory = new ArrayList<>();
 
     }

@@ -1,9 +1,9 @@
 public class NPC extends Character {
 
     // Constructor
-    public NPC(String name, String description, boolean[] interactions) {
+    public NPC(String name, Pronouns pronouns, String description, boolean[] interactions) {
 
-        super(name, description, interactions);
+        super(name, pronouns, description, interactions);
 
     }
 
