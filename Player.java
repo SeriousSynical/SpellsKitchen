@@ -39,7 +39,7 @@ public class Player extends Character {
             System.out.println("1. Who are you?");
             System.out.println("2. How can i open this?");
             System.out.println("3. Why are you here?");
-            System.out.println("4. Exit");
+            System.out.println("0. Exit");
 
             int answer = s.nextInt();
             {
@@ -55,7 +55,7 @@ public class Player extends Character {
                 {
                     System.out.println(npc.name + ": That is entirely none of your business, thief.");
                 }
-                else if (answer == 4)
+                else if (answer == 0)
                 {
                     flag = true;
                 }
