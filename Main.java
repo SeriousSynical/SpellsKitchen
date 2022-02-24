@@ -6,6 +6,7 @@ public class Main {
 
         run();
 
+
     }
 
     public static void run() {
@@ -17,6 +18,8 @@ public class Main {
         String name = null;
         Pronouns pronouns = null;
         Scanner keyboard = new Scanner(System.in);
+        Player player = new Player("Brandon",Pronouns.masculine,"hello", new boolean[5]);
+        NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly", new boolean[5]);
 
         // Prompt Name & Pronouns
         flag = true;
@@ -75,6 +78,8 @@ public class Main {
         } while (flag);
         System.out.println(keyboard.nextLine());
 
+// Testing the chat method -- Brandon
+        player.chat(npc);
     }
 
 }

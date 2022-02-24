@@ -27,5 +27,4 @@ public class KeyLock extends Lock {
         this.key = key;
 
     }
-
 }

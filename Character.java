@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Character {
 
     // Initialization
@@ -5,6 +7,8 @@ public class Character {
     protected Pronouns pronouns;
     protected String description;
     protected boolean[] interactions;
+
+    Scanner s = new Scanner(System.in);
 
 
     // Constructors
@@ -67,5 +71,18 @@ public class Character {
         this.interactions = interactions;
 
     }
+
+    //eats an item in the inventory
+    public void eat(Item item)
+    {
+
+    }
+
+    // uses an item
+    public void use (Item item)
+    {
+
+    }
+
 
 }
