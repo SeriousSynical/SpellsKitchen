@@ -18,8 +18,20 @@ public class Main {
         String name = null;
         Pronouns pronouns = null;
         Scanner keyboard = new Scanner(System.in);
-        Player player = new Player("Brandon",Pronouns.masculine,"hello", new boolean[5]);
+
+        // just using these to try new methods out -- Brandon
+
+
+        Player player = new Player("",pronouns, "", new boolean[5]);
         NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly", new boolean[5]);
+        Item i1 = new Item("squash","smelly squash", new boolean[2]);
+        Item i2 = new Item("key","golden key", new boolean[2]);
+        Item i3 = new Item("hammer","rusty hammer", new boolean[2]);
+
+
+
+
+
 
         // Prompt Name & Pronouns
         flag = true;
@@ -28,7 +40,7 @@ public class Main {
             try {
 
                 System.out.print("What is your name? \nName: ");
-                name = keyboard.nextLine();
+                player.name = keyboard.nextLine(); //had to adjust to assign player name
                 flag = false;
 
             } catch (Exception e) {
@@ -46,7 +58,7 @@ public class Main {
             try {
 
                 System.out.print("What are your pronouns? \n1: he/him \n2: she/her \n3: they/them \nPronouns: ");
-                pronounsInt = keyboard.nextInt();
+                 pronounsInt= keyboard.nextInt();
                 if (pronounsInt == 1) {
 
                     pronouns = Pronouns.masculine;
@@ -78,8 +90,16 @@ public class Main {
         } while (flag);
         System.out.println(keyboard.nextLine());
 
+
+        System.out.println("Describe yourself for me."); // created for the player description
+        player.description = keyboard.nextLine();
+
 // Testing the chat method -- Brandon
-        player.chat(npc);
+        player.chat(player,npc);
+        player.inventory.add(i1);
+        player.addItem(player,i2);
+        player.addItem(player,i3);
+        ;
     }
 
 }

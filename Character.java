@@ -72,17 +72,7 @@ public class Character {
 
     }
 
-    //eats an item in the inventory
-    public void eat(Item item)
-    {
 
-    }
-
-    // uses an item
-    public void use (Item item)
-    {
-
-    }
 
 
 }
