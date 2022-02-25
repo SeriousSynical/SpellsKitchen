@@ -1,9 +1,13 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Item {
 
     // Initialization
     protected String name;
     protected String description;
     protected boolean[] interactions;
+    Scanner s = new Scanner(System.in);
 
 
     // Constructors
@@ -55,4 +59,11 @@ public class Item {
 
     }
 
+    @Override // Used to check inventory
+    public String toString()
+    {
+        return
+                "Item: " + name  +
+                ", " + description ;
+    }
 }

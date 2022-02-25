@@ -94,12 +94,18 @@ public class Main {
         System.out.println("Describe yourself for me."); // created for the player description
         player.description = keyboard.nextLine();
 
-// Testing the chat method -- Brandon
+// Testing the chat method, add method, break method, and checking inventory-- Brandon
         player.chat(player,npc);
-        player.inventory.add(i1);
+        player.addItem(player,i1);
         player.addItem(player,i2);
         player.addItem(player,i3);
-        ;
+
+        System.out.println(player.checkInventory());
+
+        player.breakItem(i1);
+
+        System.out.println(player.checkInventory());
+
     }
 
 }

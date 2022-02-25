@@ -74,10 +74,32 @@ public class Player extends Character {
 
     }
 
-    // adds a new Item to Players Inventory -- Brandon -- This may not be needed at all..
+    // adds a new Item to Players Inventory -- Brandon
     public void addItem(Player player, Item item)
     {
         player.inventory.add(item);
 
+    }
+    // Breaking an item -- Brandon
+    public void breakItem ( Item item)
+    {
+        System.out.println("You just broke the " + item + ".");
+        item.name = "a broken " + item.name;
+        item.description = item.name ;
+        item.interactions=new boolean[0]; // need to figure out what this is going to do
+    }
+
+    // Checking inventory -- Brandon
+    public String checkInventory()
+    {
+        String inventories="";
+
+        for (int i = 0; i < inventory.size(); i++)
+        {
+         inventories += inventory.get(i) +"\n";
+
+
+        }
+        return inventories;
     }
 }
