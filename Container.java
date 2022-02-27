@@ -67,4 +67,18 @@ public class Container extends Item {
 
     }
 
+
+    // Empty Methods
+    public void addItem() {
+
+
+
+    }
+
+    public void removeItem() {
+
+
+
+    }
+
 }

@@ -12,18 +12,22 @@ public class Main {
 
         // Initialization
         boolean flag;
-        boolean[] array = {true};
         int pronounsInt = 0;
         String name = null;
         Pronouns pronouns = null;
         Scanner keyboard = new Scanner(System.in);
+        String[] actionArray = {"Inspect", "Use", "Eat", "Break"};
+        String command = "";
+        String action = "";
+        String object = "";
 
-        // just using these to try new methods out -- Brandon
+        // Testing Objects
         Player player = new Player("",pronouns, "", new boolean[5]);
         NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly", new boolean[5]);
         Item i1 = new Item("squash","smelly squash", new boolean[2]);
         Item i2 = new Item("key","golden key", new boolean[2]);
         Item i3 = new Item("hammer","rusty hammer", new boolean[2]);
+        player.addItem(i1);
 
 
         // Prompt Name & Pronouns
@@ -87,17 +91,64 @@ public class Main {
         System.out.println("Describe yourself for me."); // created for the player description
         player.description = keyboard.nextLine();
 
-        // Testing the chat method, add method, break method, and checking inventory-- Brandon
-        player.chat(player,npc);
-        player.addItem(i1);
-        player.addItem(i2);
-        player.addItem(i3);
 
-        System.out.println(player.checkInventory());
+        // Input Action
+        System.out.print("Command: ");
+        command = keyboard.nextLine();
+        command.replace(" ", "");
 
-        player.breakItem(i1);
+        // Decipher Action
+        action = "";
+        flag = true;
+        for (int i = 0; i < command.length(); i++) {
 
-        System.out.println(player.checkInventory());
+            if (flag) {
+
+                action += command.charAt(i);
+
+            } else {
+
+                object += command.charAt(i);
+
+            }
+
+            for (String viableAction : actionArray) {
+
+                if (action.equalsIgnoreCase(viableAction)) {
+
+                    flag = false;
+
+                }
+
+            }
+
+        }
+
+        flag = true;
+        if (action.equalsIgnoreCase("Inspect")) {
+
+            for (Item item : player.getInventory()) {
+
+                if (object.equalsIgnoreCase(item.getName())) {
+
+                    System.out.println(item.getDescription());
+                    flag = false;
+
+                }
+
+            }
+
+            if (flag) {
+
+                System.out.println("You do not have that item.");
+
+            }
+
+        } else {
+
+            System.out.println("I'm not sure how to do that.");
+
+        }
 
     }
 

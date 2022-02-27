@@ -60,10 +60,10 @@ public class Item {
     }
 
     @Override // Used to check inventory
-    public String toString()
-    {
-        return
-                "Item: " + name  +
-                        ", " + description ;
+    public String toString() {
+
+        return "Item: " + name  + ", " + description ;
+
     }
+
 }
