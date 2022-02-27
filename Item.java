@@ -64,6 +64,6 @@ public class Item {
     {
         return
                 "Item: " + name  +
-                ", " + description ;
+                        ", " + description ;
     }
 }

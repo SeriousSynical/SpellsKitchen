@@ -70,22 +70,22 @@ public class Player extends Character {
                 }
             }
         }
-            while (flag == false);
+        while (flag == false);
 
     }
 
     // adds a new Item to Players Inventory -- Brandon
-    public void addItem(Player player, Item item)
+    public void addItem(Item item)
     {
-        player.inventory.add(item);
+        this.inventory.add(item);
 
     }
     // Breaking an item -- Brandon
-    public void breakItem ( Item item)
+    public void breakItem (Item item)
     {
         System.out.println("You just broke the " + item + ".");
         item.name = "a broken " + item.name;
-        item.description = item.name ;
+        item.description = item.name;
         item.interactions=new boolean[0]; // need to figure out what this is going to do
     }
 
@@ -96,7 +96,7 @@ public class Player extends Character {
 
         for (int i = 0; i < inventory.size(); i++)
         {
-         inventories += inventory.get(i) +"\n";
+            inventories += inventory.get(i) +"\n";
 
 
         }

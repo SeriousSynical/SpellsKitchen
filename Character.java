@@ -15,6 +15,7 @@ public class Character {
     public Character(String name, Pronouns pronouns, String description, boolean[] interactions) {
 
         this.name = name;
+        this.pronouns = pronouns;
         this.description = description;
         this.interactions = interactions;
 
@@ -71,8 +72,5 @@ public class Character {
         this.interactions = interactions;
 
     }
-
-
-
 
 }
