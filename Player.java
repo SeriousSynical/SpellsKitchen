@@ -98,7 +98,7 @@ public class Player extends Character {
         }
         else
         {
-            System.out.println("You cant break that item");
+            System.out.println("You can't break that item");
         }
         return item;
     }
