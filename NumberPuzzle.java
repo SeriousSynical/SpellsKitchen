@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class NumberPuzzle extends character
 {
-    public static void NumberPuzzle //should not be main
+    public static void NumberPuzzle()
     {
         Scanner kb = new Scanner(System.in);
         Random random = new Random();
@@ -46,6 +46,8 @@ public class NumberPuzzle extends character
             }
         }while(correct == false);
 
+    //Add item to inventory
+    
         kb.close();
     }
  
