@@ -1,9 +1,9 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class NumberPuzzle
+public class NumberPuzzle extends 
 {
-    public static void main(String[] args) //should not be main
+    public static void NumberPuzzle //should not be main
     {
         Scanner kb = new Scanner(System.in);
         Random random = new Random();
