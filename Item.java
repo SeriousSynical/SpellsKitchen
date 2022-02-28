@@ -8,14 +8,20 @@ public class Item {
     protected String description;
     protected boolean[] interactions;
     Scanner s = new Scanner(System.in);
+    boolean usable;
+    boolean eatable;
+    boolean breakable;
 
 
     // Constructors
-    public Item(String name, String description, boolean[] interactions) {
+    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable) {
 
         this.name = name;
         this.description = description;
-        this.interactions = interactions;
+        this.usable = usable;
+        this.eatable = eatable;
+        this.breakable = breakable;
+
 
     }
 

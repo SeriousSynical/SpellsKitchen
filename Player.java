@@ -30,7 +30,7 @@ public class Player extends Character {
 
     }
 
-    //chat with NPC in room -- Brandon
+    //chat with NPC in room
     public void chat (Player player, NPC npc) {
 
         boolean flag = false;
@@ -73,7 +73,7 @@ public class Player extends Character {
 
     }
 
-    // adds a new Item to Players Inventory -- Brandon
+    // adds a new Item to Players Inventory
     public void addItem(Item item) {
 
         this.inventory.add(item);
@@ -81,16 +81,23 @@ public class Player extends Character {
     }
 
     // Breaking an item -- Brandon
-    public void breakItem (Item item) {
-
-        System.out.println("You just broke the " + item + ".");
-        item.name = "a broken " + item.name;
-        item.description = item.name;
-        item.interactions = new boolean[0]; // need to figure out what this is going to do
+    public void breakItem (Item item)
+    {
+        if (item.breakable=true)
+        {
+            System.out.println("You just broke the " + item + ".");
+            item.name = "a broken " + item.name;
+            item.description = item.name;
+            item.interactions = new boolean[0]; // need to figure out what this is going to do
+        }
+        else
+        {
+            System.out.println("You cant break this item.");
+        }
 
     }
 
-    // Checking inventory -- Brandon
+    // Checking inventory
     public String checkInventory() {
 
         String inventories = "";

@@ -24,9 +24,9 @@ public class Main {
         // Testing Objects
         Player player = new Player("",pronouns, "", new boolean[5]);
         NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly", new boolean[5]);
-        Item i1 = new Item("squash","smelly squash", new boolean[2]);
-        Item i2 = new Item("key","golden key", new boolean[2]);
-        Item i3 = new Item("hammer","rusty hammer", new boolean[2]);
+        Item i1 = new Item("squash","smelly squash", false,true,false);
+        Item i2 = new Item("key","golden key", true, false, false);
+        Item i3 = new Item("hammer","rusty hammer", true, false,false);
         player.addItem(i1);
 
 
