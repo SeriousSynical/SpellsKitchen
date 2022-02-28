@@ -11,10 +11,11 @@ public class Item {
     boolean usable;
     boolean eatable;
     boolean breakable;
+    boolean breakableClue;
 
 
     // Constructors
-    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable) {
+    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable, boolean breakableClue) {
 
         this.name = name;
         this.description = description;
@@ -23,6 +24,13 @@ public class Item {
         this.breakable = breakable;
 
 
+    }
+
+    public Item(String name, String description, boolean[] interactions)
+    {
+        this.name = name;
+        this.description = description;
+        this.interactions = interactions;
     }
 
 

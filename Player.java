@@ -81,20 +81,26 @@ public class Player extends Character {
     }
 
     // Breaking an item -- Brandon
-    public void breakItem (Item item)
+    public Item breakItem (Item item)
     {
-        if (item.breakable=true)
+        if ((item.breakable = true) && (item.breakableClue = true))
         {
             System.out.println("You just broke the " + item + ".");
-            item.name = "a broken " + item.name;
-            item.description = item.name;
-            item.interactions = new boolean[0]; // need to figure out what this is going to do
+            Item i1 = new Item("broken" + item.name, "Just a plain broken" + item.name,false,false,false, false);
+            Item i2 = new Item("Key","A key hidden inside the " + item.name,true,false,false,false);
+
+        }
+        else if ((item.breakableClue = false) && (item.breakable = true))
+        {
+            System.out.println("You just broke the " + item.name);
+            item.name = "Broken " + item.name;
+            item.description = "Just a broken " + item.name;
         }
         else
         {
-            System.out.println("You cant break this item.");
+            System.out.println("You cant break that item");
         }
-
+        return item;
     }
 
     // Checking inventory
