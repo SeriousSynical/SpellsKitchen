@@ -69,14 +69,28 @@ public class Container extends Item {
 
 
     // Empty Methods
-    public void addItem()
-    {
+    public void checkLock() {
+
+
 
     }
 
-    public void removeItem()
-    {
+    public String inspect() {
+
+        return null;
 
     }
 
+    public void addItem(Player player) {
+
+
+
+    }
+
+    public void removeItem(Player player) {
+
+
+
+    }
+    
 }
