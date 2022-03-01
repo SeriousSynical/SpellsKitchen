@@ -12,6 +12,7 @@ public class Item {
     boolean eatable;
     boolean breakable;
     boolean breakableClue;
+    public static int count;
 
 
     // Constructors
@@ -31,6 +32,7 @@ public class Item {
         this.name = name;
         this.description = description;
         this.interactions = interactions;
+        count++;
     }
 
 
@@ -74,10 +76,14 @@ public class Item {
     }
 
     @Override // Used to check inventory
-    public String toString() {
+    public String toString()
+    {
+        return "Item:" + name;
+    }
 
-        return "Item: " + name  + ", " + description ;
-
+    public void displayItemsInRoom ()
+    {
+        
     }
 
 }

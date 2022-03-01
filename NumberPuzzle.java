@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class NumberPuzzle extends character
+public class NumberPuzzle //extends character
 {
     public static void NumberPuzzle()
     {
@@ -14,14 +14,15 @@ public class NumberPuzzle extends character
         String message;
         boolean correct = false;
 
+
         //random number generator
         randomNumber = random.nextInt(1000) + 1;
         
 
         //System.out.println(x);
         System.out.println("You see a cabinet with a crow a top");
-        System.out.println("Crow: Guess the correct number to pass" + name + "!!");
-        System.out.println(name +":" + " Time to spam numbers");
+       // System.out.println("Crow: Guess the correct number to pass" + name + "!!");
+        //System.out.println(name +":" + " Time to spam numbers");
         System.out.println("Crow: Try a number between 1-1000 for the code");
         do
         {

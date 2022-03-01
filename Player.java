@@ -9,7 +9,7 @@ public class Player extends Character {
     // Constructors
     public Player(String name, Pronouns pronouns, String description, boolean[] interactions) {
 
-        super(name, pronouns, description, interactions);
+        super(name, pronouns, description);
         this.inventory = new ArrayList<>();
 
     }
@@ -113,9 +113,13 @@ public class Player extends Character {
             inventories += inventory.get(i) +"\n";
 
         }
-
+        if (inventory.size()<1)
+        {
+            System.out.println("You have nothing in your inventory");
+        }
         return inventories;
 
     }
+
 
 }
