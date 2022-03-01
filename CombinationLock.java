@@ -42,4 +42,23 @@ public class CombinationLock extends Lock {
 
     }
 
+
+    // Lock & Unlock
+    public void lock() {
+
+        this.isLocked = true;
+
+    }
+
+    public void unlock(int[] combination) {
+
+        this.combination = combination;
+        if (this.combination == this.key) {
+
+            this.isLocked = false;
+
+        }
+
+    }
+
 }

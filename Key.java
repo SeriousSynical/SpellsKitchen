@@ -1,9 +1,9 @@
 public class Key extends Item {
 
     // Constructors
-    public Key(String name, String description, boolean[] interactions) {
+    public Key(String name, String description) {
 
-        super(name, description, interactions);
+        super(name, description);
 
     }
 

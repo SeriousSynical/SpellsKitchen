@@ -42,4 +42,18 @@ public class PatternLock extends Lock {
 
     }
 
+
+    // Empty Methods
+    public void lock() {
+
+
+
+    }
+
+    public void unlock(Object[] combination) {
+
+
+
+    }
+
 }

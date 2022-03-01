@@ -27,4 +27,19 @@ public class KeyLock extends Lock {
         this.key = key;
 
     }
+
+
+    // Empty Methods
+    public void lock(Key key) {
+
+
+
+    }
+
+    public void unlock(Key key) {
+
+
+
+    }
+
 }

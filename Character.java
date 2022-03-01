@@ -6,18 +6,16 @@ public class Character {
     protected String name;
     protected Pronouns pronouns;
     protected String description;
-    protected boolean[] interactions;
 
     Scanner s = new Scanner(System.in);
 
 
     // Constructors
-    public Character(String name, Pronouns pronouns, String description, boolean[] interactions) {
+    public Character(String name, Pronouns pronouns, String description) {
 
         this.name = name;
         this.pronouns = pronouns;
         this.description = description;
-        this.interactions = interactions;
 
     }
 
@@ -41,13 +39,6 @@ public class Character {
 
     }
 
-    public boolean[] getInteractions() {
-
-        return interactions;
-
-    }
-
-
     // Setters
     public void setName(String name) {
 
@@ -64,12 +55,6 @@ public class Character {
     public void setDescription(String description) {
 
         this.description = description;
-
-    }
-
-    public void setInteractions(boolean[] interactions) {
-
-        this.interactions = interactions;
 
     }
 

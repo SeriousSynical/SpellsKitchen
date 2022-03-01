@@ -41,18 +41,4 @@ public class Lock {
 
     }
 
-
-    // Empty Methods
-    public void lock(Key key) {
-
-
-
-    }
-
-    public void unlock(Key key) {
-
-
-
-    }
-
 }
