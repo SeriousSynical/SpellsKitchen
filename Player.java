@@ -1,16 +1,20 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player extends Character {
 
+    int pronounsInt = 0;
+    Scanner s = new Scanner(System.in);
     // Initialization
     protected ArrayList<Item> inventory;
 
 
     // Constructors
-    public Player(String name, Pronouns pronouns, String description, boolean[] interactions) {
+    public Player(String name, Pronouns pronouns, String description) {
 
         super(name, pronouns, description);
         this.inventory = new ArrayList<>();
+
 
     }
 
@@ -118,6 +122,72 @@ public class Player extends Character {
             System.out.println("You have nothing in your inventory");
         }
         return inventories;
+
+    }
+
+    public void createPlayer()
+    {
+        boolean flag =true;
+        Player player1 = new Player("",Pronouns.masculine,"");
+        do {
+
+            try {
+
+                System.out.print("What is your name? \nName: ");
+                player1.name = s.nextLine();
+                flag = false;
+
+            } catch (Exception e) {
+
+                System.out.println("Invalid input. Try again.");
+
+            }
+
+        } while (flag);
+        System.out.println();
+
+        flag = true;
+        do {
+
+            try {
+
+                System.out.print("What are your pronouns? \n1: he/him \n2: she/her \n3: they/them \nPronouns: ");
+                pronounsInt= s.nextInt();
+                if (pronounsInt == 1) {
+
+                    player1.pronouns = Pronouns.masculine;
+                    flag = false;
+
+                } else if (pronounsInt == 2) {
+
+                    player1.pronouns = Pronouns.feminine;
+                    flag = false;
+
+                } else if (pronounsInt == 3) {
+
+                    player1.pronouns = Pronouns.nonBinary;
+                    flag = false;
+
+                } else {
+
+                    System.out.println("Input out of bounds. Try again.");
+
+                }
+
+            } catch (Exception e) {
+
+                System.out.println("Invalid input. Try again.");
+                s.nextLine();
+
+            }
+
+        } while (flag);
+        System.out.println(s.nextLine());
+
+
+        System.out.println("Describe yourself for me."); // created for the player description
+        player1.description = s.nextLine();
+
 
     }
 

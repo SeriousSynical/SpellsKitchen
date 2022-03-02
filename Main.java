@@ -4,33 +4,23 @@ import java.util.Scanner;
 
     public class Main
     {
+            /*
+            String[] actionArray = {"Inspect", "Use", "Eat", "Break"};
+            String command = "";
+            String action = "";
+            String object = "";
+            */
 
 
 
         public static void main(String[] args)
         {
-            boolean flag;
-            int pronounsInt = 0;
-            String name = null;
-            Pronouns pronouns = null;
-            String[] actionArray = {"Inspect", "Use", "Eat", "Break"};
-            String command = "";
-            String action = "";
-            String object = "";
-            Scanner keyboard = new Scanner(System.in);
-            Player player = new Player("",Pronouns.masculine,"",new boolean[0]);
-            NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly", new boolean[5]);
-            Item i1 = new Item("squash","smelly squash", false,true,false,false);
-            Item i2 = new Item("key","golden key", true, false, false, false);
-            Item i3 = new Item("hammer","rusty hammer", true, false,false, false);
-
-            player.addItem(i3);
-            player.addItem(i2);
-            player.addItem(i1);
-
-
-
-            flag = true;
+            Player player = new Player("",Pronouns.masculine,"");
+            NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly");
+            Rooms kitchenRoom = new Kitchen("Kitchen", "The room where all the food is prepped");
+            Rooms pantry = new Pantry("Pantry", "A room that holds many of the ordinary ingredients");
+            Rooms diningRoom = new DiningArea("Dining Room", "The room where all the evil goblins come to eat");
+            Rooms magicShelf = new MagicShelf("The Magic Shelf", "A shelf that holds on the magical ingredients");
 
 
             System.out.println("");
@@ -39,64 +29,19 @@ import java.util.Scanner;
             System.out.println("Here you will search for the magical object");
             System.out.println("by finding clues and hints. GOODLUCK");
             System.out.println("");
-            do {
-
-                try {
-
-                    System.out.print("What is your name? \nName: ");
-                    player.name = keyboard.nextLine(); //had to adjust to assign player name
-                    flag = false;
-
-                } catch (Exception e) {
-
-                    System.out.println("Invalid input. Try again.");
-
-                }
-
-            } while (flag);
-            System.out.println();
-
-            flag = true;
-            do {
-
-                try {
-
-                    System.out.print("What are your pronouns? \n1: he/him \n2: she/her \n3: they/them \nPronouns: ");
-                    pronounsInt= keyboard.nextInt();
-                    if (pronounsInt == 1) {
-
-                        player.pronouns = Pronouns.masculine;
-                        flag = false;
-
-                    } else if (pronounsInt == 2) {
-
-                        player.pronouns = Pronouns.feminine;
-                        flag = false;
-
-                    } else if (pronounsInt == 3) {
-
-                       player.pronouns = Pronouns.nonBinary;
-                        flag = false;
-
-                    } else {
-
-                        System.out.println("Input out of bounds. Try again.");
-
-                    }
-
-                } catch (Exception e) {
-
-                    System.out.println("Invalid input. Try again.");
-                    keyboard.nextLine();
-
-                }
-
-            } while (flag);
-            System.out.println(keyboard.nextLine());
 
 
-            System.out.println("Describe yourself for me."); // created for the player description
-            player.description = keyboard.nextLine();
+            player.createPlayer();
+            System.out.println(player.name);
+            player.getName();
+            System.out.println(player.name);
+            System.out.println(kitchenRoom.roomDescription);
+
+
+
+
+
+
             int choice;
             Scanner kb = new Scanner(System.in);
 
@@ -105,9 +50,8 @@ import java.util.Scanner;
 
             System.out.println("Select an action");
             System.out.println("\t 1. Inspect room ");
-            System.out.println("\t 2. Talk to (NPC) ");
-            System.out.println("\t 3. View inventory");
-            System.out.println("\t 4. (other actions)");
+            System.out.println("\t 2. View inventory");
+            System.out.println("\t 3. (other actions)");
             choice = kb.nextInt();
 
             switch (choice)
@@ -129,24 +73,121 @@ import java.util.Scanner;
                     {
                         //kitchen
                         case 1:
-                            System.out.println("*Explore kitchen* + actions");
+                            int actionChoice;
+                            System.out.println(kitchenRoom.roomName);
+                            System.out.println("Select an action");
+                            System.out.println("\t 1. Inspect room ");
+                            System.out.println("\t 2. Talk to (NPC) ");
+                            System.out.println("\t 3. View inventory");
+                            System.out.println("\t 4. (other actions)");
+
+                            actionChoice = kb.nextInt();
+                            switch (actionChoice)
+
+                            {
+                                //Kitchen Actions
+                                case 1:
+                                    System.out.println(kitchenRoom.roomDescription);
+
+                                    break;
+
+                                case 2:
+                                    player.chat(player, kitchenRoom.npc);
+                                    break;
+
+                                case 3:
+                                    System.out.println(player.checkInventory());
+                                    break;
+                            }
                             break;
 
                         //pantry
                         case 2:
-                            System.out.println("*Explore pantry* + actions");
+                            int actionChoice2;
+                            System.out.println(kitchenRoom.roomName);
+                            System.out.println("Select an action");
+                            System.out.println("\t 1. Inspect room ");
+                            System.out.println("\t 2. Talk to (NPC) ");
+                            System.out.println("\t 3. View inventory");
+                            System.out.println("\t 4. (other actions)");
+
+                            actionChoice = kb.nextInt();
+                            switch (actionChoice)
+
+                            {
+                                //Pantry
+                                case 1:
+                                    System.out.println(pantry.roomDescription);
+                                    break;
+
+                                case 2:
+                                    player.chat(player, pantry.npc);
+                                    break;
+
+                                case 3:
+                                    System.out.println(player.checkInventory());
+                                    break;
+                            }
                             break;
+
 
                         //dining
                         case 3:
-                            System.out.println("*Explore dining room* + actions");
+                            int actionChoice3;
+                            System.out.println(diningRoom.roomName);
+                            System.out.println("Select an action");
+                            System.out.println("\t 1. Inspect room ");
+                            System.out.println("\t 2. Talk to (NPC) ");
+                            System.out.println("\t 3. View inventory");
+                            System.out.println("\t 4. (other actions)");
+
+                            actionChoice = kb.nextInt();
+                            switch (actionChoice)
+
+                            {
+                                //Kitchen Actions
+                                case 1:
+                                    System.out.println(diningRoom.roomDescription);
+                                    break;
+
+                                case 2:
+                                    player.chat(player, diningRoom.npc);
+                                    break;
+
+                                case 3:
+                                    System.out.println(player.checkInventory());
+                                    break;
+                            }
                             break;
 
                         //Magic shelf
                         case 4:
-                            System.out.println("*Explore Shelf* + actions");
-                            break;
+                            int actionChoice4;
+                            System.out.println(magicShelf.roomName);
+                            System.out.println("Select an action");
+                            System.out.println("\t 1. Inspect room ");
+                            System.out.println("\t 2. Talk to (NPC) ");
+                            System.out.println("\t 3. View inventory");
+                            System.out.println("\t 4. (other actions)");
 
+                            actionChoice = kb.nextInt();
+                            switch (actionChoice)
+
+                            {
+                                //Kitchen Actions
+                                case 1:
+                                    System.out.println(magicShelf.roomDescription);
+                                    break;
+
+                                case 2:
+                                    player.chat(player, magicShelf.npc);
+                                    break;
+
+                                case 3:
+                                    System.out.println(player.checkInventory());
+                                    break;
+                            }
+                            break;
                         default:
                             System.out.println("Invalid");
                     }
@@ -154,13 +195,9 @@ import java.util.Scanner;
 
                     break;
 
-                //Talk to npc
-                case 2:
-                    player.chat(player, npc);
-                    break;
 
                 //View inventory
-                case 3:
+                case 2:
                     int itemChoice;
 
                     System.out.println(player.checkInventory());
@@ -177,7 +214,7 @@ import java.util.Scanner;
                         //Inspect
                         case 1:
                             System.out.println(" Which Item do you want to check?");
-                            System.out.println(player.inventory.get(keyboard.nextInt()));
+                            System.out.println(player.inventory.get(kb.nextInt()));
                             break;
 
                         //Use
@@ -201,7 +238,7 @@ import java.util.Scanner;
                     break;
 
                 //Other actions
-                case 4:
+                case 3:
                     System.out.println("");
                     break;
 
