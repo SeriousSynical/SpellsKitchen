@@ -15,8 +15,8 @@ import java.util.Scanner;
 
         public static void main(String[] args)
         {
+            Character character = new Character("",Pronouns.masculine,"");
             Player player = new Player("",Pronouns.masculine,"");
-            NPC npc = new NPC("Skwash the gourdless",Pronouns.masculine,"Fowl and Hideously wrinkly");
             Rooms kitchenRoom = new Kitchen("Kitchen", "The room where all the food is prepped");
             Rooms pantry = new Pantry("Pantry", "A room that holds many of the ordinary ingredients");
             Rooms diningRoom = new DiningArea("Dining Room", "The room where all the evil goblins come to eat");
@@ -88,6 +88,7 @@ import java.util.Scanner;
                                 //Kitchen Actions
                                 case 1:
                                     System.out.println(kitchenRoom.roomDescription);
+                                    System.out.println(kitchenRoom.items);
 
                                     break;
 
@@ -118,6 +119,7 @@ import java.util.Scanner;
                                 //Pantry
                                 case 1:
                                     System.out.println(pantry.roomDescription);
+                                    System.out.println(pantry.items);
                                     break;
 
                                 case 2:
@@ -148,6 +150,7 @@ import java.util.Scanner;
                                 //Kitchen Actions
                                 case 1:
                                     System.out.println(diningRoom.roomDescription);
+                                    System.out.println(diningRoom.items);
                                     break;
 
                                 case 2:
@@ -177,6 +180,7 @@ import java.util.Scanner;
                                 //Kitchen Actions
                                 case 1:
                                     System.out.println(magicShelf.roomDescription);
+                                    System.out.println(magicShelf.items);
                                     break;
 
                                 case 2:

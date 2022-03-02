@@ -188,8 +188,10 @@ public class Player extends Character {
         System.out.println("Describe yourself for me."); // created for the player description
         player1.description = s.nextLine();
 
-
     }
+
+
+
 
 
 }
