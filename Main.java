@@ -35,12 +35,8 @@ public class Main
 
 
 
-
         int choice;
         Scanner kb = new Scanner(System.in);
-
-        System.out.println("");
-        System.out.println("*Game greeting*");
 
         System.out.println("Select an action");
         System.out.println("\t 1. Inspect room ");
@@ -53,17 +49,16 @@ public class Main
             //Inspect room
             case 1:
                 int roomChoice;
+                
+                System.out.println("Select an area to inspect");
+                System.out.println("\t 1. The kitchen");
+                System.out.println("\t 2. The pantry");
+                System.out.println("\t 3. The dining area");
+                System.out.println("\t 4. Magic ingredient shelf");
+                System.out.println("\t 0. Go back");
 
-                    System.out.println("Select an area to inspect");
-                    System.out.println("\t 1. The kitchen");
-                    System.out.println("\t 2. The pantry");
-                    System.out.println("\t 3. The dining area");
-                    System.out.println("\t 4. Magic ingredient shelf");
-                    System.out.println("\t 0. Go back");
-
-                    roomChoice = kb.nextInt();
-                    
-
+                roomChoice = kb.nextInt();
+            
                 switch (roomChoice)
                 {
                     //kitchen
@@ -85,14 +80,18 @@ public class Main
                     case 4:
                         magicShelfChoice();
                         break;
+                    
+                    case 0:
+                        break;
 
                     default:
-                    System.out.println("Invalid");
+                    
+                    System.out.println("Going back");
+                
                 }
                 //do{}while(choice != 0);
 
             break;
-
 
             //View inventory
             case 2:
@@ -106,7 +105,8 @@ public class Main
 
             default:
                 System.out.println("Invalid");
-        }//end Choice actions
+
+        }//end Choice action
         kb.close();
     }//End Main
 
