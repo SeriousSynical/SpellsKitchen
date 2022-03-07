@@ -35,78 +35,83 @@ public class Main
 
 
 
+        boolean doorUnlocked = false;
         int choice;
         Scanner kb = new Scanner(System.in);
 
-        System.out.println("Select an action");
-        System.out.println("\t 1. Inspect room ");
-        System.out.println("\t 2. View inventory");
-        System.out.println("\t 3. (other actions)");
-        choice = kb.nextInt();
-
-        switch (choice)
+        while(doorUnlocked == false)
         {
-            //Inspect room
-            case 1:
-                int roomChoice;
-                
-                System.out.println("Select an area to inspect");
-                System.out.println("\t 1. The kitchen");
-                System.out.println("\t 2. The pantry");
-                System.out.println("\t 3. The dining area");
-                System.out.println("\t 4. Magic ingredient shelf");
-                System.out.println("\t 0. Go back");
+            System.out.println("Select an action");
+            System.out.println("\t 1. Inspect room ");
+            System.out.println("\t 2. View inventory");
+            System.out.println("\t 3. (other actions)");
+            choice = kb.nextInt();
+        
 
-                roomChoice = kb.nextInt();
-            
-                switch (roomChoice)
-                {
-                    //kitchen
-                    case 1:
-                        kitchenChoice();
-                        break;
-
-                    //pantry
-                    case 2:
-                        pantryChoice();
-                        break;
-
-                    //dining
-                    case 3:
-                        diningChoice();
-                        break;
-
-                    //Magic shelf
-                    case 4:
-                        magicShelfChoice();
-                        break;
+            switch (choice)
+            {
+                //Inspect room
+                case 1:
+                    int roomChoice;
                     
-                    case 0:
-                        break;
+                    System.out.println("Select an area to inspect");
+                    System.out.println("\t 1. The kitchen");
+                    System.out.println("\t 2. The pantry");
+                    System.out.println("\t 3. The dining area");
+                    System.out.println("\t 4. Magic ingredient shelf");
+                    System.out.println("\t 0. Go back");
 
-                    default:
-                    
-                    System.out.println("Going back");
+                    roomChoice = kb.nextInt();
                 
-                }
-                //do{}while(choice != 0);
+                    switch (roomChoice)
+                    {
+                        //kitchen
+                        case 1:
+                            kitchenChoice();
+                            break;
 
-            break;
+                        //pantry
+                        case 2:
+                            pantryChoice();
+                            break;
 
-            //View inventory
-            case 2:
-                viewInventory();
-            break;
+                        //dining
+                        case 3:
+                            diningChoice();
+                            break;
 
-            //Other actions
-            case 3:
-                System.out.println("");
+                        //Magic shelf
+                        case 4:
+                            magicShelfChoice();
+                            break;
+                        
+                        case 0:
+                            break;
+
+                        default:
+                        
+                        System.out.println("Going back");
+                    
+                    }
+                    //do{}while(choice != 0);
+
                 break;
 
-            default:
-                System.out.println("Invalid");
+                //View inventory
+                case 2:
+                    viewInventory();
+                break;
 
-        }//end Choice action
+                //Other actions
+                case 3:
+                    System.out.println("");
+                    break;
+
+                default:
+                    System.out.println("Invalid");
+
+            }//end Choice action
+        }
         kb.close();
     }//End Main
 
