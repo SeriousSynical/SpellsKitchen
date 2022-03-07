@@ -12,7 +12,7 @@ public class Main
     public static void main(String[] args)
     {
         Character character = new Character("",Pronouns.masculine,"");
-        Player player = new Player("",Pronouns.masculine,"");
+        //Player player = new Player("",Pronouns.masculine,"");
         Rooms kitchenRoom = new Kitchen("Kitchen", "The room where all the food is prepped");
         Rooms pantry = new Pantry("Pantry", "A room that holds many of the ordinary ingredients");
         Rooms diningRoom = new DiningArea("Dining Room", "The room where all the evil goblins come to eat");
@@ -27,12 +27,7 @@ public class Main
         System.out.println("");
 
 
-        player.createPlayer();
-        System.out.println(player.name);
-        player.getName();
-        System.out.println(player.name);
-        System.out.println(kitchenRoom.roomDescription);
-
+        Player player = new Player("",Pronouns.masculine,"").createPlayer();
 
 
         boolean doorUnlocked = false;
@@ -70,44 +65,67 @@ public class Main
                             //kitchen
                             case 1:
                                 int actionChoice;
-                                System.out.println(kitchenRoom.roomName);
-                                System.out.println("Select an action");
-                                System.out.println("\t 1. Inspect room ");
-                                System.out.println("\t 2. Talk to (NPC) ");
-                                System.out.println("\t 3. View inventory");
-                                System.out.println("\t 4. (other actions)");
-                        
-                                actionChoice = kb.nextInt();
-                                switch (actionChoice)
-                        
-                                {
-                                    //Kitchen Actions
-                                    case 1:
-                                        System.out.println(kitchenRoom.roomDescription);
-                                        System.out.println(kitchenRoom.items);
-                        
-                                        break;
-                        
-                                    case 2:
-                                        player.chat(player, kitchenRoom.npc);
-                                        break;
-                        
-                                    case 3:
-                                        System.out.println(player.checkInventory());
-                                        break;
-                                }
-                            break;
+                                boolean goBack1 = false;
+                                while(goBack1 == false) {
+
+                                    System.out.println(kitchenRoom.roomName);
+                                    System.out.println("Select an action");
+                                    System.out.println("\t 1. Inspect room ");
+                                    System.out.println("\t 2. Talk to (NPC) ");
+                                    System.out.println("\t 3. View inventory");
+                                    System.out.println("\t 4. Attempt Locked Box");
+                                    System.out.println("\t 0. Go Back");
+
+                                    actionChoice = kb.nextInt();
+                                    switch (actionChoice) {
+                                        //Kitchen Actions
+                                        case 1:
+                                            System.out.println(kitchenRoom.roomDescription);
+                                            System.out.println(kitchenRoom.items);
+
+                                            break;
+
+                                        case 2:
+                                            player.chat(player, kitchenRoom.npc);
+                                            break;
+
+                                        case 3:
+                                            System.out.println(player.checkInventory());
+                                            break;
+
+                                        case 4:
+                                            NumberPuzzle numberPuzzle2 = new NumberPuzzle();
+                                            numberPuzzle2.NumberPuzzle();
+
+
+                                            break;
+
+                                        case 0:
+                                            goBack1 = true;
+                                            System.out.println("--Back to room selection--");
+                                            break;
+
+
+                                        default:
+                                            System.out.println("Try again");
+                                    }//end switch
+                                }//end while go back
+
+                                    break;
+
+
+
 
                             //pantry
                             case 2:
                                 int actionChoice2;
-                                System.out.println(kitchenRoom.roomName);
+                                System.out.println(pantry.roomName);
                                 System.out.println("Select an action");
                                 System.out.println("\t 1. Inspect room ");
                                 System.out.println("\t 2. Talk to (NPC) ");
                                 System.out.println("\t 3. View inventory");
                                 System.out.println("\t 4. (other actions)");
-                        
+
                                 actionChoice = kb.nextInt();
                                 switch (actionChoice)
                                 {
@@ -116,11 +134,11 @@ public class Main
                                         System.out.println(pantry.roomDescription);
                                         System.out.println(pantry.items);
                                         break;
-                        
+
                                     case 2:
                                         player.chat(player, pantry.npc);
                                         break;
-                        
+
                                     case 3:
                                         System.out.println(player.checkInventory());
                                         break;
@@ -136,21 +154,21 @@ public class Main
                                 System.out.println("\t 2. Talk to (NPC) ");
                                 System.out.println("\t 3. View inventory");
                                 System.out.println("\t 4. (other actions)");
-                        
+
                                 actionChoice = kb.nextInt();
                                 switch (actionChoice)
-                        
+
                                 {
                                     //Dining Actions
                                     case 1:
                                         System.out.println(diningRoom.roomDescription);
                                         System.out.println(diningRoom.items);
                                         break;
-                        
+
                                     case 2:
                                         player.chat(player, diningRoom.npc);
                                         break;
-                        
+
                                     case 3:
                                         System.out.println(player.checkInventory());
                                         break;
@@ -166,27 +184,27 @@ public class Main
                                 System.out.println("\t 2. Talk to (NPC) ");
                                 System.out.println("\t 3. View inventory");
                                 System.out.println("\t 4. (other actions)");
-                        
+
                                 actionChoice4 = kb.nextInt();
                                 switch (actionChoice4)
-                        
+
                                 {
                                     //Kitchen Actions
                                     case 1:
                                         System.out.println(magicShelf.roomDescription);
                                         System.out.println(magicShelf.items);
                                         break;
-                        
+
                                     case 2:
                                         player.chat(player, magicShelf.npc);
                                         break;
-                        
+
                                     case 3:
                                         System.out.println(player.checkInventory());
                                         break;
                                 }
                             break;
-                            
+
                             case 0:
                                 goBack = true;
                                 System.out.println("-------Going back------");
@@ -194,7 +212,7 @@ public class Main
 
                             default:
                             System.out.println("Invalid selection...Try Again");
-                            
+
                         }//end roomChoice menu
                     
                     }

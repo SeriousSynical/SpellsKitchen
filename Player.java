@@ -124,7 +124,7 @@ public class Player extends Character {
 
     }
 
-    public void createPlayer()
+    public Player createPlayer()
     {
         boolean flag =true;
         Player player1 = new Player("",Pronouns.masculine,"");
@@ -180,13 +180,14 @@ public class Player extends Character {
 
             }
 
+
         } while (flag);
         System.out.println(s.nextLine());
 
 
         System.out.println("Describe yourself for me."); // created for the player description
         player1.description = s.nextLine();
-
+        return player1;
     }
 
 
