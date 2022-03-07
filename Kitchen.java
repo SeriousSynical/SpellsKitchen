@@ -4,7 +4,6 @@ public class Kitchen extends Rooms
 {
     public Kitchen(String roomName, String roomDescription)
     {
-
         super(roomName,roomDescription);
         ArrayList<Item> kitchenItems = new ArrayList<>();
         NPC kitchenGoblin = new NPC("Henry",Pronouns.masculine,"A devilish creature yet a heavenly cook");
@@ -16,11 +15,6 @@ public class Kitchen extends Rooms
         kitchenItems.add(knife);
         kitchenItems.add(breadBox);
         setItems(kitchenItems);
-
-
-
-
-
 
     }
 

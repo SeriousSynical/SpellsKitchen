@@ -53,48 +53,50 @@ public class Main
                 //Inspect room
                 case 1:
                     int roomChoice;
-                    
-                    System.out.println("Select an area to inspect");
-                    System.out.println("\t 1. The kitchen");
-                    System.out.println("\t 2. The pantry");
-                    System.out.println("\t 3. The dining area");
-                    System.out.println("\t 4. Magic ingredient shelf");
-                    System.out.println("\t 0. Go back");
+                    boolean goBack = false;
 
-                    roomChoice = kb.nextInt();
-                
-                    switch (roomChoice)
+                    while(goBack == false)
                     {
-                        //kitchen
-                        case 1:
-                            kitchenChoice();
-                            break;
+                        System.out.println("Select an area to inspect");
+                        System.out.println("\t 1. The kitchen");
+                        System.out.println("\t 2. The pantry");
+                        System.out.println("\t 3. The dining area");
+                        System.out.println("\t 4. Magic ingredient shelf");
+                        System.out.println("\t 0. Go back");
+                        roomChoice = kb.nextInt();
+                    
+                        switch (roomChoice)
+                        {
+                            //kitchen
+                            case 1:
+                                kitchenChoice();
+                                break;
 
-                        //pantry
-                        case 2:
-                            pantryChoice();
-                            break;
+                            //pantry
+                            case 2:
+                                pantryChoice();
+                                break;
 
-                        //dining
-                        case 3:
-                            diningChoice();
-                            break;
+                            //dining
+                            case 3:
+                                diningChoice();
+                                break;
 
-                        //Magic shelf
-                        case 4:
-                            magicShelfChoice();
-                            break;
-                        
-                        case 0:
-                            break;
+                            //Magic shelf
+                            case 4:
+                                magicShelfChoice();
+                                break;
+                            
+                            case 0:
+                                goBack = true;
+                                System.out.println("Going back");
+                                break;
 
-                        default:
-                        
-                        System.out.println("Going back");
+                            default:
+                            
+                        }//end roomChoice menu
                     
                     }
-                    //do{}while(choice != 0);
-
                 break;
 
                 //View inventory

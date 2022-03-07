@@ -15,7 +15,6 @@ public class Player extends Character {
         super(name, pronouns, description);
         this.inventory = new ArrayList<>();
 
-
     }
 
 
