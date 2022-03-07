@@ -89,10 +89,11 @@ public class Main
                             
                             case 0:
                                 goBack = true;
-                                System.out.println("Going back");
+                                System.out.println("-------Going back------");
                                 break;
 
                             default:
+                            System.out.println("Invalid selection...Try Again");
                             
                         }//end roomChoice menu
                     
@@ -110,7 +111,7 @@ public class Main
                     break;
 
                 default:
-                    System.out.println("Invalid");
+                    System.out.println("Invalid selection...Try Again");
 
             }//end Choice action
         }
