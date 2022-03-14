@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Riddle
+public class   Riddle
 {
     public static void RiddlePuzzle()
     {

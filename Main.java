@@ -2,12 +2,6 @@ import java.util.Scanner;
 
 public class Main
 {
-    /*
-    String[] actionArray = {"Inspect", "Use", "Eat", "Break"};
-    String command = "";
-    String action = "";
-    String object = "";
-    */
 
     public static void main(String[] args)
     {
@@ -17,6 +11,10 @@ public class Main
         Rooms pantry = new Pantry("Pantry", "A room that holds many of the ordinary ingredients");
         Rooms diningRoom = new DiningArea("Dining Room", "The room where all the evil goblins come to eat");
         Rooms magicShelf = new MagicShelf("The Magic Shelf", "A shelf that holds on the magical ingredients");
+        pantry.locked=true;
+        diningRoom.locked=true;
+        magicShelf.locked=true;
+
 
 
         System.out.println("");
@@ -80,22 +78,104 @@ public class Main
                                     switch (actionChoice) {
                                         //Kitchen Actions
                                         case 1:
-                                            System.out.println(kitchenRoom.roomDescription);
-                                            System.out.println(kitchenRoom.items);
+                                            int inspectChoice;
+                                            boolean goBackFromInspectKitchen = false;
+                                                    while(goBackFromInspectKitchen ==false) {
+                                                        System.out.println(kitchenRoom.roomDescription);
+                                                        System.out.println();
+                                                        System.out.println("The Items in the room are");
+                                                        kitchenRoom.listItems();
+                                                        System.out.println();
+                                                        System.out.println("Some other interesting things are ");
+                                                        System.out.println(kitchenRoom.objects);
+                                                        System.out.println("\t 1. Add Item to Inventory");
+                                                        System.out.println("\t 0. Go Back");
 
-                                            break;
+                                                        inspectChoice = kb.nextInt();
+                                                        switch (inspectChoice) {
+                                                            case 1:
+                                                                kitchenRoom.takeItemFromRoom(player);
+                                                                break;
 
+                                                            case 0:
+                                                                goBackFromInspectKitchen = true;
+                                                                System.out.println("--Back to kitchen--");
+                                                                break;
+
+                                                            default:
+                                                                System.out.println("Try again");
+                                                                break;
+                                                        }
+
+                                                        break;
+                                                    }
+                                                    break;
                                         case 2:
                                             player.chat(player, kitchenRoom.npc);
                                             break;
 
-                                        case 3:
+                                        /*case 3:
+                                            System.out.println();
+                                            System.out.println("Inventory Items");
                                             System.out.println(player.checkInventory());
+                                            break;*/
+                                        case 3:
+                                            int itemChoice1;
+                                            System.out.println();
+                                            System.out.println("Inventory Items");
+                                            System.out.println(player.checkInventory());
+                                            System.out.println("Select inventory action");
+                                            System.out.println("\t 1. Inspect item");
+                                            System.out.println("\t 2. Use");
+                                            System.out.println("\t 3. Eat");
+                                            System.out.println("\t 4. Other");
+                                            System.out.println("\t 0. Go back");
+
+                                            itemChoice1 = kb.nextInt();
+                                            switch (itemChoice1)
+                                            {
+                                                //Inspect
+                                                case 1:
+                                                    System.out.println(" Which Item do you want to check?");
+                                                    player.listInventory();
+                                                    System.out.println(player.inventory.get(kb.nextInt()).description);
+                                                    break;
+
+                                                //Use
+                                                case 2:
+                                                    if (player.inventory.size()>0) {
+                                                        System.out.println(" Which Item do you want to use and what do you want to use it on?");
+                                                        player.listInventory();
+                                                        kitchenRoom.listInteractiveObjects();
+                                                        player.useItem(player, player.inventory.get(kb.nextInt()), kitchenRoom.objects.get(kb.nextInt()), kitchenRoom);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                    }
+
+
+                                                    break;
+
+                                                //Eat
+                                                case 3:
+                                                    System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+
+                                                    break;
+
+                                                //Other
+                                                case 4:
+                                                    System.out.println("Other actions");
+                                                    break;
+
+                                                default:
+                                                    System.out.println("Error in Inventory action selection ");
+                                            }
                                             break;
 
                                         case 4:
                                             NumberPuzzle numberPuzzle2 = new NumberPuzzle();
-                                            numberPuzzle2.NumberPuzzle();
+                                            numberPuzzle2.NumberPuzzle(pantry);
 
                                             break;
 
@@ -117,118 +197,352 @@ public class Main
 
                             //pantry
                             case 2:
-                                boolean goBackFromPantry = false;
-                                while(goBackFromPantry == false)
-                                {
-                                    int actionChoice2;
-                                    System.out.println(pantry.roomName);
-                                    System.out.println("Select an action");
-                                    System.out.println("\t 1. Inspect room ");
-                                    System.out.println("\t 2. Talk to (NPC) ");
-                                    System.out.println("\t 3. View inventory");
-                                    System.out.println("\t 0. Go Back");
+                                if(pantry.locked==false) {
+                                    boolean goBackFromPantry = false;
+                                    while (goBackFromPantry == false) {
+                                        int actionChoice2;
+                                        System.out.println(pantry.roomName);
+                                        System.out.println("Select an action");
+                                        System.out.println("\t 1. Inspect room ");
+                                        System.out.println("\t 2. Talk to (NPC) ");
+                                        System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 0. Go Back");
 
-                                    actionChoice = kb.nextInt();
-                                    switch (actionChoice)
-                                    {
-                                        //Pantry
-                                        case 1:
-                                            System.out.println(pantry.roomDescription);
-                                            System.out.println(pantry.items);
-                                            break;
+                                        actionChoice = kb.nextInt();
+                                        switch (actionChoice) {
+                                            //Pantry
+                                            case 1:
+                                                int inspectChoice2;
+                                                boolean goBackFromInspectPantry = false;
+                                                while (goBackFromInspectPantry == false) {
+                                                    System.out.println(pantry.roomDescription);
+                                                    System.out.println("The Items in the room are: " + pantry.items);
+                                                    System.out.println("\t 1. Add Item to Inventory");
+                                                    System.out.println("\t 0. Go Back");
 
-                                        case 2:
-                                            player.chat(player, pantry.npc);
-                                            break;
+                                                    inspectChoice2 = kb.nextInt();
+                                                    switch (inspectChoice2) {
+                                                        case 1:
+                                                            pantry.takeItemFromRoom(player);
 
-                                        case 3:
-                                            System.out.println(player.checkInventory());
-                                            break;
+                                                            break;
 
-                                        case 0:
-                                            goBackFromPantry = true;
-                                            System.out.println("--Back to room selection--");
-                                            break;
+                                                        case 0:
+                                                            goBackFromInspectPantry = true;
+                                                            System.out.println("--Back to Pantry--");
+                                                            break;
+
+                                                        default:
+                                                            System.out.println("Try again");
+                                                            break;
+                                                    }
+
+                                                    break;
+                                                }
+                                                break;
+
+                                            case 2:
+                                                player.chat(player, pantry.npc);
+                                                break;
+
+                                            case 3:
+                                                int itemChoice1;
+                                                System.out.println();
+                                                System.out.println("Inventory Items");
+                                                System.out.println(player.checkInventory());
+                                                System.out.println("Select inventory action");
+                                                System.out.println("\t 1. Inspect item");
+                                                System.out.println("\t 2. Use");
+                                                System.out.println("\t 3. Eat");
+                                                System.out.println("\t 4. Other");
+                                                System.out.println("\t 0. Go back");
+
+                                                itemChoice1 = kb.nextInt();
+                                                switch (itemChoice1) {
+                                                    //Inspect
+                                                    case 1:
+                                                        System.out.println(" Which Item do you want to check?");
+                                                        player.listInventory();
+                                                        System.out.println(player.inventory.get(kb.nextInt()).description);
+                                                        break;
+
+                                                    //Use
+                                                    case 2:
+                                                        if (player.inventory.size()>0) {
+                                                            System.out.println(" Which Item do you want to use and what do you want to use it on?");
+                                                            player.listInventory();
+                                                            pantry.listInteractiveObjects();
+                                                            player.useItem(player, player.inventory.get(kb.nextInt()), pantry.objects.get(kb.nextInt()), pantry);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                        }
+                                                        break;
+
+                                                    //Eat
+                                                    case 3:
+                                                        System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+
+                                                        break;
+
+                                                    //Other
+                                                    case 4:
+                                                        System.out.println("Other actions");
+                                                        break;
+
+                                                    default:
+                                                        System.out.println("Error in Inventory action selection ");
+                                                }
+                                                break;
+
+
+                                            case 0:
+                                                goBackFromPantry = true;
+                                                System.out.println("--Back to room selection--");
+                                                break;
+                                        }
                                     }
+                                    break;
                                 }
-                                break;
+                                else {
+                                    System.out.println(player.name + ": Dang I cant get in there..");
+                                    System.out.println();
+                                    goBack=false;
+                                    break;
+                                }
+
                             //dining
                             case 3:
-                                boolean goBackFromDinning = false;
-                                while(goBackFromDinning == false)
-                                {
-                                    int actionChoice3;
-                                    System.out.println(diningRoom.roomName);
-                                    System.out.println("Select an action");
-                                    System.out.println("\t 1. Inspect room ");
-                                    System.out.println("\t 2. Talk to (NPC) ");
-                                    System.out.println("\t 3. View inventory");
-                                    System.out.println("\t 0. Go Back");
+                                if (diningRoom.locked==false) {
+                                    boolean goBackFromDinning = false;
+                                    while (goBackFromDinning == false) {
+                                        int actionChoice3;
+                                        System.out.println(diningRoom.roomName);
+                                        System.out.println("Select an action");
+                                        System.out.println("\t 1. Inspect room ");
+                                        System.out.println("\t 2. Talk to (NPC) ");
+                                        System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 0. Go Back");
 
-                                    actionChoice = kb.nextInt();
-                                    switch (actionChoice)
+                                        actionChoice = kb.nextInt();
+                                        switch (actionChoice) {
+                                            //Dining Actions
+                                            case 1:
+                                                int inspectChoice3;
+                                                boolean goBackFromInspectDining = false;
+                                                while (goBackFromInspectDining == false) {
+                                                    System.out.println(diningRoom.roomDescription);
+                                                    System.out.println("The Items in the room are: " + diningRoom.items);
+                                                    System.out.println("\t 1. Add Item to Inventory");
+                                                    System.out.println("\t 0. Go Back");
 
-                                    {
-                                        //Dining Actions
-                                        case 1:
-                                            System.out.println(diningRoom.roomDescription);
-                                            System.out.println(diningRoom.items);
-                                            break;
+                                                    inspectChoice3 = kb.nextInt();
+                                                    switch (inspectChoice3) {
+                                                        case 1:
+                                                            diningRoom.takeItemFromRoom(player);
 
-                                        case 2:
-                                            player.chat(player, diningRoom.npc);
-                                            break;
+                                                            break;
 
-                                        case 3:
-                                            System.out.println(player.checkInventory());
-                                            break;
+                                                        case 0:
+                                                            goBackFromInspectDining = true;
+                                                            System.out.println("--Back to Dining--");
+                                                            break;
 
-                                        case 0:
-                                            goBackFromDinning = true;
-                                            System.out.println("--Back to room selection--");
-                                            break;
+                                                        default:
+                                                            System.out.println("Try again");
+                                                            break;
+                                                    }
+
+                                                    break;
+                                                }
+                                                break;
+
+                                            case 2:
+                                                player.chat(player, diningRoom.npc);
+                                                break;
+
+                                            case 3:
+                                                int itemChoice1;
+                                                System.out.println();
+                                                System.out.println("Inventory Items");
+                                                System.out.println(player.checkInventory());
+                                                System.out.println("Select inventory action");
+                                                System.out.println("\t 1. Inspect item");
+                                                System.out.println("\t 2. Use");
+                                                System.out.println("\t 3. Eat");
+                                                System.out.println("\t 4. Other");
+                                                System.out.println("\t 0. Go back");
+
+                                                itemChoice1 = kb.nextInt();
+                                                switch (itemChoice1) {
+                                                    //Inspect
+                                                    case 1:
+                                                        System.out.println(" Which Item do you want to check?");
+                                                        player.listInventory();
+                                                        System.out.println(player.inventory.get(kb.nextInt()).description);
+                                                        break;
+
+                                                    //Use
+                                                    case 2:
+                                                        if (player.inventory.size()>0) {
+                                                            System.out.println(" Which Item do you want to use and what do you want to use it on?");
+                                                            player.listInventory();
+                                                            diningRoom.listInteractiveObjects();
+                                                            player.useItem(player, player.inventory.get(kb.nextInt()), diningRoom.objects.get(kb.nextInt()), diningRoom);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                        }
+                                                        break;
+
+                                                    //Eat
+                                                    case 3:
+                                                        System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+
+                                                        break;
+
+                                                    //Other
+                                                    case 4:
+                                                        System.out.println("Other actions");
+                                                        break;
+
+                                                    default:
+                                                        System.out.println("Error in Inventory action selection ");
+                                                }
+                                                break;
+
+
+                                            case 0:
+                                                goBackFromDinning = true;
+                                                System.out.println("--Back to room selection--");
+                                                break;
+                                        }
                                     }
+                                    break;
                                 }
-                                break;
+                                else
+                                {
+                                    System.out.println(player.name + ": Dang I cant get in there..");
+                                    System.out.println();
+                                    goBack=false;
+                                    break;
+                                }
                             //Magic shelf
                             case 4:
-                                boolean goBackFromMagicShelf = false;
-                                while(goBackFromMagicShelf == false)
-                                {
-                                    int actionChoice4;
-                                    System.out.println(magicShelf.roomName);
-                                    System.out.println("Select an action");
-                                    System.out.println("\t 1. Inspect room ");
-                                    System.out.println("\t 2. Talk to (NPC) ");
-                                    System.out.println("\t 3. View inventory");
-                                    System.out.println("\t 0. Go Back");
+                                if (magicShelf.locked==false) {
+                                    boolean goBackFromMagicShelf = false;
+                                    while (goBackFromMagicShelf == false) {
+                                        int actionChoice4;
+                                        System.out.println(magicShelf.roomName);
+                                        System.out.println("Select an action");
+                                        System.out.println("\t 1. Inspect room ");
+                                        System.out.println("\t 2. Talk to (NPC) ");
+                                        System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 0. Go Back");
 
-                                    actionChoice4 = kb.nextInt();
-                                    switch (actionChoice4)
+                                        actionChoice4 = kb.nextInt();
+                                        switch (actionChoice4) {
+                                            //Kitchen Actions
+                                            case 1:
+                                                int inspectChoice4;
+                                                boolean goBackFromInspectMagicShelf = false;
+                                                while (goBackFromInspectMagicShelf == false) {
+                                                    System.out.println(magicShelf.roomDescription);
+                                                    System.out.println("The Items in the room are: " + magicShelf.items);
+                                                    System.out.println("\t 1. Add Item to Inventory");
+                                                    System.out.println("\t 0. Go Back");
 
-                                    {
-                                        //Kitchen Actions
-                                        case 1:
-                                            System.out.println(magicShelf.roomDescription);
-                                            System.out.println(magicShelf.items);
-                                            break;
+                                                    inspectChoice4 = kb.nextInt();
+                                                    switch (inspectChoice4) {
+                                                        case 1:
+                                                            magicShelf.takeItemFromRoom(player);
+                                                            break;
 
-                                        case 2:
-                                            player.chat(player, magicShelf.npc);
-                                            break;
+                                                        case 0:
+                                                            goBackFromInspectMagicShelf = true;
+                                                            System.out.println("--Back to kitchen--");
+                                                            break;
 
-                                        case 3:
-                                            System.out.println(player.checkInventory());
-                                            break;
+                                                        default:
+                                                            System.out.println("Try again");
+                                                            break;
+                                                    }
 
-                                        case 0:
-                                            goBackFromMagicShelf = true;
-                                            System.out.println("--Back to room selection--");
-                                            break;
+                                                    break;
+                                                }
+                                                break;
+                                            case 2:
+                                                player.chat(player, magicShelf.npc);
+                                                break;
+
+                                            case 3:
+                                                int itemChoice1;
+                                                System.out.println();
+                                                System.out.println("Inventory Items");
+                                                System.out.println(player.checkInventory());
+                                                System.out.println("Select inventory action");
+                                                System.out.println("\t 1. Inspect item");
+                                                System.out.println("\t 2. Use");
+                                                System.out.println("\t 3. Eat");
+                                                System.out.println("\t 4. Other");
+                                                System.out.println("\t 0. Go back");
+
+                                                itemChoice1 = kb.nextInt();
+                                                switch (itemChoice1) {
+                                                    //Inspect
+                                                    case 1:
+                                                        System.out.println(" Which Item do you want to check?");
+                                                        player.listInventory();
+                                                        System.out.println(player.inventory.get(kb.nextInt()).description);
+                                                        break;
+
+                                                    //Use
+                                                    case 2:
+                                                        if (player.inventory.size()>0) {
+                                                            System.out.println(" Which Item do you want to use and what do you want to use it on?");
+                                                            player.listInventory();
+                                                            magicShelf.listInteractiveObjects();
+                                                            player.useItem(player, player.inventory.get(kb.nextInt()), magicShelf.objects.get(kb.nextInt()), magicShelf);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                        };
+
+                                                    //Eat
+                                                    case 3:
+                                                        System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+
+                                                        break;
+
+                                                    //Other
+                                                    case 4:
+                                                        System.out.println("Other actions");
+                                                        break;
+
+                                                    default:
+                                                        System.out.println("Error in Inventory action selection ");
+                                                }
+                                                break;
+
+
+                                            case 0:
+                                                goBackFromMagicShelf = true;
+                                                System.out.println("--Back to room selection--");
+                                                break;
+                                        }
                                     }
+                                    break;
                                 }
-                            break;
-
+                                else
+                                {
+                                    System.out.println(player.name + ": Dang I cant get in there..");
+                                    System.out.println();
+                                    goBack=false;
+                                    break;
+                                }
                             case 0:
                                 goBack = true;
                                 System.out.println("-------Going back------");
@@ -246,7 +560,8 @@ public class Main
                 //View inventory
                 case 2:
                     int itemChoice;
-
+                    System.out.println();
+                    System.out.println("Inventory Items");
                     System.out.println(player.checkInventory());
                     System.out.println("Select inventory action");
                     System.out.println("\t 1. Inspect item");
@@ -261,13 +576,13 @@ public class Main
                         //Inspect
                         case 1:
                             System.out.println(" Which Item do you want to check?");
-                            System.out.println(player.inventory.get(kb.nextInt()));
+                            player.listInventory();
+                            System.out.println(player.inventory.get(kb.nextInt()).description);
                             break;
             
                         //Use
                         case 2:
-                            System.out.println("*Use item if condions are met use/fail to use*");
-            
+                            System.out.println("I need to be in a room to use anything.");
                             break;
             
                         //Eat

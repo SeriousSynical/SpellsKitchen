@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class NumberPuzzle //extends character
 {
-    public void NumberPuzzle() {
+    public void NumberPuzzle(Rooms room) {
         Scanner kb = new Scanner(System.in);
         Random random = new Random();
 
@@ -39,6 +39,10 @@ public class NumberPuzzle //extends character
                     message = "Crow: " + guessedNumber + " is to correct";
                     System.out.println(message);
                     correct = true;
+
+                    System.out.println("The " + room.roomName + " is now unlocked!");
+                    room.locked=false;
+
 
                 }
             } while (correct == false);

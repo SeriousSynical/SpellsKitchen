@@ -89,8 +89,8 @@ public class Player extends Character {
         if ((item.breakable = true) && (item.breakableClue = true))
         {
             System.out.println("You just broke the " + item + ".");
-            Item i1 = new Item("broken" + item.name, "Just a plain broken" + item.name,false,false,false, false);
-            Item i2 = new Item("Key","A key hidden inside the " + item.name,true,false,false,false);
+            Item i1 = new Item("broken" + item.name, "Just a plain broken" + item.name,false,false,false,false,0);
+            Item i2 = new Item("Key","A key  inside the " + item.name,true,false,false,false,0);
 
         }
         else if ((item.breakableClue = false) && (item.breakable = true))
@@ -122,6 +122,15 @@ public class Player extends Character {
         }
         return inventories;
 
+    }
+
+    public void listInventory()
+    {
+        for (int i = 0; i < inventory.size(); i++) {
+
+            System.out.println(i +": " + inventory.get(i));
+
+        }
     }
 
     public Player createPlayer()
@@ -188,6 +197,31 @@ public class Player extends Character {
         System.out.println("Describe yourself for me."); // created for the player description
         player1.description = s.nextLine();
         return player1;
+    }
+
+    public void useItem(Player player, Item item, InteractableObjects object, Rooms room)
+    {
+        if (item.objectConnection == object.itemConnection)
+        {
+            System.out.println(room.actionMessage);
+            for (int i = 0; i <room.hiddenItems.size() ; i++) {
+
+
+                room.items.add(new Item(room.hiddenItems.get(i).name, room.hiddenItems.get(i).description,
+                        room.hiddenItems.get(i).usable, room.hiddenItems.get(i).eatable, room.hiddenItems.get(i).breakable,
+                        room.hiddenItems.get(i).breakableClue, room.hiddenItems.get(i).objectConnection));
+            }
+
+            room.objects.remove(object);
+            room.setFlag(true);
+
+        }
+
+        else
+        {
+            System.out.println(player.name + ": What am I thinking? That wont work");
+        }
+
     }
 
 
