@@ -35,17 +35,17 @@ public class NumberPuzzle //extends character
             guessedNumber = kb.nextInt();
             if(guessedNumber < randomNumber)//guess is low
             {
-                message = "Crow: " + guessedNumber + " is to low fool";
+                message = "Crow: " + guessedNumber + " is to low..." + insult ;
                 System.out.println(message);
             }
             else if(guessedNumber > randomNumber)//guess is high
             {
-                message = "Crow: " + guessedNumber + " is to high fool";
+                message = "Crow: " + guessedNumber + " is to high..." + insult;
                 System.out.println(message);
             }
             else//guess is correct
             {
-                message = "Crow: " + guessedNumber + " is to correct";
+                message = "Crow: " + guessedNumber + " is to correct...";
                 System.out.println(message);
                 correct = true;
 
