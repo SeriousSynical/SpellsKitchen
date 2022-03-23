@@ -11,51 +11,44 @@ public class Character {
 
 
     // Constructors
-    public Character(String name, Pronouns pronouns, String description) {
-
+    public Character(String name, Pronouns pronouns, String description)
+    {
         this.name = name;
         this.pronouns = pronouns;
         this.description = description;
-
     }
 
 
     // Getters
-    public String getName() {
-
+    public String getName()
+    {
         return name;
-
     }
 
-    public Pronouns getPronouns() {
-
+    public Pronouns getPronouns()
+    {
         return pronouns;
-
     }
 
-    public String getDescription() {
-
+    public String getDescription()
+    {
         return description;
-
     }
 
     // Setters
-    public void setName(String name) {
-
+    public void setName(String name)
+    {
         this.name = name;
-
     }
 
-    public void setPronouns(Pronouns pronouns) {
-
+    public void setPronouns(Pronouns pronouns)
+    {
         this.pronouns = pronouns;
-
     }
 
-    public void setDescription(String description) {
-
+    public void setDescription(String description)
+    {
         this.description = description;
-
     }
 
 }

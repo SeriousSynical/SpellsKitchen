@@ -11,27 +11,28 @@ public class Item {
     boolean eatable;
     boolean breakable;
     boolean breakableClue;
+    
     public static int count;
+    int objectConnection;
 
 
     // Constructors
-    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable, boolean breakableClue) {
+    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable, boolean breakableClue,int objectConnection) {
 
         this.name = name;
         this.description = description;
         this.usable = usable;
         this.eatable = eatable;
         this.breakable = breakable;
+        this.breakableClue = breakableClue;
+        this.objectConnection = objectConnection;
+     
 
 
     }
 
     public Item(String name, String description, boolean[] interactions)
     {
-        this.name = name;
-        this.description = description;
-        this.interactions = interactions;
-        count++;
     }
 
 
@@ -77,7 +78,8 @@ public class Item {
     @Override // Used to check inventory
     public String toString()
     {
-        return "Item:" + name;
+
+        return name;
     }
 
     public void displayItemsInRoom ()

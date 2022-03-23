@@ -7,8 +7,8 @@ public class Pantry extends Rooms
         super(roomName,roomDescription);
         ArrayList<Item> pantryItems = new ArrayList<>();
         NPC pantryGoblin = new NPC("Bob",Pronouns.masculine,"A little dunce even for a goblin");
-        Item vase = new Item("Vase", "A small vase",false,false,true,false);
-        Item wood = new Item("Bundle of wood", "Just a bundle of oak wood",true,false,false,false);
+        Item vase = new Item("Vase", "A small vase",false,false,true,false,0);
+        Item wood = new Item("Bundle of wood", "Just a bundle of oak wood",true,false,false,false,0);
 
         setNpc(pantryGoblin);
 

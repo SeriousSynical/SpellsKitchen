@@ -1,4 +1,6 @@
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Rooms
 {
@@ -6,6 +8,14 @@ public class Rooms
     String roomDescription;
     NPC npc;
     ArrayList<Item> items;
+    ArrayList<InteractableObjects> objects;
+    ArrayList<HiddenItems> hiddenItems;
+    Player player = new Player("",Pronouns.masculine,"");
+    boolean locked;
+    String actionMessage;
+    boolean flag= false;
+
+    Scanner kb = new Scanner(System.in);
 
     public Rooms(String roomName, String roomDescription)
     {
@@ -30,8 +40,19 @@ public class Rooms
 
     public void setRoomDescription(String roomDescription)
     {
-        this.roomDescription = roomDescription;
+        if (flag==false) {
+            this.roomDescription = roomDescription;
+        }
     }
+    public void setRoomDescription2(String roomDescription2)
+    {
+        if (flag==true){
+            this.roomDescription=roomDescription2;
+        }
+    }
+public void setFlag(boolean b){
+        this.flag=b;
+}
 
     public NPC getNpc()
     {
@@ -63,6 +84,59 @@ public class Rooms
         this.items.add(item);
     }
 
+    public ArrayList<InteractableObjects> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(ArrayList<InteractableObjects> objects) {
+        this.objects = objects;
+    }
+    public void setHiddenItems(ArrayList<HiddenItems> Items)
+    {
+        this.hiddenItems=Items;
+    }
+
+    public void deleteItemsFromRoom(Item item)
+    {
+        items.remove(item);
+    }
+    public Item takeItemFromRoom(Player player)
+    {
+        System.out.println("Which Item would you like to add?");
+        for (int i = 0; i < items.size() ; i++)
+        {
+            System.out.println(i  + ": " + items.get(i));
+        }
+        int selection;
+        selection=kb.nextInt();
+        player.addItem(items.get(selection));
+        System.out.println("You just added "+ items.get(selection).name + " to your inventory");
+        deleteItemsFromRoom(items.get(selection));
+        System.out.println();
+        return null;
+
+    }
+    public void listInteractiveObjects()
+    {
+        for (int i = 0; i < objects.size(); i++) {
+
+            System.out.println(i +": " + objects.get(i));
+
+        }
+    }
+
+    public void listItems()
+    {
+        System.out.println(items);
+    }
+
+    public String getActionMessage() {
+        return actionMessage;
+    }
+
+    public void setActionMessage(String actionMessage) {
+        this.actionMessage = actionMessage;
+    }
 
 
 
