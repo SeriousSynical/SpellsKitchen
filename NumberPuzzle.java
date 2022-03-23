@@ -17,13 +17,18 @@ public class NumberPuzzle //extends character
 
         //random number generator
         randomNumber = random.nextInt(1000) + 1;
-        
+
+        //random insult generator
+        String[] insults = {"Wrong number fool..." ,"Your mom could guess better...", 
+                            "Don't you have a brain?", "Lost your head?", "Disgrace..."};
+        String insult = insults[(int) (Math.random() * insults.length)];
+
 
         //System.out.println(x);
         System.out.println("You see a cabinet with a crow a top");
-       // System.out.println("Crow: Guess the correct number to pass" + name + "!!");
-        //System.out.println(name +":" + " Time to spam numbers");
         System.out.println("Crow: Try a number between 1-1000 for the code");
+
+
         do
         {
             System.out.println("Crow: Guess a number again between 1-1000");
