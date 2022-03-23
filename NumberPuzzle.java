@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -20,11 +21,20 @@ public class NumberPuzzle //extends character
         randomNumber = random.nextInt(1000) + 1;
 
         //random insult generator
-        
-        String[] insults = {"Wrong number fool..." ,"Your mom could guessed better...", 
-                            "Don't you have a brain?", "Lost your head?", "Disgrace..."};
-        Random insult = new Random();
-        int randomNum = insult.nextInt(insults.length);
+        ArrayList<String> insultList = new ArrayList<String>();
+        insultList.add("Wrong number fool...");
+        insultList.add("Your mom could guessed better...");
+        insultList.add("Don't you have a brain?");
+        insultList.add("Lost your head?");
+        insultList.add("Disgrace...");
+        insultList.add("Did you fail school? Twice?");
+        insultList.add("Are you even trying?");
+        insultList.add("HAHAHAAAAA how dumb...");
+        insultList.add("WRONG");
+        insultList.add("We are going to be here a while...");
+        insultList.add("Sure, take your time...");
+        insultList.add("Care to ask your mother?");
+        insultList.add("I outta take a nap...continue...");
         
         
         
@@ -36,19 +46,27 @@ public class NumberPuzzle //extends character
         {
             System.out.println("Crow: Guess a number again between 1-1000");
             guessedNumber = kb.nextInt();
+            
+
             if(guessedNumber < randomNumber)//guess is low
             {
-                message = "Crow: " + guessedNumber + " is to low..." + insults[randomNum];
+            
+                int randomInsult = (int) (Math.random()*insultList.size());
+                
+                message = "Crow: " + guessedNumber + " is to low... " + insultList.get(randomInsult);
                 System.out.println(message);
             }
             else if(guessedNumber > randomNumber)//guess is high
             {
-                message = "Crow: " + guessedNumber + " is to high..." + insults[randomNum];
+                
+                int randomInsult = (int) (Math.random()*insultList.size());
+                
+                message = "Crow: " + guessedNumber + " is to high... " + insultList.get(randomInsult);
                 System.out.println(message);
             }
             else//guess is correct
             {
-                message = "Crow: " + guessedNumber + " is to correct...";
+                message = "Crow: At last " + guessedNumber + " is to correct...";
                 System.out.println(message);
                 correct = true;
 
