@@ -40,55 +40,25 @@ public class NumberPuzzle //extends character
         
         //System.out.println(x);
         System.out.println("You see a cabinet with a crow a top");
-        System.out.println("      ████████ ");  
-        System.out.println("  ██████  ████   ");
-        System.out.println("██████████████  ");   
-        System.out.println("      ████████   ");  
-        System.out.println("      ████████████████ "); 
-        System.out.println("       "); 
-        System.out.println("        "); 
-        System.out.println("     "); 
-        System.out.println("     ");                                   
-        System.out.println("   "); 
-        System.out.println("    "); 
-        System.out.println("      "); 
-        System.out.println("                          "); 
-        System.out.println("          ");   
-        System.out.println("                "); 
-        System.out.println("           "); 
-        System.out.println("         ");                                        
-                          
-          ████████                                          
-        ██████  ████                                          
-      ██████████████                                          
-            ██████████                                        
-            ████████████████                                  
-            ██████████████████████                            
-            ████████████████████████████                      
-              ████████████████████████████                    
-              ██████████████████████████████████              
-              ████████████████████████████████████            
-                  ████████████████████████████████████████████
-                    ████████████████████████████████████████  
-                        ████████████████                      
-                          ██    ██                            
-                          ██    ██                            
-                          ██    ██                            
-                      ██████████████                          
-      
-                                                
-                                             
-                                      
-                                  
-                                 
-                          
-                      
-                  
-                    
-                        
-                                                     
-                                              
-                                               
+        System.out.println("      ███████");  
+        System.out.println("  ██████  ████");
+        System.out.println("██████████████");   
+        System.out.println("      ████████");  
+        System.out.println("      ██████████"); 
+        System.out.println("      ████████████████"); 
+        System.out.println("      ██████████████████████ "); 
+        System.out.println("      ████████████████████████████"); 
+        System.out.println("        ████████████████████████████");                                   
+        System.out.println("        ██████████████████████████████████"); 
+        System.out.println("          ██████████████████████████████████"); 
+        System.out.println("             ████████████████████████████████████████████"); 
+        System.out.println("                  ███████████████████████████████████"); 
+        System.out.println("                      ████████████████");   
+        System.out.println("                          ██    ██"); 
+        System.out.println("                          ██    ██"); 
+        System.out.println("                          ██    ██");                                        
+         System.out.println("                      ██████████████");                  
+
                                            
         System.out.println("Crow: Try a number between 1-1000 for the code");
 
