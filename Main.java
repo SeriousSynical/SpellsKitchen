@@ -37,7 +37,7 @@ public class Main
             System.out.println("Select an action");
             System.out.println("\t 1. Inspect room ");
             System.out.println("\t 2. View inventory");
-            System.out.println("\t 3. (other actions)");
+            System.out.println("\t 3. (The freezer/'exit')");
             choice = kb.nextInt();
         
 
@@ -71,7 +71,7 @@ public class Main
                                     System.out.println("\t 1. Inspect room ");
                                     System.out.println("\t 2. Talk to (NPC) ");
                                     System.out.println("\t 3. View inventory");
-                                    System.out.println("\t 4. Attempt Locked Box");
+                                    System.out.println("\t 4. Bird???");
                                     System.out.println("\t 0. Go Back");
 
                                     actionChoice = kb.nextInt();
@@ -601,9 +601,9 @@ public class Main
                     } 
                 break;
 
-                //Other actions
+                //the freezer/'Exit'
                 case 3:
-                    System.out.println("");
+                    System.out.println("Ah yes Gordon's freezer");
                     break;
 
                 default:

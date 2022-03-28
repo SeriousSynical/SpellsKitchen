@@ -60,11 +60,11 @@ public class NumberPuzzle //extends character
          System.out.println("                      ██████████████");                  
 
                                            
-        System.out.println("Crow: Try a number between 1-1000 for the code");
+        System.out.println("Crow: Get the right number and I will give you a pretty prize.... ");
 
         do
         {
-            System.out.println("Crow: Guess a number again between 1-1000");
+            System.out.println("Crow: Guess a number again between 1-1000.....");
             guessedNumber = kb.nextInt();
             
 
