@@ -57,7 +57,16 @@ public class NumberPuzzle //extends character
         System.out.println("                          ██    ██"); 
         System.out.println("                          ██    ██"); 
         System.out.println("                          ██    ██");                                        
-         System.out.println("                      ██████████████");                  
+        System.out.println("                      ██████████████"); 
+        System.out.println();
+        System.out.println("\t \t░█████╗░██████╗░░█████╗░░██╗░░░░░░░██╗");
+        System.out.println("\t \t██╔══██╗██╔══██╗██╔══██╗░██║░░██╗░░██║");
+        System.out.println("\t \t██║░░╚═╝██████╔╝██║░░██║░╚██╗████╗██╔╝");
+        System.out.println("\t \t██║░░██╗██╔══██╗██║░░██║░░████╔═████║░");
+        System.out.println("\t \t╚█████╔╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░");
+        System.out.println("\t \t░╚════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░");
+        System.out.println("");
+                         
 
                                            
         System.out.println("Crow: Get the right number and I will give you a pretty prize.... ");

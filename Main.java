@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
+
 public class Main
 {
 
     public static void main(String[] args)
     {
+    
         Character character = new Character("",Pronouns.masculine,"");
         //Player player = new Player("",Pronouns.masculine,"");
         Rooms kitchenRoom = new Kitchen("Kitchen", "The room where all the food is prepped");
@@ -17,8 +19,12 @@ public class Main
 
 
 
-        System.out.println("");
-        System.out.println("Welcome to Spells Kitchen");
+        System.out.println("Welcome to...");
+
+        System.out.println("█████████████████████████████████████████████████████████████████████████████████" + 
+                           "\n█─▄▄▄▄█▄─▄▄─█▄─▄▄─█▄─▄███▄─▄███─▄▄▄▄█████▄─█─▄█▄─▄█─▄─▄─█─▄▄▄─█─█─█▄─▄▄─█▄─▀█▄─▄█"+
+                           "\n█▄▄▄▄─██─▄▄▄██─▄█▀██─██▀██─██▀█▄▄▄▄─██████─▄▀███─████─███─███▀█─▄─██─▄█▀██─█▄▀─██"+
+                           "\n▀▄▄▄▄▄▀▄▄▄▀▀▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▀▀▀▀▄▄▀▄▄▀▄▄▄▀▀▄▄▄▀▀▄▄▄▄▄▀▄▀▄▀▄▄▄▄▄▀▄▄▄▀▀▄▄▀");
         System.out.println("");
         System.out.println("Here you will search for the magical object");
         System.out.println("by finding clues and hints. GOODLUCK");
@@ -66,7 +72,9 @@ public class Main
                                 boolean goBackFromKitchen = false;
                                 while(goBackFromKitchen == false) {
 
-                                    System.out.println(kitchenRoom.roomName);
+                                    //System.out.println(kitchenRoom.roomName);
+                                    System.out.println(" █▄▀ █ ▀█▀ █▀▀ █░█ █▀▀ █▄░█" +
+                                                     "\n █░█ █ ░█░ █▄▄ █▀█ ██▄ █░▀█");
                                     System.out.println("Select an action");
                                     System.out.println("\t 1. Inspect room ");
                                     System.out.println("\t 2. Talk to (NPC) ");
@@ -122,7 +130,10 @@ public class Main
                                         case 3:
                                             int itemChoice1;
                                             System.out.println();
-                                            System.out.println("Inventory Items");
+                                            System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                             "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                                
+                                            
                                             System.out.println(player.checkInventory());
                                             System.out.println("Select inventory action");
                                             System.out.println("\t 1. Inspect item");
@@ -201,7 +212,10 @@ public class Main
                                     boolean goBackFromPantry = false;
                                     while (goBackFromPantry == false) {
                                         int actionChoice2;
-                                        System.out.println(pantry.roomName);
+                                        //System.out.println(pantry.roomName);
+                                        System.out.println(" █▀█ ▄▀█ █▄░█ ▀█▀ █▀█ █▄█" +
+                                                          "\n█▀▀ █▀█ █░▀█ ░█░ █▀▄ ░█░");
+                                       
                                         System.out.println("Select an action");
                                         System.out.println("\t 1. Inspect room ");
                                         System.out.println("\t 2. Talk to (NPC) ");
@@ -248,7 +262,8 @@ public class Main
                                             case 3:
                                                 int itemChoice1;
                                                 System.out.println();
-                                                System.out.println("Inventory Items");
+                                                System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                                 "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                 System.out.println(player.checkInventory());
                                                 System.out.println("Select inventory action");
                                                 System.out.println("\t 1. Inspect item");
@@ -318,7 +333,10 @@ public class Main
                                     boolean goBackFromDinning = false;
                                     while (goBackFromDinning == false) {
                                         int actionChoice3;
-                                        System.out.println(diningRoom.roomName);
+                                        //System.out.println(diningRoom.roomName);
+                                        System.out.println("█▀▄ █ █▄░█ █ █▄░█ █▀▀     █▀█ █▀█ █▀█ █▀▄▀█" +
+                                                         "\n█▄▀ █ █░▀█ █ █░▀█ █▄█     █▀▄ █▄█ █▄█ █░▀░█");
+                                       
                                         System.out.println("Select an action");
                                         System.out.println("\t 1. Inspect room ");
                                         System.out.println("\t 2. Talk to (NPC) ");
@@ -365,7 +383,8 @@ public class Main
                                             case 3:
                                                 int itemChoice1;
                                                 System.out.println();
-                                                System.out.println("Inventory Items");
+                                                System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                                 "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                 System.out.println(player.checkInventory());
                                                 System.out.println("Select inventory action");
                                                 System.out.println("\t 1. Inspect item");
@@ -435,7 +454,10 @@ public class Main
                                     boolean goBackFromMagicShelf = false;
                                     while (goBackFromMagicShelf == false) {
                                         int actionChoice4;
-                                        System.out.println(magicShelf.roomName);
+                                        //System.out.println(magicShelf.roomName);
+                                        System.out.println("█▀▄▀█ ▄▀█ █▀▀ █ █▀▀   █▀ █░█ █▀▀ █░░ █▀▀" + 
+                                                         "\n█░▀░█ █▀█ █▄█ █ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▀░");
+                                        
                                         System.out.println("Select an action");
                                         System.out.println("\t 1. Inspect room ");
                                         System.out.println("\t 2. Talk to (NPC) ");
@@ -480,7 +502,8 @@ public class Main
                                             case 3:
                                                 int itemChoice1;
                                                 System.out.println();
-                                                System.out.println("Inventory Items");
+                                                System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                                 "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                 System.out.println(player.checkInventory());
                                                 System.out.println("Select inventory action");
                                                 System.out.println("\t 1. Inspect item");
@@ -561,7 +584,8 @@ public class Main
                 case 2:
                     int itemChoice;
                     System.out.println();
-                    System.out.println("Inventory Items");
+                    System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█" +
+                                     "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░");
                     System.out.println(player.checkInventory());
                     System.out.println("Select inventory action");
                     System.out.println("\t 1. Inspect item");
