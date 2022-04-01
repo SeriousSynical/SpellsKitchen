@@ -14,6 +14,7 @@ public class Kitchen extends Rooms
         Item breadBox = new Item("Bread Box", "A locked bread box",false,false,true,true,0);
         InteractableObjects rope = new InteractableObjects("Rope","A Rope tied to the wall holding something up above the counter",1);
         HiddenItems key = new HiddenItems("Key","A Shiny key",true,false,false,false,0);
+        HiddenItems finalKeyPiece1 = new HiddenItems("Red Crystal","Piece of a larger Crystal",false,false,false,false,0);
 
         setRoomDescription("Wow this place is massive... There seems to be something hanging from the ceiling. I Bet there are all kinds of goodies stashed there! \n Now how to cut them down...?");
         setNpc(kitchenGoblin);
@@ -25,6 +26,7 @@ public class Kitchen extends Rooms
         kitchenItems.add(knife);
         kitchenItems.add(breadBox);
         hiddenKitchenItems.add(key);
+        hiddenKitchenItems.add(finalKeyPiece1);
         setHiddenItems(hiddenKitchenItems);
 
         setItems(kitchenItems);

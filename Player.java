@@ -83,14 +83,14 @@ public class Player extends Character {
 
     }
 
-    // Breaking an item -- Brandon
-    public Item breakItem (Item item)
+    // Breaking an item
+    public void breakItem (Item item)
     {
         if ((item.breakable = true) && (item.breakableClue = true))
         {
-            System.out.println("You just broke the " + item + ".");
+            System.out.println("You just broke the " + item.name + ".");
             Item i1 = new Item("broken" + item.name, "Just a plain broken" + item.name,false,false,false,false,0);
-            Item i2 = new Item("Key","A key  inside the " + item.name,true,false,false,false,0);
+            Item i2 = new Item("TestKey","A key  inside the " + item.name,true,false,false,false,0);
 
         }
         else if ((item.breakableClue = false) && (item.breakable = true))
@@ -103,7 +103,7 @@ public class Player extends Character {
         {
             System.out.println("You can't break that item");
         }
-        return item;
+
     }
 
     // Checking inventory
@@ -201,6 +201,7 @@ public class Player extends Character {
 
     public void useItem(Player player, Item item, InteractableObjects object, Rooms room)
     {
+
         if (item.objectConnection == object.itemConnection)
         {
             System.out.println(room.actionMessage);

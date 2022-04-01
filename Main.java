@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main
 {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
     
         Character character = new Character("",Pronouns.masculine,"");
@@ -30,6 +30,7 @@ public class Main
         System.out.println("by finding clues and hints. GOODLUCK");
         System.out.println("");
 
+     
 
         Player player = new Player("",Pronouns.masculine,"").createPlayer();
 
@@ -91,13 +92,34 @@ public class Main
                                             int inspectChoice;
                                             boolean goBackFromInspectKitchen = false;
                                                     while(goBackFromInspectKitchen ==false) {
-                                                        System.out.println(kitchenRoom.roomDescription);
+                                                        if (kitchenRoom.objects.isEmpty())
+                                                        {
+                                                            System.out.println(kitchenRoom.roomDescription2);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(kitchenRoom.roomDescription);
+                                                        }
                                                         System.out.println();
-                                                        System.out.println("The Items in the room are");
-                                                        kitchenRoom.listItems();
+                                                        if (kitchenRoom.items.size() >0)
+                                                        {
+                                                            System.out.println("The Items in the room are");
+                                                            kitchenRoom.listItems();
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println("There are no more items of interest in this room");
+                                                        }
                                                         System.out.println();
-                                                        System.out.println("Some other interesting things are ");
-                                                        System.out.println(kitchenRoom.objects);
+                                                        if (kitchenRoom.objects.size()>0)
+                                                        {
+                                                            System.out.println("Some other interesting things are ");
+                                                            System.out.println(kitchenRoom.objects);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println("There are no interesting objects left in this room");
+                                                        }
                                                         System.out.println("\t 1. Add Item to Inventory");
                                                         System.out.println("\t 0. Go Back");
 
@@ -141,7 +163,7 @@ public class Main
                                             System.out.println("\t 1. Inspect item");
                                             System.out.println("\t 2. Use");
                                             System.out.println("\t 3. Eat");
-                                            System.out.println("\t 4. Other");
+                                            System.out.println("\t 4. Break");
                                             System.out.println("\t 0. Go back");
 
                                             itemChoice1 = kb.nextInt();
@@ -176,9 +198,10 @@ public class Main
 
                                                     break;
 
-                                                //Other
+                                                //Break
                                                 case 4:
-                                                    System.out.println("Other actions");
+                                                    System.out.println("Fix Break items");
+
                                                     break;
 
                                                 default:

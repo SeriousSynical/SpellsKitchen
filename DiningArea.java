@@ -17,3 +17,4 @@ public class DiningArea extends Rooms
         setItems(diningItems);
     }
 }
+

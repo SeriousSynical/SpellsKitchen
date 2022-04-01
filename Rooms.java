@@ -6,6 +6,7 @@ public class Rooms
 {
     String roomName;
     String roomDescription;
+    String roomDescription2;
     NPC npc;
     ArrayList<Item> items;
     ArrayList<InteractableObjects> objects;
@@ -40,16 +41,16 @@ public class Rooms
 
     public void setRoomDescription(String roomDescription)
     {
-        if (flag==false) {
+
             this.roomDescription = roomDescription;
         }
-    }
+
     public void setRoomDescription2(String roomDescription2)
     {
-        if (flag==true){
-            this.roomDescription=roomDescription2;
+
+            this.roomDescription2=roomDescription2;
         }
-    }
+
 public void setFlag(boolean b){
         this.flag=b;
 }

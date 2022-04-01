@@ -11,9 +11,11 @@ public class Item {
     boolean eatable;
     boolean breakable;
     boolean breakableClue;
+
     
     public static int count;
     int objectConnection;
+    int breakableItemConnection;
 
 
     // Constructors
@@ -26,6 +28,7 @@ public class Item {
         this.breakable = breakable;
         this.breakableClue = breakableClue;
         this.objectConnection = objectConnection;
+
      
 
 
