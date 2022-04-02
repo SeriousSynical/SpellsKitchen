@@ -8,12 +8,9 @@ public class MagicShelf extends Rooms
         super(roomName, roomDescription);
         ArrayList<Item> magicShelfItems = new ArrayList<>();
         NPC elfOnTheShelf = new NPC("Tinker",Pronouns.feminine,"A sweet little elf!!");
-        Item knife = new Item("Knife", "A very sharp knife",true,false,false,false,0);
-        Item breadBox = new Item("Bread Box", "A locked bread box",false,false,true,true,0);
+
         setNpc(elfOnTheShelf);
 
-        magicShelfItems.add(knife);
-        magicShelfItems.add(breadBox);
         setItems(magicShelfItems);
     }
 }

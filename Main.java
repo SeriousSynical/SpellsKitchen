@@ -92,7 +92,7 @@ public class Main
                                             int inspectChoice;
                                             boolean goBackFromInspectKitchen = false;
                                                     while(goBackFromInspectKitchen ==false) {
-                                                        if (kitchenRoom.objects.isEmpty())
+                                                        if (kitchenRoom.objects.size()<2)
                                                         {
                                                             System.out.println(kitchenRoom.roomDescription2);
                                                         }
@@ -178,23 +178,28 @@ public class Main
 
                                                 //Use
                                                 case 2:
-                                                    if (player.inventory.size()>0) {
+                                                    if (player.inventory.size()>0 && kitchenRoom.objects.size()>0) {
                                                         System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                         player.listInventory();
                                                         kitchenRoom.listInteractiveObjects();
                                                         player.useItem(player, player.inventory.get(kb.nextInt()), kitchenRoom.objects.get(kb.nextInt()), kitchenRoom);
                                                     }
-                                                    else
+                                                    else if (player.inventory.size()<=0 && kitchenRoom.objects.size()>0)
                                                     {
                                                         System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
                                                     }
-
+                                                    else
+                                                    {
+                                                        System.out.println(player.name + ": There isnt anything  " +
+                                                                "left in here to interact with");
+                                                    }
 
                                                     break;
 
                                                 //Eat
                                                 case 3:
-                                                    System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+                                                    player.listInventory();
+                                                    player.eat(player, player.inventory.get(kb.nextInt()));
 
                                                     break;
 
@@ -311,15 +316,20 @@ public class Main
 
                                                     //Use
                                                     case 2:
-                                                        if (player.inventory.size()>0) {
+                                                        if (player.inventory.size()>0 && pantry.objects.size()>0) {
                                                             System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                             player.listInventory();
                                                             pantry.listInteractiveObjects();
                                                             player.useItem(player, player.inventory.get(kb.nextInt()), pantry.objects.get(kb.nextInt()), pantry);
                                                         }
-                                                        else
+                                                        else if (player.inventory.size()<=0 && pantry.objects.size()>0)
                                                         {
                                                             System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(player.name + ": There isnt anything  " +
+                                                                    "left in here to interact with");
                                                         }
                                                         break;
 
@@ -435,15 +445,20 @@ public class Main
 
                                                     //Use
                                                     case 2:
-                                                        if (player.inventory.size()>0) {
+                                                        if (player.inventory.size()>0 && diningRoom.objects.size()>0) {
                                                             System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                             player.listInventory();
                                                             diningRoom.listInteractiveObjects();
                                                             player.useItem(player, player.inventory.get(kb.nextInt()), diningRoom.objects.get(kb.nextInt()), diningRoom);
                                                         }
-                                                        else
+                                                        else if (player.inventory.size()<=0 && diningRoom.objects.size()>0)
                                                         {
                                                             System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(player.name + ": There isnt anything  " +
+                                                                    "left in here to interact with");
                                                         }
                                                         break;
 
@@ -556,16 +571,21 @@ public class Main
 
                                                     //Use
                                                     case 2:
-                                                        if (player.inventory.size()>0) {
+                                                        if (player.inventory.size()>0 && magicShelf.objects.size()>0) {
                                                             System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                             player.listInventory();
                                                             magicShelf.listInteractiveObjects();
                                                             player.useItem(player, player.inventory.get(kb.nextInt()), magicShelf.objects.get(kb.nextInt()), magicShelf);
                                                         }
-                                                        else
+                                                        else if (player.inventory.size()<=0 && magicShelf.objects.size()>0)
                                                         {
                                                             System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
-                                                        };
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(player.name + ": There isnt anything  " +
+                                                                    "left in here to interact with");
+                                                        }
 
                                                     //Eat
                                                     case 3:

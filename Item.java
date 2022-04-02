@@ -11,6 +11,8 @@ public class Item {
     boolean eatable;
     boolean breakable;
     boolean breakableClue;
+    int actionConnection;
+    String eatableDescription;
 
     
     public static int count;
@@ -19,7 +21,8 @@ public class Item {
 
 
     // Constructors
-    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable, boolean breakableClue,int objectConnection) {
+    public Item(String name, String description, boolean usable, boolean eatable, boolean breakable,
+                boolean breakableClue,int objectConnection,String eatableDescription) {
 
         this.name = name;
         this.description = description;
@@ -28,10 +31,19 @@ public class Item {
         this.breakable = breakable;
         this.breakableClue = breakableClue;
         this.objectConnection = objectConnection;
+        this.eatableDescription = eatableDescription;
 
      
 
 
+    }
+
+    public String getEatableDescription() {
+        return eatableDescription;
+    }
+
+    public void setEatableDescription(String eatableDescription) {
+        this.eatableDescription = eatableDescription;
     }
 
     public Item(String name, String description, boolean[] interactions)

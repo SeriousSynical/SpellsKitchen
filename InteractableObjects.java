@@ -3,12 +3,14 @@ public class InteractableObjects {
     protected String description;
     protected int itemConnection;
     protected String action;
+    protected int actionConnection;
 
-    public InteractableObjects(String name, String description, int itemConnection)
+    public InteractableObjects(String name, String description, int itemConnection, int actionConnection)
     {
         this.name=name;
         this.description=description;
         this.itemConnection=itemConnection;
+        this.actionConnection = actionConnection;
 
     }
 

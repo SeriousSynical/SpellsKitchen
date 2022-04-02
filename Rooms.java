@@ -14,6 +14,8 @@ public class Rooms
     Player player = new Player("",Pronouns.masculine,"");
     boolean locked;
     String actionMessage;
+    String actionMessage2;
+    int actionConnection;
     boolean flag= false;
 
     Scanner kb = new Scanner(System.in);
@@ -85,6 +87,15 @@ public void setFlag(boolean b){
         this.items.add(item);
     }
 
+    public String getActionMessage2() {
+        return actionMessage2;
+    }
+
+    public void setActionMessage2(String actionMessage2, int actionConnection) {
+        this.actionMessage2 = actionMessage2;
+        this.actionConnection = actionConnection;
+    }
+
     public ArrayList<InteractableObjects> getObjects() {
         return objects;
     }
@@ -135,8 +146,9 @@ public void setFlag(boolean b){
         return actionMessage;
     }
 
-    public void setActionMessage(String actionMessage) {
+    public void setActionMessage(String actionMessage, int actionConnection) {
         this.actionMessage = actionMessage;
+        this.actionConnection = actionConnection;
     }
 
 
