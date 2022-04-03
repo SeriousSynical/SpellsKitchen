@@ -15,6 +15,7 @@ public class Rooms
     boolean locked;
     String actionMessage;
     String actionMessage2;
+    String actionMessage3;
     int actionConnection;
     boolean flag= false;
 
@@ -95,6 +96,14 @@ public void setFlag(boolean b){
         this.actionMessage2 = actionMessage2;
         this.actionConnection = actionConnection;
     }
+    public String getActionMessage3() {
+        return actionMessage3;
+    }
+
+    public void setActionMessage3(String actionMessage3, int actionConnection) {
+        this.actionMessage3 = actionMessage3;
+        this.actionConnection = actionConnection;
+    }
 
     public ArrayList<InteractableObjects> getObjects() {
         return objects;
@@ -128,11 +137,30 @@ public void setFlag(boolean b){
         return null;
 
     }
+
+
+
     public void listInteractiveObjects()
     {
         for (int i = 0; i < objects.size(); i++) {
 
-            System.out.println(i +": " + objects.get(i));
+            if (objects.get(i).hide== false) {
+
+                System.out.println(i + ": " + objects.get(i));
+            }
+
+
+        }
+    }
+    public void listInteractiveObjectsHidden()
+    {
+        for (int i = 0; i < objects.size(); i++) {
+
+
+            if (objects.get(i).hide==true) {
+
+                System.out.println(i + ": " + objects.get(i));
+            }
 
         }
     }

@@ -14,7 +14,8 @@ public class Main
         Rooms diningRoom = new DiningArea("Dining Room", "The room where all the evil goblins come to eat");
         Rooms magicShelf = new MagicShelf("The Magic Shelf", "A shelf that holds on the magical ingredients");
         pantry.locked=true;
-        diningRoom.locked=true;
+        diningRoom.locked=true
+        ;
         magicShelf.locked=true;
 
 
@@ -30,6 +31,8 @@ public class Main
         System.out.println("by finding clues and hints. GOODLUCK");
         System.out.println("");
 
+
+
      
 
         Player player = new Player("",Pronouns.masculine,"").createPlayer();
@@ -38,6 +41,7 @@ public class Main
         boolean doorUnlocked = false;
         int choice;
         Scanner kb = new Scanner(System.in);
+
 
         while(doorUnlocked == false)
         {
@@ -83,6 +87,7 @@ public class Main
                                     System.out.println("\t 2. Talk to (NPC) ");
                                     System.out.println("\t 3. View inventory");
                                     System.out.println("\t 4. Bird???");
+                                    System.out.println("\t 5. Padlock");
                                     System.out.println("\t 0. Go Back");
 
                                     actionChoice = kb.nextInt();
@@ -181,8 +186,10 @@ public class Main
                                                     if (player.inventory.size()>0 && kitchenRoom.objects.size()>0) {
                                                         System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                         player.listInventory();
+                                                        System.out.println("----------");
                                                         kitchenRoom.listInteractiveObjects();
                                                         player.useItem(player, player.inventory.get(kb.nextInt()), kitchenRoom.objects.get(kb.nextInt()), kitchenRoom);
+
                                                     }
                                                     else if (player.inventory.size()<=0 && kitchenRoom.objects.size()>0)
                                                     {
@@ -203,7 +210,7 @@ public class Main
 
                                                     break;
 
-                                                //Break
+                                                //Break ------------------------------------------------fix
                                                 case 4:
                                                     System.out.println("Fix Break items");
 
@@ -218,6 +225,16 @@ public class Main
                                             NumberPuzzle numberPuzzle2 = new NumberPuzzle();
                                             numberPuzzle2.NumberPuzzle(pantry);
 
+                                            break;
+
+                                        case 5:
+                                            PadLock padlock = new PadLock();
+                                            System.out.println("Which item do you want to try and on what?");
+                                            player.listInventory();
+                                            System.out.println("---------");
+                                            kitchenRoom.listInteractiveObjectsHidden();
+                                            padlock.padLock(player, pantry, player.inventory.get(kb.nextInt()),
+                                                    kitchenRoom.objects.get(kb.nextInt()));
                                             break;
 
                                         case 0:
@@ -239,7 +256,7 @@ public class Main
 
                             //pantry
                             case 2:
-                                if(pantry.locked==true) {
+                                if(pantry.locked==false) {
                                     boolean goBackFromPantry = false;
                                     while (goBackFromPantry == false) {
                                         int actionChoice2;
@@ -251,6 +268,7 @@ public class Main
                                         System.out.println("\t 1. Inspect room ");
                                         System.out.println("\t 2. Talk to (NPC) ");
                                         System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 4. Attempt Passcode");
                                         System.out.println("\t 0. Go Back");
 
                                         actionChoice = kb.nextInt();
@@ -260,10 +278,37 @@ public class Main
                                                 int inspectChoice2;
                                                 boolean goBackFromInspectPantry = false;
                                                 while (goBackFromInspectPantry == false) {
-                                                    System.out.println(pantry.roomDescription);
-                                                    System.out.println("The Items in the room are: " + pantry.items);
+                                                    if (pantry.objects.size()<1)
+                                                    {
+                                                        System.out.println(pantry.roomDescription2);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println(pantry.roomDescription);
+                                                    }
+                                                    System.out.println();
+                                                    if (pantry.items.size() >0)
+                                                    {
+                                                        System.out.println("The Items in the room are");
+                                                        pantry.listItems();
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("There are no more items of interest in this room");
+                                                    }
+                                                    System.out.println();
+                                                    if (pantry.objects.size()>0)
+                                                    {
+                                                        System.out.println("Some other interesting things are ");
+                                                        System.out.println(pantry.objects);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("There are no interesting objects left in this room");
+                                                    }
                                                     System.out.println("\t 1. Add Item to Inventory");
                                                     System.out.println("\t 0. Go Back");
+
 
                                                     inspectChoice2 = kb.nextInt();
                                                     switch (inspectChoice2) {
@@ -319,8 +364,11 @@ public class Main
                                                         if (player.inventory.size()>0 && pantry.objects.size()>0) {
                                                             System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                             player.listInventory();
+                                                            System.out.println("----------");
                                                             pantry.listInteractiveObjects();
-                                                            player.useItem(player, player.inventory.get(kb.nextInt()), pantry.objects.get(kb.nextInt()), pantry);
+                                                            player.useItem(player, player.inventory.get(kb.nextInt())
+                                                                    , pantry.objects.get(kb.nextInt()), pantry);
+
                                                         }
                                                         else if (player.inventory.size()<=0 && pantry.objects.size()>0)
                                                         {
@@ -335,18 +383,24 @@ public class Main
 
                                                     //Eat
                                                     case 3:
-                                                        System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+                                                        player.listInventory();
+                                                        player.eat(player, player.inventory.get(kb.nextInt()));
 
                                                         break;
 
                                                     //Other
                                                     case 4:
-                                                        System.out.println("Other actions");
+                                                        CodeLock code = new CodeLock();
+                                                        code.passcode(player, diningRoom);
                                                         break;
 
                                                     default:
                                                         System.out.println("Error in Inventory action selection ");
                                                 }
+                                                break;
+                                            case 4:
+                                                CodeLock code = new CodeLock();
+                                                code.passcode(player, diningRoom);
                                                 break;
 
 
@@ -360,7 +414,7 @@ public class Main
                                     break;
                                 }
                                 else {
-                                    System.out.println(player.name + ": Dang I cant get in there..");
+                                    System.out.println(player.name + ": Dang I cant get in there... yet");
                                     System.out.println();
                                     goBack=false;
                                     break;
@@ -368,7 +422,7 @@ public class Main
 
                             //dining
                             case 3:
-                                if (diningRoom.locked==true) {
+                                if (diningRoom.locked==false) {
                                     boolean goBackFromDinning = false;
                                     while (goBackFromDinning == false) {
                                         int actionChoice3;
@@ -380,6 +434,7 @@ public class Main
                                         System.out.println("\t 1. Inspect room ");
                                         System.out.println("\t 2. Talk to (NPC) ");
                                         System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 4. Lever Lock");
                                         System.out.println("\t 0. Go Back");
 
                                         actionChoice = kb.nextInt();
@@ -389,8 +444,34 @@ public class Main
                                                 int inspectChoice3;
                                                 boolean goBackFromInspectDining = false;
                                                 while (goBackFromInspectDining == false) {
-                                                    System.out.println(diningRoom.roomDescription);
-                                                    System.out.println("The Items in the room are: " + diningRoom.items);
+                                                    if (diningRoom.objects.size()<2)
+                                                    {
+                                                        System.out.println(diningRoom.roomDescription2);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println(diningRoom.roomDescription);
+                                                    }
+                                                    System.out.println();
+                                                    if (diningRoom.items.size() >0)
+                                                    {
+                                                        System.out.println("The Items in the room are");
+                                                        diningRoom.listItems();
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("There are no more items of interest in this room");
+                                                    }
+                                                    System.out.println();
+                                                    if (diningRoom.objects.size()>0)
+                                                    {
+                                                        System.out.println("Some other interesting things are ");
+                                                        System.out.println(diningRoom.objects);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("There are no interesting objects left in this room");
+                                                    }
                                                     System.out.println("\t 1. Add Item to Inventory");
                                                     System.out.println("\t 0. Go Back");
 
@@ -448,8 +529,11 @@ public class Main
                                                         if (player.inventory.size()>0 && diningRoom.objects.size()>0) {
                                                             System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                             player.listInventory();
+                                                            System.out.println("----------");
                                                             diningRoom.listInteractiveObjects();
-                                                            player.useItem(player, player.inventory.get(kb.nextInt()), diningRoom.objects.get(kb.nextInt()), diningRoom);
+                                                            player.useItem(player, player.inventory.get(kb.nextInt())
+                                                                    , diningRoom.objects.get(kb.nextInt()), diningRoom);
+
                                                         }
                                                         else if (player.inventory.size()<=0 && diningRoom.objects.size()>0)
                                                         {
@@ -464,7 +548,8 @@ public class Main
 
                                                     //Eat
                                                     case 3:
-                                                        System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+                                                        player.listInventory();
+                                                        player.eat(player, player.inventory.get(kb.nextInt()));
 
                                                         break;
 
@@ -477,6 +562,14 @@ public class Main
                                                         System.out.println("Error in Inventory action selection ");
                                                 }
                                                 break;
+                                            case 4:
+                                                System.out.println("Which item do you want to use and on what?");
+                                                player.listInventory();
+                                                System.out.println("-----");
+                                                diningRoom.listInteractiveObjectsHidden();
+                                                LeverLock lock = new LeverLock();
+                                                lock.leverLock(player,player.inventory.get(kb.nextInt()),
+                                                        diningRoom.objects.get(kb.nextInt()),magicShelf);
 
 
                                             case 0:
@@ -490,14 +583,14 @@ public class Main
                                 }
                                 else
                                 {
-                                    System.out.println(player.name + ": Dang I cant get in there..");
+                                    System.out.println(player.name + ": Dang I cant get in there... yet");
                                     System.out.println();
                                     goBack=false;
                                     break;
                                 }
                             //Magic shelf
                             case 4:
-                                if (magicShelf.locked==true) {
+                                if (magicShelf.locked==false) {
                                     boolean goBackFromMagicShelf = false;
                                     while (goBackFromMagicShelf == false) {
                                         int actionChoice4;
@@ -509,6 +602,7 @@ public class Main
                                         System.out.println("\t 1. Inspect room ");
                                         System.out.println("\t 2. Talk to (NPC) ");
                                         System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 4. Give a Treat");
                                         System.out.println("\t 0. Go Back");
 
                                         actionChoice4 = kb.nextInt();
@@ -518,8 +612,34 @@ public class Main
                                                 int inspectChoice4;
                                                 boolean goBackFromInspectMagicShelf = false;
                                                 while (goBackFromInspectMagicShelf == false) {
-                                                    System.out.println(magicShelf.roomDescription);
-                                                    System.out.println("The Items in the room are: " + magicShelf.items);
+                                                    if (magicShelf.objects.size()<2)
+                                                    {
+                                                        System.out.println(magicShelf.roomDescription2);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println(magicShelf.roomDescription);
+                                                    }
+                                                    System.out.println();
+                                                    if (magicShelf.items.size() >0)
+                                                    {
+                                                        System.out.println("The Items in the room are");
+                                                        magicShelf.listItems();
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("There are no more items of interest in this room");
+                                                    }
+                                                    System.out.println();
+                                                    if ( magicShelf.objects.size()>0)
+                                                    {
+                                                        System.out.println("Some other interesting things are ");
+                                                        System.out.println(magicShelf.objects);
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("There are no interesting objects left in this room");
+                                                    }
                                                     System.out.println("\t 1. Add Item to Inventory");
                                                     System.out.println("\t 0. Go Back");
 
@@ -574,6 +694,7 @@ public class Main
                                                         if (player.inventory.size()>0 && magicShelf.objects.size()>0) {
                                                             System.out.println(" Which Item do you want to use and what do you want to use it on?");
                                                             player.listInventory();
+                                                            System.out.println("--------");
                                                             magicShelf.listInteractiveObjects();
                                                             player.useItem(player, player.inventory.get(kb.nextInt()), magicShelf.objects.get(kb.nextInt()), magicShelf);
                                                         }
@@ -589,7 +710,8 @@ public class Main
 
                                                     //Eat
                                                     case 3:
-                                                        System.out.println("*consuming certain foods do nothing, one will have a key piece embeded*");
+                                                        player.listInventory();
+                                                        player.eat(player, player.inventory.get(kb.nextInt()));
 
                                                         break;
 
@@ -601,6 +723,18 @@ public class Main
                                                     default:
                                                         System.out.println("Error in Inventory action selection ");
                                                 }
+                                                break;
+                                            case 4:
+                                                System.out.println(magicShelf.npc.name + ": Have you brought me my " +
+                                                        "favorite " +
+                                                        "treat!?!?!?");
+                                                System.out.println(player.name + ": How about this?");
+                                                player.listInventory();
+                                                System.out.println("------");
+                                                magicShelf.listInteractiveObjects();
+                                                GiveFood food = new GiveFood();
+                                                food.giveFood(player, magicShelf,player.inventory.get(kb.nextInt()),
+                                                        magicShelf.objects.get(kb.nextInt()));
                                                 break;
 
 
@@ -615,11 +749,12 @@ public class Main
                                 }
                                 else
                                 {
-                                    System.out.println(player.name + ": Dang I cant get in there..");
+                                    System.out.println(player.name + ": Dang I cant get in there... yet");
                                     System.out.println();
                                     goBack=false;
                                     break;
                                 }
+
                             case 0:
                                 goBack = true;
                                 System.out.println();
@@ -683,7 +818,10 @@ public class Main
 
                 //the freezer/'Exit'
                 case 3:
-                    System.out.println("Ah yes Gordon's freezer");
+                    Freezer freezer = new Freezer();
+                    System.out.println("Now to place each piece in order.");
+                    player.listInventory();
+                    freezer.Freezer(player,player.inventory.get(kb.nextInt()),player.inventory.get(kb.nextInt()),player.inventory.get(kb.nextInt()),player.inventory.get(kb.nextInt()));
                     break;
 
                 default:

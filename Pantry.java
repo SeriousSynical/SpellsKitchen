@@ -9,34 +9,42 @@ public class Pantry extends Rooms
         ArrayList<Item> pantryItems = new ArrayList<>();
         ArrayList<InteractableObjects> pantryObjects = new ArrayList<>();
         ArrayList<HiddenItems> hiddenPantryItems = new ArrayList<>();
-/*
-        NPC pantryGoblin = new NPC("Bob",Pronouns.masculine,"A little dunce even for a goblin");
-        Item knob = new Item("Knob", "A knob that looks like it goes to something",true,false,false,false,2);
-        Item wood = new Item("Bundle of wood", "Just a bundle of oak wood",true,false,false,false,0);
-        InteractableObjects rope = new InteractableObjects("Rope","A Rope tied to the wall holding something up above" +
-                " the counter",1,1);
-        InteractableObjects oven = new InteractableObjects("Oven", "A Rusty old oven, looks to be missing a knob",2,2);
-        HiddenItems keyTest  = new HiddenItems("keytest","test",false,false,false,false ,0,99);
 
-        //setRoomDescription();
+        NPC pantryGoblin = new NPC("Bob",Pronouns.masculine,"A little dunce even for a goblin", false);
+
+        Item soup = new Item("Can of Soup","Chicken noodle soup",false,true,false,false,0,"Just like mom made");
+        Item whisk = new Item("Whisk", "Just a plain metal whisk",false,false,false,false,0,"");
+        Item bread =  new Item("Loaf of bread","Pumpernickel",false,true,false,false,0,"buttery goodness!");
+        Item egg = new Item("Egg","A HUGE egg",true,false,false,false,10,"");
+        Item finalKeyPiece2 = new Item("Yellow Crystal","Piece of a larger Crystal",false,false,false,
+                false,0,"");
+
+        InteractableObjects junk = new InteractableObjects("junk","junk",0,0);
+
+
+        setRoomDescription("Lots and lots of food stuffs in here! There seems to be a Passcode lock on the next " +
+                "door\n Is that cookie crumbs on on the number pad?");
+
         setNpc(pantryGoblin);
-        //setActionMessage();
-       // setActionMessage2();
-        setRoomDescription2("Well, that sure did cause a mess...");
+
+        pantryItems.add(soup);
+        pantryItems.add(whisk);
+        pantryItems.add(bread);
+        pantryItems.add(egg);
+        pantryItems.add(finalKeyPiece2);
+
+        pantryObjects.add(junk);
 
 
 
-        pantryItems.add(knob);
-        pantryItems.add(wood);
-        hiddenPantryItems.add(keyTest);
-        setHiddenItems(hiddenPantryItems);
 
         setItems(pantryItems);
 
-        pantryObjects.add(rope);
-        pantryObjects.add(oven);
         setObjects(pantryObjects);
-*/
+
+        setHiddenItems(hiddenPantryItems);
+
+
 
 
     }

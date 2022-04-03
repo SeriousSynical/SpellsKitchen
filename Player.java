@@ -37,9 +37,69 @@ public class Player extends Character {
     public void chat(Player player, NPC npc) {
 //----------------------------------------------------------------need to work on
         boolean flag = false;
-        if (npc.hasClue) {
+        if (npc.hasClue)
+        {
+            do {
 
-        } else {
+                System.out.println("1. Who are you?");
+                System.out.println("2. How can i open this?");
+                System.out.println("3. Why are you here?");
+                System.out.println("0. Exit");
+
+                int answer = s.nextInt();
+                if (answer == 1) {
+
+                    System.out.println();
+                    System.out.println(player.name + ": Who are you?");
+                    System.out.println(npc.name + ": I am " + npc.name + ". Its SO nice to see you!!!!!");
+                    System.out.println();
+
+                } else if (answer == 2) {
+
+                    System.out.println();
+                    System.out.println(player.name + ": How can I open the freezer?");
+                    System.out.println(npc.name + ": Goodness i am so famished, maybe if i had something to eat i " +
+                            "would remember!");
+                    System.out.println(npc.name + ": Would you PLEEEEEASE get me my favorite treat?");
+                    System.out.println();
+                    System.out.println("1. Sure, what is it?");
+                    System.out.println("2. Nah not right now.");
+                    int choice2 = s.nextInt();
+                    int gift;
+
+                    if (choice2 ==1)
+                    {
+                        System.out.println(npc.name + ": Ohh, im too famished to remember...");
+
+                    }
+                    else if (choice2==2)
+                    {
+                        System.out.println("But im just so hungry....");
+                    }
+                    else
+                    {
+                        System.out.println("choose one of the two options.");
+                    }
+
+                } else if (answer == 3) {
+
+                    System.out.println();
+                    System.out.println(player.name + ": Why are you here?");
+                    System.out.println(npc.name + ": I just like spending time with these goblins, even though they " +
+                            "are rude, they keep delicious treats in the pantry!");
+                    System.out.println();
+
+                } else if (answer == 0) {
+
+                    flag = true;
+
+                }
+
+            } while (!flag);
+
+
+        }
+        else {
             do {
 
                 System.out.println("1. Who are you?");
@@ -58,7 +118,7 @@ public class Player extends Character {
                 } else if (answer == 2) {
 
                     System.out.println();
-                    System.out.println(player.name + ": How can I open this?");
+                    System.out.println(player.name + ": How can I open the freezer?");
                     System.out.println(npc.name + ": Now why would I tell you that?");
                     System.out.println();
 
@@ -150,7 +210,7 @@ public class Player extends Character {
         System.out.println();
 
         flag = true;
-        do {
+     /*   do {
 
             try {
 
@@ -190,7 +250,7 @@ public class Player extends Character {
 
 
         System.out.println("Describe yourself for me."); // created for the player description
-        player1.description = s.nextLine();
+        player1.description = s.nextLine();*/
         return player1;
     }
 
@@ -199,10 +259,17 @@ public class Player extends Character {
         // if (room.objects.size() > 0 && player.inventory.size()) {
 
         if (item.objectConnection == object.itemConnection) {
-            if (object.actionConnection == 1) {
+            if (object.actionConnection == 1)
+            {
                 System.out.println(room.actionMessage);
-            } else {
+            }
+            else if (object.actionConnection==2)
+            {
                 System.out.println(room.actionMessage2);
+            }
+            else if (object.actionConnection==3)
+            {
+                System.out.println(room.actionMessage3);
             }
             for (int i = 0; i < room.hiddenItems.size(); i++) {
 
@@ -215,11 +282,16 @@ public class Player extends Character {
                 }
             }
 
+
             room.objects.remove(object);
             room.setFlag(true);
             player.inventory.remove(item);
 
 
+        }
+        else
+        {
+            System.out.println(name + ": Well, that doesn't work");
         }
 
 

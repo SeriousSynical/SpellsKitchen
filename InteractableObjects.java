@@ -4,6 +4,7 @@ public class InteractableObjects {
     protected int itemConnection;
     protected String action;
     protected int actionConnection;
+    protected boolean hide;
 
     public InteractableObjects(String name, String description, int itemConnection, int actionConnection)
     {
@@ -36,6 +37,14 @@ public class InteractableObjects {
 
     public void setItemConnection(int itemConnection) {
         this.itemConnection = itemConnection;
+    }
+
+    public boolean isHide() {
+        return hide;
+    }
+
+    public void setHide(boolean hide) {
+        this.hide = hide;
     }
 
     public String toString()

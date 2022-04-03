@@ -95,7 +95,8 @@ public class NumberPuzzle //extends character
             }
             else//guess is correct
             {
-                message = "Crow: At last " + guessedNumber + " is to correct...";
+                message = "Crow: At last " + guessedNumber + " is to correct...\n Now all you need to know is... 24 " +
+                        "goes before! HAHAHAHAHAHA ";
                 System.out.println(message);
                 correct = true;
 
