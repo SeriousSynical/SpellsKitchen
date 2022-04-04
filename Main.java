@@ -1120,10 +1120,15 @@ public class Main
 
                 //the freezer/'Exit'
                 case 3: try{
-                    Freezer freezer = new Freezer();
-                    System.out.println("Now to place each piece in order.");
-                    player.listInventory();
-                    freezer.Freezer(player,player.inventory.get(kb.nextInt()),player.inventory.get(kb.nextInt()),player.inventory.get(kb.nextInt()),player.inventory.get(kb.nextInt()));
+                    if (player.inventory.size()>3) {
+                        Freezer freezer = new Freezer();
+                        System.out.println("Now to place the four key pieces in order.");
+                        player.listInventory();
+                        freezer.Freezer(player, player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()));
+                    }
+                    else {
+                        System.out.println("The freezer has four keys.. I don't even have four items in my inventory");
+                    }
                     break;
                 }
                 catch (Exception e)
