@@ -19,7 +19,7 @@ public class Pantry extends Rooms
         Item finalKeyPiece2 = new Item("Yellow Crystal","Piece of a larger Crystal",false,false,false,
                 false,0,"");
 
-        InteractableObjects junk = new InteractableObjects("junk","junk",0,0);
+        InteractableObjects junk = new InteractableObjects("junk","junk",100,1000);
 
 
         setRoomDescription("Lots and lots of food stuffs in here! There seems to be a Passcode lock on the next " +

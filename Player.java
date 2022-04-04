@@ -143,7 +143,8 @@ public class Player extends Character {
     // adds a new Item to Players Inventory
     public void addItem(Item item) {
 
-        this.inventory.add(item);
+    this.inventory.add(item);
+
 
     }
 /*
@@ -256,59 +257,54 @@ public class Player extends Character {
 
     public void useItem(Player player, Item item, InteractableObjects object, Rooms room) {
 
-        // if (room.objects.size() > 0 && player.inventory.size()) {
 
-        if (item.objectConnection == object.itemConnection) {
-            if (object.actionConnection == 1)
-            {
-                System.out.println(room.actionMessage);
-            }
-            else if (object.actionConnection==2)
-            {
-                System.out.println(room.actionMessage2);
-            }
-            else if (object.actionConnection==3)
-            {
-                System.out.println(room.actionMessage3);
-            }
-            for (int i = 0; i < room.hiddenItems.size(); i++) {
 
-                if (room.hiddenItems.get(i).actionConnection == object.actionConnection) {
-                    room.items.add(new Item(room.hiddenItems.get(i).name, room.hiddenItems.get(i).description,
-                            room.hiddenItems.get(i).usable, room.hiddenItems.get(i).eatable, room.hiddenItems.get(i).breakable,
-                            room.hiddenItems.get(i).breakableClue, room.hiddenItems.get(i).objectConnection,
-                            room.hiddenItems.get(i).eatableDescription));
+            // if (room.objects.size() > 0 && player.inventory.size()) {
 
+            if (item.objectConnection == object.itemConnection) {
+                if (object.actionConnection == 1) {
+                    System.out.println(room.actionMessage);
+                } else if (object.actionConnection == 2) {
+                    System.out.println(room.actionMessage2);
+                } else if (object.actionConnection == 3) {
+                    System.out.println(room.actionMessage3);
                 }
+                for (int i = 0; i < room.hiddenItems.size(); i++) {
+
+                    if (room.hiddenItems.get(i).actionConnection == object.actionConnection) {
+                        room.items.add(new Item(room.hiddenItems.get(i).name, room.hiddenItems.get(i).description,
+                                room.hiddenItems.get(i).usable, room.hiddenItems.get(i).eatable, room.hiddenItems.get(i).breakable,
+                                room.hiddenItems.get(i).breakableClue, room.hiddenItems.get(i).objectConnection,
+                                room.hiddenItems.get(i).eatableDescription));
+
+                    }
+                }
+
+
+                room.objects.remove(object);
+                room.setFlag(true);
+                player.inventory.remove(item);
+
+
+            } else {
+                System.out.println(name + ": Well, that doesn't work");
             }
 
 
-            room.objects.remove(object);
-            room.setFlag(true);
-            player.inventory.remove(item);
-
-
-        }
-        else
-        {
-            System.out.println(name + ": Well, that doesn't work");
-        }
-
 
     }
-    public void eat(Player player, Item item)
-    {
+    public void eat(Player player, Item item) {
 
-        if (item.eatable == true)
-        {
-            System.out.println();
-            System.out.println(player.name + "That was delicious!");
-            System.out.println(item.eatableDescription);
-        }
-        else
-        {
-            System.out.println(player.name + ": I cant eat this!");
+
+            if (item.eatable == true) {
+                System.out.println();
+                System.out.println(player.name + ": That was delicious!");
+                System.out.println(item.eatableDescription);
+            } else {
+                System.out.println(player.name + ": I cant eat this!");
+            }
+
+
         }
 
-    }
 }

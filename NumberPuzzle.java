@@ -69,7 +69,7 @@ public class NumberPuzzle //extends character
                          
 
                                            
-        System.out.println("Crow: Get the right number and I will give you a pretty prize.... ");
+        System.out.println("Crow: Get the right number and I will give you a clue to get into that freezer.... ");
 
         do
         {
