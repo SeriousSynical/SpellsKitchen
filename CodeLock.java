@@ -9,7 +9,7 @@ public void passcode(Player player, Rooms room) {
     int input;
     do {
 
-        System.out.println("Please enter the 6 digit code");
+        System.out.println("Please enter the 6 digit code...");
         input = s.nextInt();
 
         if (input == answer) {
@@ -18,7 +18,7 @@ public void passcode(Player player, Rooms room) {
             room.locked = false;
             choice=2;
         } else {
-            System.out.println("Incorrect Passcode");
+            System.out.println("Incorrect Passcode...");
             System.out.println("Would you like to try again?");
             System.out.println("1: Yes | 2: No");
 
