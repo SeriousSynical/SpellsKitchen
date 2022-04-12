@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Player extends Character {
-
+public class Player extends Character 
+{
     int pronounsInt = 0;
     Scanner s = new Scanner(System.in);
     // Initialization
@@ -10,8 +10,8 @@ public class Player extends Character {
 
 
     // Constructors
-    public Player(String name, Pronouns pronouns, String description) {
-
+    public Player(String name, Pronouns pronouns, String description) 
+    {
         super(name, pronouns, description);
         this.inventory = new ArrayList<>();
 
@@ -19,43 +19,43 @@ public class Player extends Character {
 
 
     // Getters
-    public ArrayList<Item> getInventory() {
-
+    public ArrayList<Item> getInventory() 
+    {
         return inventory;
-
     }
 
 
     // Setters
-    public void setInventory(ArrayList<Item> inventory) {
-
+    public void setInventory(ArrayList<Item> inventory) 
+    {
         this.inventory = inventory;
-
     }
 
     //chat with NPC in room
-    public void chat(Player player, NPC npc) {
+    public void chat(Player player, NPC npc) 
+    {
 //----------------------------------------------------------------need to work on
         boolean flag = false;
         if (npc.hasClue)
         {
-            do {
-
+            do 
+            {
                 System.out.println("1. Who are you?");
                 System.out.println("2. How can i open this?");
                 System.out.println("3. Why are you here?");
                 System.out.println("0. Exit");
 
                 int answer = s.nextInt();
-                if (answer == 1) {
-
+                if (answer == 1) 
+                {
                     System.out.println();
                     System.out.println(player.name + ": Who are you?");
                     System.out.println(npc.name + ": I am " + npc.name + ". Its SO nice to see you!!!!!");
                     System.out.println();
 
-                } else if (answer == 2) {
-
+                } 
+                else if (answer == 2) 
+                {
                     System.out.println();
                     System.out.println(player.name + ": How can I open the freezer?");
                     System.out.println(npc.name + ": Goodness i am so famished, maybe if i had something to eat i " +
@@ -81,58 +81,62 @@ public class Player extends Character {
                         System.out.println("choose one of the two options.");
                     }
 
-                } else if (answer == 3) {
-
+                } 
+                else if (answer == 3) 
+                {
                     System.out.println();
                     System.out.println(player.name + ": Why are you here?");
                     System.out.println(npc.name + ": I just like spending time with these goblins, even though they " +
                             "are rude, they keep delicious treats in the pantry!");
                     System.out.println();
 
-                } else if (answer == 0) {
-
+                } 
+                else if (answer == 0) 
+                {
                     flag = true;
-
                 }
 
             } while (!flag);
 
 
         }
-        else {
-            do {
-
+        else 
+        {
+            do 
+            {
                 System.out.println("1. Who are you?");
                 System.out.println("2. How can i open this?");
                 System.out.println("3. Why are you here?");
                 System.out.println("0. Exit");
 
                 int answer = s.nextInt();
-                if (answer == 1) {
-
+                if (answer == 1) 
+                {
                     System.out.println();
                     System.out.println(player.name + ": Who are you?");
                     System.out.println(npc.name + ": I am " + npc.name + ".");
                     System.out.println();
 
-                } else if (answer == 2) {
-
+                } 
+                else if (answer == 2) 
+                {
                     System.out.println();
                     System.out.println(player.name + ": How can I open the freezer?");
                     System.out.println(npc.name + ": Now why would I tell you that?");
                     System.out.println();
 
-                } else if (answer == 3) {
-
+                } 
+                else if (answer == 3) 
+                {
                     System.out.println();
                     System.out.println(player.name + ": Why are you here?");
                     System.out.println(npc.name + ": That is entirely none of your business, thief.");
                     System.out.println();
 
-                } else if (answer == 0) {
-
+                } 
+                else if (answer == 0) 
+                {
                     flag = true;
-
                 }
 
             } while (!flag);
@@ -141,10 +145,9 @@ public class Player extends Character {
     }
 
     // adds a new Item to Players Inventory
-    public void addItem(Item item) {
-
-    this.inventory.add(item);
-
+    public void addItem(Item item) 
+    {
+        this.inventory.add(item);
 
     }
 /*

@@ -1,11 +1,13 @@
-public class KeyLock extends Lock {
+public class KeyLock extends Lock 
+{
 
     // Initialization
     protected Key key;
 
 
     // Constructors
-    public KeyLock(Container container, Key key) {
+    public KeyLock(Container container, Key key) 
+    {
 
         super(container);
         this.key = key;
@@ -14,7 +16,8 @@ public class KeyLock extends Lock {
 
 
     // Getters
-    public Key getKey() {
+    public Key getKey() 
+    {
 
         return key;
 
@@ -22,7 +25,8 @@ public class KeyLock extends Lock {
 
 
     // Setters
-    public void setKey(Key key) {
+    public void setKey(Key key) 
+    {
 
         this.key = key;
 
@@ -30,13 +34,15 @@ public class KeyLock extends Lock {
 
 
     // Empty Methods
-    public void lock(Key key) {
+    public void lock(Key key) 
+    {
 
 
 
     }
 
-    public void unlock(Key key) {
+    public void unlock(Key key) 
+    {
 
 
 

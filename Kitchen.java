@@ -36,9 +36,6 @@ public class Kitchen extends Rooms
 
 
 
-
-
-
         kitchenItems.add(knife);
         kitchenItems.add(breadBox);
         kitchenItems.add(wood);

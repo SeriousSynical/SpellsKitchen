@@ -1,4 +1,5 @@
-public class PatternLock extends Lock {
+public class PatternLock extends Lock 
+{
 
     // Initialization
     protected Object[] key;
@@ -6,7 +7,8 @@ public class PatternLock extends Lock {
 
 
     // Constructors
-    public PatternLock(Container container, Object[] key, Object[] combination) {
+    public PatternLock(Container container, Object[] key, Object[] combination) 
+    {
 
         super(container);
         this.key = key;
@@ -16,13 +18,15 @@ public class PatternLock extends Lock {
 
 
     // Getters
-    public Object[] getKey() {
+    public Object[] getKey() 
+    {
 
         return key;
 
     }
 
-    public Object[] getCombination() {
+    public Object[] getCombination() 
+    {
 
         return combination;
 
@@ -30,13 +34,15 @@ public class PatternLock extends Lock {
 
 
     // Setters
-    public void setKey(Object[] key) {
+    public void setKey(Object[] key)
+    {
 
         this.key = key;
 
     }
 
-    public void setCombination(Object[] combination) {
+    public void setCombination(Object[] combination) 
+    {
 
         this.combination = combination;
 
@@ -44,13 +50,15 @@ public class PatternLock extends Lock {
 
 
     // Empty Methods
-    public void lock() {
+    public void lock() 
+    {
 
 
 
     }
 
-    public void unlock(Object[] combination) {
+    public void unlock(Object[] combination) 
+    {
 
 
 

@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class PadLock {
 
-    public void padLock(Player player, Rooms room, Item item, InteractableObjects io){
+    public void padLock(Player player, Rooms room, Item item, InteractableObjects io)
+    {
         Scanner s = new Scanner(System.in);
 
         if (item.objectConnection == io.itemConnection)

@@ -1,4 +1,5 @@
-public class CombinationLock extends Lock {
+public class CombinationLock extends Lock 
+{
 
     // Initialization
     protected int[] key;
@@ -6,7 +7,8 @@ public class CombinationLock extends Lock {
 
 
     // Constructors
-    public CombinationLock(Container container, int[] key, int[] combination) {
+    public CombinationLock(Container container, int[] key, int[] combination) 
+    {
 
         super(container);
         this.key = key;
@@ -16,13 +18,15 @@ public class CombinationLock extends Lock {
 
 
     // Getters
-    public int[] getKey() {
+    public int[] getKey() 
+    {
 
         return key;
 
     }
 
-    public int[] getCombination() {
+    public int[] getCombination() 
+    {
 
         return combination;
 
@@ -30,13 +34,15 @@ public class CombinationLock extends Lock {
 
 
     // Setters
-    public void setKey(int[] key) {
+    public void setKey(int[] key) 
+    {
 
         this.key = key;
 
     }
 
-    public void setCombination(int[] combination) {
+    public void setCombination(int[] combination) 
+    {
 
         this.combination = combination;
 
@@ -44,16 +50,19 @@ public class CombinationLock extends Lock {
 
 
     // Lock & Unlock
-    public void lock() {
+    public void lock() 
+    {
 
         this.isLocked = true;
 
     }
 
-    public void unlock(int[] combination) {
+    public void unlock(int[] combination) 
+    {
 
         this.combination = combination;
-        if (this.combination == this.key) {
+        if (this.combination == this.key) 
+        {
 
             this.isLocked = false;
 

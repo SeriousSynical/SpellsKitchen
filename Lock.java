@@ -1,4 +1,5 @@
-public class Lock {
+public class Lock 
+{
 
     // Initialization
     protected boolean isLocked;
@@ -6,7 +7,8 @@ public class Lock {
 
 
     // Constructors
-    public Lock(Container container) {
+    public Lock(Container container) 
+    {
 
         this.isLocked = true;
         this.container = container;
@@ -15,13 +17,15 @@ public class Lock {
 
 
     // Getters
-    public boolean isLocked() {
+    public boolean isLocked() 
+    {
 
         return isLocked;
 
     }
 
-    public Container getContainer() {
+    public Container getContainer() 
+    {
 
         return container;
 
@@ -29,13 +33,15 @@ public class Lock {
 
 
     // Setters
-    public void setLocked(boolean locked) {
+    public void setLocked(boolean locked) 
+    {
 
         isLocked = locked;
 
     }
 
-    public void setContainer(Container container) {
+    public void setContainer(Container container) 
+    {
 
         this.container = container;
 

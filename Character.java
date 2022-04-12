@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class Character {
+public class Character
+{
 
     // Initialization
     protected String name;

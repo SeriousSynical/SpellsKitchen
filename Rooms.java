@@ -1,4 +1,3 @@
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,18 +44,19 @@ public class Rooms
     public void setRoomDescription(String roomDescription)
     {
 
-            this.roomDescription = roomDescription;
-        }
+        this.roomDescription = roomDescription;
+    }
 
     public void setRoomDescription2(String roomDescription2)
     {
 
-            this.roomDescription2=roomDescription2;
-        }
+        this.roomDescription2=roomDescription2;
+    }
 
-public void setFlag(boolean b){
-        this.flag=b;
-}
+    public void setFlag(boolean b)
+    {
+            this.flag=b;
+    }
 
     public NPC getNpc()
     {
@@ -88,11 +88,13 @@ public void setFlag(boolean b){
         this.items.add(item);
     }
 
-    public String getActionMessage2() {
+    public String getActionMessage2() 
+    {
         return actionMessage2;
     }
 
-    public void setActionMessage2(String actionMessage2, int actionConnection) {
+    public void setActionMessage2(String actionMessage2, int actionConnection) 
+    {
         this.actionMessage2 = actionMessage2;
         this.actionConnection = actionConnection;
     }
@@ -100,16 +102,19 @@ public void setFlag(boolean b){
         return actionMessage3;
     }
 
-    public void setActionMessage3(String actionMessage3, int actionConnection) {
+    public void setActionMessage3(String actionMessage3, int actionConnection) 
+    {
         this.actionMessage3 = actionMessage3;
         this.actionConnection = actionConnection;
     }
 
-    public ArrayList<InteractableObjects> getObjects() {
+    public ArrayList<InteractableObjects> getObjects() 
+    {
         return objects;
     }
 
-    public void setObjects(ArrayList<InteractableObjects> objects) {
+    public void setObjects(ArrayList<InteractableObjects> objects) 
+    {
         this.objects = objects;
     }
     public void setHiddenItems(ArrayList<HiddenItems> Items)
@@ -128,6 +133,7 @@ public void setFlag(boolean b){
         {
             System.out.println(i  + ": " + items.get(i));
         }
+
         int selection;
         selection=kb.nextInt();
         player.addItem(items.get(selection));
@@ -142,23 +148,24 @@ public void setFlag(boolean b){
 
     public void listInteractiveObjects()
     {
-        for (int i = 0; i < objects.size(); i++) {
+        for (int i = 0; i < objects.size(); i++) 
+        {
 
-            if (objects.get(i).hide== false) {
-
+            if (objects.get(i).hide== false) 
+            {
                 System.out.println(i + ": " + objects.get(i));
             }
 
 
         }
     }
+
     public void listInteractiveObjectsHidden()
     {
-        for (int i = 0; i < objects.size(); i++) {
-
-
-            if (objects.get(i).hide==true) {
-
+        for (int i = 0; i < objects.size(); i++) 
+        {
+            if (objects.get(i).hide==true) 
+            {
                 System.out.println(i + ": " + objects.get(i));
             }
 
@@ -170,11 +177,13 @@ public void setFlag(boolean b){
         System.out.println(items);
     }
 
-    public String getActionMessage() {
+    public String getActionMessage() 
+    {
         return actionMessage;
     }
 
-    public void setActionMessage(String actionMessage, int actionConnection) {
+    public void setActionMessage(String actionMessage, int actionConnection) 
+    {
         this.actionMessage = actionMessage;
         this.actionConnection = actionConnection;
     }

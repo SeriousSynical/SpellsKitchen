@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class Container extends Item {
+public class Container extends Item 
+{
 
     // Initialization
     protected Lock lock;
@@ -9,7 +10,8 @@ public class Container extends Item {
 
 
     // Constructors
-    public Container(String name, String description, boolean[] interactions) {
+    public Container(String name, String description, boolean[] interactions) 
+    {
 
         super(name, description, interactions);
         this.contents = new ArrayList<>();
@@ -18,7 +20,8 @@ public class Container extends Item {
 
     }
 
-    public Container(String name, String description, boolean[] interactions, boolean isLocked, Lock lock) {
+    public Container(String name, String description, boolean[] interactions, boolean isLocked, Lock lock) 
+    {
 
         super(name, description, interactions);
         this.contents = new ArrayList<>();
@@ -29,19 +32,22 @@ public class Container extends Item {
 
 
     // Getters
-    public Lock getLock() {
+    public Lock getLock() 
+    {
 
         return lock;
 
     }
 
-    public boolean isLocked() {
+    public boolean isLocked() 
+    {
 
         return isLocked;
 
     }
 
-    public ArrayList<Object> getContents() {
+    public ArrayList<Object> getContents() 
+    {
 
         return contents;
 
@@ -49,19 +55,22 @@ public class Container extends Item {
 
 
     // Setters
-    public void setLock(Lock lock) {
+    public void setLock(Lock lock) 
+    {
 
         this.lock = lock;
 
     }
 
-    public void setLocked(boolean locked) {
+    public void setLocked(boolean locked) 
+    {
 
         isLocked = locked;
 
     }
 
-    public void setContents(ArrayList<Object> contents) {
+    public void setContents(ArrayList<Object> contents) 
+    {
 
         this.contents = contents;
 
@@ -69,25 +78,29 @@ public class Container extends Item {
 
 
     // Empty Methods
-    public void checkLock() {
+    public void checkLock() 
+    {
 
 
 
     }
 
-    public String inspect() {
+    public String inspect() 
+    {
 
         return null;
 
     }
 
-    public void addItem(Player player) {
+    public void addItem(Player player) 
+    {
 
 
 
     }
 
-    public void removeItem(Player player) {
+    public void removeItem(Player player) 
+    {
 
 
 

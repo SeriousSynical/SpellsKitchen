@@ -1,4 +1,5 @@
-public class InteractableObjects {
+public class InteractableObjects 
+{
     protected String name;
     protected String description;
     protected int itemConnection;
@@ -15,35 +16,43 @@ public class InteractableObjects {
 
     }
 
-    public String getName() {
+    public String getName() 
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) 
+    {
         this.name = name;
     }
 
-    public String getDescription() {
+    public String getDescription() 
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) 
+    {
         this.description = description;
     }
 
-    public int getItemConnection() {
+    public int getItemConnection() 
+    {
         return itemConnection;
     }
 
-    public void setItemConnection(int itemConnection) {
+    public void setItemConnection(int itemConnection) 
+    {
         this.itemConnection = itemConnection;
     }
 
-    public boolean isHide() {
+    public boolean isHide() 
+    {
         return hide;
     }
 
-    public void setHide(boolean hide) {
+    public void setHide(boolean hide) 
+    {
         this.hide = hide;
     }
 

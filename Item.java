@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class Item {
+public class Item 
+{
 
     // Initialization
     protected String name;
@@ -22,7 +23,8 @@ public class Item {
 
     // Constructors
     public Item(String name, String description, boolean usable, boolean eatable, boolean breakable,
-                boolean breakableClue,int objectConnection,String eatableDescription) {
+                boolean breakableClue,int objectConnection,String eatableDescription) 
+    {
 
         this.name = name;
         this.description = description;
@@ -33,16 +35,16 @@ public class Item {
         this.objectConnection = objectConnection;
         this.eatableDescription = eatableDescription;
 
-     
-
 
     }
 
-    public String getEatableDescription() {
+    public String getEatableDescription() 
+    {
         return eatableDescription;
     }
 
-    public void setEatableDescription(String eatableDescription) {
+    public void setEatableDescription(String eatableDescription) 
+    {
         this.eatableDescription = eatableDescription;
     }
 
@@ -52,19 +54,22 @@ public class Item {
 
 
     // Getters
-    public String getName() {
+    public String getName() 
+    {
 
         return name;
 
     }
 
-    public String getDescription() {
+    public String getDescription() 
+    {
 
         return description;
 
     }
 
-    public boolean[] getInteractions() {
+    public boolean[] getInteractions() 
+    {
 
         return interactions;
 
@@ -72,19 +77,22 @@ public class Item {
 
 
     // Setters
-    public void setName(String name) {
+    public void setName(String name) 
+    {
 
         this.name = name;
 
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) 
+    {
 
         this.description = description;
 
     }
 
-    public void setInteractions(boolean[] interactions) {
+    public void setInteractions(boolean[] interactions) 
+    {
 
         this.interactions = interactions;
 
