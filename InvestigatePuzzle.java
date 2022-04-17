@@ -1,4 +1,4 @@
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 public class InvestigatePuzzle {
     static boolean firstRun = true;
@@ -34,18 +34,22 @@ public class InvestigatePuzzle {
         }
         firstRun = false;
         System.out.println(mainTextDisplay);
-        System.out.print("Which object do you want to investigate first? Or say 'return' if you want to return to the main room.\n");
+        System.out.print("Which object do you want to investigate? Or say 'return' if you want to return to the main room.\n");
         investigateChoice = kb.nextLine();
         investigateChoice.toLowerCase();
         if(investigateChoice.equals("painting")){
             do{
-                System.out.println("You approach the painting, do you want to..:\n1: Remove the painting\n2: Inspect the painting\n3: Go back");
-                try{
-                userIntChoice = kb.nextInt();
-                }catch(InputMismatchException e){
-                    System.out.println("Try entering an integer.");
-                    userIntChoice = kb.nextInt();
-                }
+                System.out.println("You look at the painting, do you want to..:\n1: Remove the painting\n2: Inspect the painting\n3: Go back");
+                do{
+                    if(kb.hasNextInt()){
+                        userIntChoice = kb.nextInt();
+                        kb.nextLine();
+                        ok = true;
+                    }else{
+                        System.out.println("Try entering an integer.");
+                        kb.nextLine();
+                    }
+                }while(!ok);
                 switch(userIntChoice){
                     case 1:
                         System.out.println("You remove the painting, there is nothing behind it. You feel as though that was a terrible decision.\nYou put the painting back.");
@@ -53,6 +57,7 @@ public class InvestigatePuzzle {
                     case 2:
                         System.out.println("You look closely at the painting, you notice that every color used is a shade of blue.");
                         paintingState = "\nYou've investigated the painting.";
+                        colorFound = true;
                     break;
                     case 3:
                         System.out.println("You return to the room overview.");
@@ -66,7 +71,7 @@ public class InvestigatePuzzle {
         }else if(investigateChoice.equals("rug")&&!safeFound){
             do{
                 if(!safeFound){
-                System.out.println("You kneel down to investigate the "+rugState+" rug, do you want to..:\n1: Straighten the rug\n2: Remove the rug\n3: Go back");
+                System.out.println("You investigate the "+rugState+" rug, do you want to..:\n1: Straighten the rug\n2: Remove the rug\n3: Go back");
                 do{
                     if(kb.hasNextInt()){
                         userIntChoice = kb.nextInt();
@@ -98,15 +103,20 @@ public class InvestigatePuzzle {
                     if(codeSuccess&&colorSuccess){
                         // "You received a FINAL_PUZZLE_ITEM" SHOULD BE CHANGED BEFORE FINAL PUSH. THIS IS JUST PLACEHOLDER.
                         System.out.println("You entered the correct color and code, and opened the safe.\nYou received a FINAL_PUZZLE_ITEM.");
+                        userIntChoice = 3;
                         // Add final puzzle item to inventory and return to main room.
                     }else{
-                            System.out.println("You kneel down to check the safe, do you want to..:\n1: Input the color\n2: Input the code\n3: Go back");
-                            try{
-                            userIntChoice = kb.nextInt();
-                            }catch(InputMismatchException e){
-                                System.out.println("Try entering an integer.");
-                                userIntChoice = kb.nextInt();
-                            }
+                            System.out.println("You check the safe, do you want to..:\n1: Input the color\n2: Input the code\n3: Go back");
+                            do{
+                                if(kb.hasNextInt()){
+                                    userIntChoice = kb.nextInt();
+                                    kb.nextLine();
+                                    ok = true;
+                                }else{
+                                    System.out.println("Try entering an integer.");
+                                    kb.nextLine();
+                                }
+                            }while(!ok);
                             switch(userIntChoice){
                             case 1:
                                     if(colorFound){
@@ -127,11 +137,16 @@ public class InvestigatePuzzle {
                             case 2:
                                     if(codeFound){
                                         System.out.print("Please enter the 3 digit code: ");
-                                        try{
-                                        codeGuess = kb.nextInt();
-                                        }catch(InputMismatchException e){
-                                            System.out.println("Please enter an integer.");
-                                        }
+                                        do{
+                                            if(kb.hasNextInt()){
+                                                codeGuess = kb.nextInt();
+                                                kb.nextLine();
+                                                ok = true;
+                                            }else{
+                                                System.out.println("Try entering an integer.");
+                                                kb.nextLine();
+                                            }
+                                        }while(!ok);
                                         if(codeGuess == 432){
                                             System.out.println("You entered the code "+codeGuess+". You hear a click.");
                                             codeSuccess = true;
@@ -165,13 +180,17 @@ public class InvestigatePuzzle {
                     // Add final puzzle item to inventory and return to main room.
                 }else{
                     do{
-                        System.out.println("You kneel down to check the safe, do you want to..:\n1: Input the color\n2: Input the code\n3: Go back");
-                        try{
-                        userIntChoice = kb.nextInt();
-                        }catch(InputMismatchException e){
-                            System.out.println("Try entering an integer.");
-                            userIntChoice = kb.nextInt();
-                        }
+                        System.out.println("You check the safe, do you want to..:\n1: Input the color\n2: Input the code\n3: Go back");
+                        do{
+                            if(kb.hasNextInt()){
+                                userIntChoice = kb.nextInt();
+                                kb.nextLine();
+                                ok = true;
+                            }else{
+                                System.out.println("Try entering an integer.");
+                                kb.nextLine();
+                            }
+                        }while(!ok);
                         switch(userIntChoice){
                         case 1:
                                 if(colorFound){
@@ -192,11 +211,16 @@ public class InvestigatePuzzle {
                         case 2:
                                 if(codeFound){
                                     System.out.print("Please enter the 3 digit code: ");
-                                    try{
-                                    codeGuess = kb.nextInt();
-                                    }catch(InputMismatchException e){
-                                        System.out.println("Please enter an integer.");
-                                    }
+                                    do{
+                                        if(kb.hasNextInt()){
+                                            codeGuess = kb.nextInt();
+                                            kb.nextLine();
+                                            ok = true;
+                                        }else{
+                                            System.out.println("Try entering an integer.");
+                                            kb.nextLine();
+                                        }
+                                    }while(!ok);
                                     if(codeGuess == 432){
                                         System.out.println("You entered the code "+codeGuess+". You hear a click.");
                                         codeSuccess = true;
@@ -225,16 +249,22 @@ public class InvestigatePuzzle {
                 }
             }else if(investigateChoice.equals("desk")||investigateChoice.equals("drawers")||investigateChoice.equals("desk with drawers")){
                 do{
-                    System.out.println("You head to the desk, do you want to..:\n1: Search the drawers\n2: Go back");
-                    try{
-                    userIntChoice = kb.nextInt();
-                    }catch(InputMismatchException e){
-                        System.out.println("Try entering an integer.");
-                        userIntChoice = kb.nextInt();
-                    }
+                    System.out.println("You check the desk, do you want to..:\n1: Search the drawers\n2: Go back");
+                    do{
+                        if(kb.hasNextInt()){
+                            userIntChoice = kb.nextInt();
+                            kb.nextLine();
+                            ok = true;
+                        }else{
+                            System.out.println("Try entering an integer.");
+                            kb.nextLine();
+                        }
+                    }while(!ok);
                     switch(userIntChoice){
                     case 1:
                             System.out.println("You search every drawer thoroughly, you find a piece of paper with the time 4:32 written down.");
+                            drawersState = "\nYou've searched the desk.";
+                            codeFound = true;
                             //Add to inventory?
                         break;
                     case 2:
