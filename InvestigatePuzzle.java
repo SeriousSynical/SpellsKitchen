@@ -20,11 +20,11 @@ public class InvestigatePuzzle {
         }
 
     public static void start(){
-        String investigateChoice;
+        String investigateChoice = "";
         int userIntChoice = 0;
         String mainTextDisplay = "";
         Scanner kb = new Scanner(System.in);
-        do{
+        while(!investigateChoice.equals("return")){
         if(firstRun){
             mainTextDisplay = "You entered the room. \nThere are three noticeable objects, a desk with drawers, a painting, and a crooked rug.";
         }else if(safeFound){
@@ -104,6 +104,7 @@ public class InvestigatePuzzle {
                         // "You received a FINAL_PUZZLE_ITEM" SHOULD BE CHANGED BEFORE FINAL PUSH. THIS IS JUST PLACEHOLDER.
                         System.out.println("You entered the correct color and code, and opened the safe.\nYou received a FINAL_PUZZLE_ITEM.");
                         userIntChoice = 3;
+                        investigateChoice = "return";
                         // Add final puzzle item to inventory and return to main room.
                     }else{
                             System.out.println("You check the safe, do you want to..:\n1: Input the color\n2: Input the code\n3: Go back");
@@ -177,6 +178,8 @@ public class InvestigatePuzzle {
                 if(codeSuccess&&colorSuccess){
                     // "You received a FINAL_PUZZLE_ITEM" SHOULD BE CHANGED BEFORE FINAL PUSH. THIS IS JUST PLACEHOLDER.
                     System.out.println("You entered the correct color and code, and opened the safe.\nYou received a FINAL_PUZZLE_ITEM.");
+                    userIntChoice = 3;
+                    investigateChoice = "return";
                     // Add final puzzle item to inventory and return to main room.
                 }else{
                     do{
@@ -284,7 +287,7 @@ public class InvestigatePuzzle {
                     System.out.println("Please enter any of the following: 'safe' 'rug' , 'painting' , 'desk' 'drawers' 'desk with drawers' , or 'return' to go back to the main room.");
                 }
             }
-            }while(!investigateChoice.equals("return"));
+            }
             kb.close();
     }
 }
