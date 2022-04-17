@@ -289,5 +289,6 @@ public class InvestigatePuzzle {
             }
             }
             kb.close();
+        
     }
 }
