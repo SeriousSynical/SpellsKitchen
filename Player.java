@@ -147,7 +147,15 @@ public class Player extends Character
     // adds a new Item to Players Inventory
     public void addItem(Item item) 
     {
-        this.inventory.add(item);
+        try
+        {
+            this.inventory.add(item);
+        }
+        catch (Exception e)
+        {
+            s.nextLine();
+
+        }
 
     }
 /*

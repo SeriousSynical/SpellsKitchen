@@ -199,7 +199,7 @@ public class Main
                                                 switch (inspectChoice)
                                                 {
                                                     case 1:
-                                                        {
+
                                                             if (kitchenRoom.items.size() > 0)
                                                             {
                                                                 try
@@ -208,8 +208,8 @@ public class Main
                                                                 }
                                                                 catch (Exception e)
                                                                 {
-                                                                    kb.nextLine();
                                                                     System.out.println("Invalid Input");
+                                                                    kb.nextLine();
                                                                 }
                                                             }
                                                             else
@@ -218,7 +218,7 @@ public class Main
                                                                         "anything to my inventory if there is " +
                                                                         "nothing to add!");
                                                             }
-                                                        }
+
 
                                                         break;
 
@@ -804,6 +804,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        kb.nextLine();
                                                     }
 
                                                 //VIEW INVENTORY
