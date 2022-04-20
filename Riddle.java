@@ -37,6 +37,12 @@ public class   Riddle
                 {
                     solved = true;
                     System.out.println(room.npc.name + ": Such a wise thief...");
+                    System.out.println("");
+                    System.out.println("\t\t ░█▀▀▀ ░█▀▀█ ░█▀▀█" + 
+                                     "\n\t\t ░█▀▀▀ ░█─▄▄ ░█─▄▄" +
+                                     "\n\t\t ░█▄▄▄ ░█▄▄█ ░█▄▄█" );
+                    System.out.println("");
+
                     System.out.println("                      ████████      ");
                     System.out.println("                    ██        ██     ");
                     System.out.println("                  ██▒▒▒▒        ██   "); 
