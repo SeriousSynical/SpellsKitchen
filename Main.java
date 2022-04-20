@@ -107,7 +107,7 @@ public class Main
                                     do
                                     {
                                         System.out.println(" █▄▀ █ ▀█▀ █▀▀ █░█ █▀▀ █▄░█" +
-                                                            "\n █░█ █ ░█░ █▄▄ █▀█ ██▄ █░▀█");
+                                                         "\n █░█ █ ░█░ █▄▄ █▀█ ██▄ █░▀█");
                                         System.out.println();
                                         System.out.println("Select an action");
                                         System.out.println("\t 1. Inspect room ");
@@ -251,7 +251,7 @@ public class Main
                                             {
                                                 System.out.println();
                                                 System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                                "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                                 "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                 System.out.println();
                                                 System.out.println(player.checkInventory());
                                                 System.out.println("Select inventory action");
@@ -426,7 +426,7 @@ public class Main
                                             {
                                                 //System.out.println(pantry.roomName);
                                                 System.out.println("█▀█ ▄▀█ █▄░█ ▀█▀ █▀█ █▄█" +
-                                                        "\n█▀▀ █▀█ █░▀█ ░█░ █▀▄ ░█░");
+                                                                 "\n█▀▀ █▀█ █░▀█ ░█░ █▀▄ ░█░");
                                                 System.out.println();
                                                 System.out.println("Select an action");
                                                 System.out.println("\t 1. Inspect room ");
@@ -553,7 +553,7 @@ public class Main
                                                         int itemChoice1;
                                                         System.out.println();
                                                         System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                                        "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                                         "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                         System.out.println();
                                                         System.out.println(player.checkInventory());
                                                         System.out.println("Select inventory action");
@@ -690,7 +690,7 @@ public class Main
                                         
                                             //System.out.println(diningRoom.roomName);
                                             System.out.println("█▀▄ █ █▄░█ █ █▄░█ █▀▀     █▀█ █▀█ █▀█ █▀▄▀█" +
-                                                            "\n█▄▀ █ █░▀█ █ █░▀█ █▄█     █▀▄ █▄█ █▄█ █░▀░█");
+                                                             "\n█▄▀ █ █░▀█ █ █░▀█ █▄█     █▀▄ █▄█ █▄█ █░▀░█");
                                             System.out.println();
                                             System.out.println("Select an action");
                                             System.out.println("\t 1. Inspect room ");
@@ -806,7 +806,7 @@ public class Main
                                                     {
                                                             System.out.println();
                                                             System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                                            "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                                             "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                             System.out.println();
                                                             System.out.println(player.checkInventory());
                                                             System.out.println("Select inventory action");
@@ -954,7 +954,7 @@ public class Main
                                             int actionChoice4;
                                             //System.out.println(magicShelf.roomName);
                                             System.out.println("█▀▄▀█ ▄▀█ █▀▀ █ █▀▀   █▀ █░█ █▀▀ █░░ █▀▀" +
-                                                            "\n█░▀░█ █▀█ █▄█ █ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▀░");
+                                                             "\n█░▀░█ █▀█ █▄█ █ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▀░");
                                             System.out.println();
                                             System.out.println("Select an action");
                                             System.out.println("\t 1. Inspect room ");
@@ -1063,7 +1063,7 @@ public class Main
                                                         int itemChoice1;
                                                         System.out.println();
                                                         System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                                        "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                                         "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                         System.out.println();
                                                         System.out.println(player.checkInventory());
                                                         System.out.println("Select inventory action");
@@ -1202,7 +1202,7 @@ public class Main
                         int itemChoice;
                         System.out.println();
                         System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█" +
-                                        "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░");
+                                         "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░");
                         System.out.println();
                         System.out.println(player.checkInventory());
                         System.out.println("Select inventory action");
