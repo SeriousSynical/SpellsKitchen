@@ -44,9 +44,6 @@ public class Main
         boolean doorUnlocked = false;
         int choice =0;
 
-
-
-
         while(doorUnlocked == false)
         {
             {
@@ -85,158 +82,162 @@ public class Main
                     {
                         do
                         {
-                        System.out.println();
-                        System.out.println("Select an area to inspect");
-                        System.out.println("\t 1. The kitchen");
-                        System.out.println("\t 2. The pantry");
-                        System.out.println("\t 3. The dining area");
-                        System.out.println("\t 4. Magic ingredient shelf");
-                        System.out.println("\t 0. Go back");
+                            System.out.println();
+                            System.out.println("Select an area to inspect");
+                            System.out.println("\t 1. The kitchen");
+                            System.out.println("\t 2. The pantry");
+                            System.out.println("\t 3. The dining area");
+                            System.out.println("\t 4. Magic ingredient shelf");
+                            System.out.println("\t 0. Go back");
 
-                        try
+                            try
                             {
                                 roomChoice = kb.nextInt();
                             }
-                        catch (Exception e)
+                            catch (Exception e)
                             {
                                 roomChoice=-1;
                                 System.out.println("Invalid Input, you'll have to try that again!");
                                 kb.nextLine();
                             }
-                    }
-                    while (roomChoice ==-1);
-                    kb.nextLine();
+                        }
+                        while (roomChoice ==-1);
+                        kb.nextLine();
+
                         switch (roomChoice)
                         {
-                            //kitchen
+                            //KITCHEN
                             case 1:
                                 int actionChoice;
                                 boolean goBackFromKitchen = false;
                                 while (goBackFromKitchen == false)
                                 {
                                     do
-                                        {
-                                            System.out.println(" █▄▀ █ ▀█▀ █▀▀ █░█ █▀▀ █▄░█" +
-                                                             "\n █░█ █ ░█░ █▄▄ █▀█ ██▄ █░▀█");
-                                            System.out.println();
-                                            System.out.println("Select an action");
-                                            System.out.println("\t 1. Inspect room ");
-                                            System.out.println("\t 2. Talk to (NPC) ");
-                                            System.out.println("\t 3. View inventory");
-                                            System.out.println("\t 4. Bird???");
-                                            System.out.println("\t 5. Padlock");
-                                            System.out.println("\t 0. Go Back");
-                                    try
+                                    {
+                                        System.out.println(" █▄▀ █ ▀█▀ █▀▀ █░█ █▀▀ █▄░█" +
+                                                            "\n █░█ █ ░█░ █▄▄ █▀█ ██▄ █░▀█");
+                                        System.out.println();
+                                        System.out.println("Select an action");
+                                        System.out.println("\t 1. Inspect room ");
+                                        System.out.println("\t 2. Talk to (NPC) ");
+                                        System.out.println("\t 3. View inventory");
+                                        System.out.println("\t 4. Bird???");
+                                        System.out.println("\t 5. Padlock");
+                                        System.out.println("\t 0. Go Back");
+                                        try
                                         {
                                             actionChoice = kb.nextInt();
                                         }
-                                    catch (Exception e)
+                                        catch (Exception e)
                                         {
                                             actionChoice=-1;
                                             System.out.println("Invalid Input, you'll have to try that again!");
                                             kb.nextLine();
                                         }
-                                }
+                                    }
                                     while (actionChoice ==-1);
-                                kb.nextLine();
+                                    kb.nextLine();
 
+                                    //KITCHEN ACTIONS
                                     switch (actionChoice)
                                     {
-                                        //Kitchen Actions
+                                        //INSPECT ROOM
                                         case 1:
 
-                                                int inspectChoice;
+                                            int inspectChoice;
 
-                                                        boolean goBackFromInspectKitchen = false;
-                                                        while (goBackFromInspectKitchen == false)
+                                            boolean goBackFromInspectKitchen = false;
+                                            while (goBackFromInspectKitchen == false)
+                                            {
+                                                do
+                                                {
+                                                    if (kitchenRoom.objects.size() < 2)
+                                                    {
+                                                        System.out.println(kitchenRoom.roomDescription2);
+                                                    } 
+                                                    else
+                                                    {
+                                                        System.out.println(kitchenRoom.roomDescription);
+                                                    }
+                                                    System.out.println();
+
+                                                    if (kitchenRoom.items.size() > 0)
+                                                    {
+                                                        System.out.println("The Items in the room are");
+                                                        kitchenRoom.listItems();
+                                                    } 
+                                                    else
+                                                    {
+                                                        System.out.println("There are no more items of interest in this room");
+                                                    }
+                                                    System.out.println();
+
+                                                    if (kitchenRoom.objects.size() > 0)
+                                                    {
+                                                        System.out.println("Some other interesting things are ");
+                                                        System.out.println(kitchenRoom.objects);
+                                                    } 
+                                                    else
+                                                    {
+                                                        System.out.println("There are no interesting objects left in this room");
+                                                    }
+
+                                                    System.out.println("\t 1. Add Item to Inventory");
+                                                    System.out.println("\t 0. Go Back");
+                                                    try
+                                                    {
+                                                        inspectChoice = kb.nextInt();
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        inspectChoice = -1;
+                                                        System.out.println("Invalid Input, you'll have to try that again!");
+                                                        kb.nextLine();
+                                                    }
+                                                }while (inspectChoice == -1);
+
+                                                switch (inspectChoice)
+                                                {
+                                                    case 1:
                                                         {
-                                                            do
-                                                            {
-                                                            if (kitchenRoom.objects.size() < 2)
-                                                            {
-                                                                System.out.println(kitchenRoom.roomDescription2);
-                                                            } else
-                                                            {
-                                                                System.out.println(kitchenRoom.roomDescription);
-                                                            }
-                                                            System.out.println();
-
                                                             if (kitchenRoom.items.size() > 0)
                                                             {
-                                                                System.out.println("The Items in the room are");
-                                                                kitchenRoom.listItems();
-                                                            } else
-                                                            {
-                                                                System.out.println("There are no more items of interest in this room");
+                                                                try
+                                                                {
+                                                                    kitchenRoom.takeItemFromRoom(player);
+                                                                }
+                                                                catch (Exception e)
+                                                                {
+                                                                    kb.nextLine();
+                                                                    System.out.println("Invalid Input");
+                                                                }
                                                             }
-                                                            System.out.println();
-
-                                                            if (kitchenRoom.objects.size() > 0)
+                                                            else
                                                             {
-                                                                System.out.println("Some other interesting things are ");
-                                                                System.out.println(kitchenRoom.objects);
-                                                            } else
-                                                            {
-                                                                System.out.println("There are no interesting objects left in this room");
-                                                            }
-
-                                                            System.out.println("\t 1. Add Item to Inventory");
-                                                            System.out.println("\t 0. Go Back");
-                                                            try
-                                                            {
-                                                                inspectChoice = kb.nextInt();
-                                                            }
-                                                            catch (Exception e)
-                                                            {
-                                                                inspectChoice = -1;
-                                                                System.out.println("Invalid Input, you'll have to try that again!");
-                                                                kb.nextLine();
+                                                                System.out.println(player.name + ": Cant add " +
+                                                                        "anything to my inventory if there is " +
+                                                                        "nothing to add!");
                                                             }
                                                         }
 
+                                                        break;
 
-                                                        while (inspectChoice == -1);
+                                                    case 0:
+                                                        goBackFromInspectKitchen = true;
+                                                        System.out.println();
+                                                        System.out.println("--Back to kitchen--");
+                                                        break;
 
-                                                    switch (inspectChoice)
-                                                    {
-                                                        case 1:
-                                                            {
-                                                                if (kitchenRoom.items.size() > 0)
-                                                                {
-                                                                    try
-                                                                    {
-                                                                        kitchenRoom.takeItemFromRoom(player);
-                                                                    }
-                                                                    catch (Exception e)
-                                                                    {
-                                                                        kb.nextLine();
-                                                                        System.out.println("Invalid Input");
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    System.out.println(player.name + ": Cant add " +
-                                                                            "anything to my inventory if there is " +
-                                                                            "nothing to add!");
-                                                                }
-                                                            }
-
-                                                            break;
-
-                                                        case 0:
-                                                            goBackFromInspectKitchen = true;
-                                                            System.out.println();
-                                                            System.out.println("--Back to kitchen--");
-                                                            break;
-
-                                                        default:
-                                                            System.out.println("Try again");
-                                                            break;
-                                                    }
-
-                                                    break;
+                                                    default:
+                                                        System.out.println("Try again");
+                                                        break;
                                                 }
+
                                                 break;
+                                            }//end while
+                                            break;
+
+                                        //TALK TO NPC
                                         case 2:
 
                                                 try
@@ -250,21 +251,22 @@ public class Main
                                                 }
 
                                             break;
-
+                                        
+                                        //VIEW INVENTORY
                                         case 3:
                                             int itemChoice1;
                                             do
                                             {
-                                            System.out.println();
-                                            System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                             "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
-                                            System.out.println();
-                                            System.out.println(player.checkInventory());
-                                            System.out.println("Select inventory action");
-                                            System.out.println("\t 1. Inspect item");
-                                            System.out.println("\t 2. Use");
-                                            System.out.println("\t 3. Eat");
-                                            System.out.println("\t 0. Go back");
+                                                System.out.println();
+                                                System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                                "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                System.out.println();
+                                                System.out.println(player.checkInventory());
+                                                System.out.println("Select inventory action");
+                                                System.out.println("\t 1. Inspect item");
+                                                System.out.println("\t 2. Use");
+                                                System.out.println("\t 3. Eat");
+                                                System.out.println("\t 0. Go back");
 
 
                                                 try
@@ -281,6 +283,7 @@ public class Main
                                             }
                                             while (itemChoice1 ==-1);
                                             kb.nextLine();
+
                                                 switch (itemChoice1)
                                                 {
 
@@ -315,10 +318,12 @@ public class Main
                                                                 kitchenRoom.listInteractiveObjects();
                                                                 player.useItem(player, player.inventory.get(kb.nextInt()), kitchenRoom.objects.get(kb.nextInt()), kitchenRoom);
 
-                                                            } else if (player.inventory.size() <= 0 && kitchenRoom.objects.size() > 0)
+                                                            } 
+                                                            else if (player.inventory.size() <= 0 && kitchenRoom.objects.size() > 0)
                                                             {
                                                                 System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
-                                                            } else
+                                                            } 
+                                                            else
                                                             {
                                                                 System.out.println(player.name + ": There isnt anything  " +
                                                                         "left in here to interact with");
@@ -360,66 +365,62 @@ public class Main
                                             }
                                             break;
 
+                                        //CROW??
+                                        case 4:
+                                            try
+                                            {
+                                                NumberPuzzle numberPuzzle2 = new NumberPuzzle();
+                                                numberPuzzle2.NumberPuzzle(pantry);
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                System.out.println("INVALID INPUT");
 
+                                            }
+                                            break;
 
-
-                                                case 4:
-                                                    try
-                                                    {
-                                                        NumberPuzzle numberPuzzle2 = new NumberPuzzle();
-                                                        numberPuzzle2.NumberPuzzle(pantry);
-                                                    }
-                                                    catch (Exception e)
-                                                    {
-                                                        System.out.println("INVALID INPUT");
-
-                                                    }
-
-
-                                                    break;
-
-                                                case 5:
-                                                    try
-                                                    {
-                                                        PadLock padlock = new PadLock();
-                                                        System.out.println(" Choose inventory item number first and press enter, then choose object number and press enter.");
-                                                        System.out.println("Inventory Items");
-                                                        player.listInventory();
-                                                        System.out.println("----------");
-                                                        System.out.println("Room Objects");
-                                                        kitchenRoom.listInteractiveObjectsHidden();
-                                                        padlock.padLock(player, pantry, player.inventory.get(kb.nextInt()),
-                                                                kitchenRoom.objects.get(kb.nextInt()));
-                                                    }
-                                                    catch (Exception e)
-                                                    {
-                                                        System.out.println("INVALID INPUT");
-                                                    }
-                                                    break;
-
-                                                case 0:
-                                                    try
-                                                    {
-                                                        goBackFromKitchen = true;
-                                                        System.out.println();
-                                                        System.out.println("--Back to room selection--");
-                                                    }
-                                                    catch (Exception e)
-                                                    {
-                                                        System.out.println("INVALID INPUT");
-                                                    }
-                                                    break;
+                                        //PADLOCk
+                                        case 5:
+                                            try
+                                            {
+                                                PadLock padlock = new PadLock();
+                                                System.out.println(" Choose inventory item number first and press enter, then choose object number and press enter.");
+                                                System.out.println("Inventory Items");
+                                                player.listInventory();
+                                                System.out.println("----------");
+                                                System.out.println("Room Objects");
+                                                kitchenRoom.listInteractiveObjectsHidden();
+                                                padlock.padLock(player, pantry, player.inventory.get(kb.nextInt()),
+                                                        kitchenRoom.objects.get(kb.nextInt()));
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                System.out.println("INVALID INPUT");
+                                            }
+                                            break;
+                                        
+                                        //GO BACK
+                                        case 0:
+                                            try
+                                            {
+                                                goBackFromKitchen = true;
+                                                System.out.println();
+                                                System.out.println("--Back to room selection--");
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                System.out.println("INVALID INPUT");
+                                            }
+                                            break;
 
 
                                                 default:
                                                     System.out.println("Try again");
                                             }//end switch
-
                                     }//end while go back
-
                                     break;
 
-                            //pantry
+                            //PANTRY
                             case 2:
                                 try
                                 {
@@ -429,38 +430,37 @@ public class Main
                                         boolean goBackFromPantry = false;
                                         while (goBackFromPantry == false)
                                         {
-
                                             do
                                             {
-                                            //System.out.println(pantry.roomName);
-                                            System.out.println("█▀█ ▄▀█ █▄░█ ▀█▀ █▀█ █▄█" +
-                                                    "\n█▀▀ █▀█ █░▀█ ░█░ █▀▄ ░█░");
-                                            System.out.println();
-                                            System.out.println("Select an action");
-                                            System.out.println("\t 1. Inspect room ");
-                                            System.out.println("\t 2. Talk to (NPC) ");
-                                            System.out.println("\t 3. View inventory");
-                                            System.out.println("\t 4. Attempt Passcode");
-                                            System.out.println("\t 0. Go Back");
+                                                //System.out.println(pantry.roomName);
+                                                System.out.println("█▀█ ▄▀█ █▄░█ ▀█▀ █▀█ █▄█" +
+                                                        "\n█▀▀ █▀█ █░▀█ ░█░ █▀▄ ░█░");
+                                                System.out.println();
+                                                System.out.println("Select an action");
+                                                System.out.println("\t 1. Inspect room ");
+                                                System.out.println("\t 2. Talk to (NPC) ");
+                                                System.out.println("\t 3. View inventory");
+                                                System.out.println("\t 4. Attempt Passcode");
+                                                System.out.println("\t 0. Go Back");
 
-                                            try
-                                            {
-                                                actionChoice = kb.nextInt();
+                                                try
+                                                {
+                                                    actionChoice = kb.nextInt();
+                                                }
+                                                catch (Exception e)
+                                                {
+                                                    actionChoice = -1;
+                                                    System.out.println("Invalid Input, you'll have to try that again!");
+                                                    kb.nextLine();
+                                                }
                                             }
-                                            catch (Exception e)
-                                            {
-                                                actionChoice = -1;
-                                                System.out.println("Invalid Input, you'll have to try that again!");
-                                                kb.nextLine();
-                                            }
-                                        }
-                                        while (actionChoice ==-1);
-                                        kb.nextLine();
+                                            while (actionChoice ==-1);
+                                            kb.nextLine();
 
 
                                             switch (actionChoice) 
                                             {
-                                                //Pantry
+                                                //INSPECT ROOM
                                                 case 1:
                                                     try 
                                                     {
@@ -541,7 +541,8 @@ public class Main
                                                         System.out.println("INVALID INPUT");
                                                     }
                                                     break;
-
+                                                
+                                                //TALK TO NPC
                                                 case 2:
                                                     try 
                                                     {
@@ -553,6 +554,7 @@ public class Main
                                                     }
                                                     break;
 
+                                                //VIEW INVENTORY
                                                 case 3:
                                                     try 
                                                     {
@@ -626,12 +628,12 @@ public class Main
                                                                     break;
                                                                 }
                                                                 catch (Exception e)
-                                                            {
-                                                                System.out.println("INVALID INPUT");
-                                                            }
+                                                                {
+                                                                    System.out.println("INVALID INPUT");
+                                                                }
 
                                                                 default:
-                                                                System.out.println("Error in Inventory action selection ");
+                                                                    System.out.println("Error in Inventory action selection ");
                                                         }
                                                         break;
                                                     }
@@ -639,6 +641,8 @@ public class Main
                                                     {
                                                         System.out.println("INVALID INPUT");
                                                     }
+                                                
+                                                //ATTEMPT PASSCODE
                                                 case 4:
                                                     try 
                                                     {
@@ -647,22 +651,24 @@ public class Main
                                                         break;
                                                     }
                                                     catch (Exception e)
-                                                        {
-                                                            System.out.println("INVALID INPUT");
-                                                        }
+                                                    {
+                                                        System.out.println("INVALID INPUT");
+                                                    }
 
-                                                        case 0:
-                                                            try
-                                                            {
-                                                                goBackFromPantry = true;
-                                                                System.out.println();
-                                                                System.out.println("--Back to room selection--");
-                                                                break;
-                                                            }
-                                                            catch (Exception e)
-                                                            {
-                                                                System.out.println("INVALID INPUT");
-                                                            }
+                                                //GO BACK
+                                                case 0:
+                                                    try
+                                                    {
+                                                        goBackFromPantry = true;
+                                                        System.out.println();
+                                                        System.out.println("--Back to room selection--");
+                                                        break;
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        System.out.println("INVALID INPUT");
+                                                    }
+                                                    
                                             }
                                         }
                                         break;
@@ -702,9 +708,11 @@ public class Main
                                             System.out.println("\t 0. Go Back");
 
                                             actionChoice = kb.nextInt();
+
+                                            //DINING ACTIONS
                                             switch (actionChoice) 
                                             {
-                                                //Dining Actions
+                                                //INSPECT ROOM
                                                 case 1:
 
                                                     int inspectChoice3;
@@ -720,6 +728,7 @@ public class Main
                                                             System.out.println(diningRoom.roomDescription);
                                                         }
                                                         System.out.println();
+
                                                         if (diningRoom.items.size() >0)
                                                         {
                                                             System.out.println("The Items in the room are");
@@ -730,6 +739,7 @@ public class Main
                                                             System.out.println("There are no more items of interest in this room");
                                                         }
                                                         System.out.println();
+
                                                         if (diningRoom.objects.size()>0)
                                                         {
                                                             System.out.println("Some other interesting things are ");
@@ -778,11 +788,11 @@ public class Main
                                                                 System.out.println("Try again");
                                                                 break;
                                                         }
-
                                                         break;
                                                     }
                                                     break;
 
+                                                //TALk TO NPC
                                                 case 2:
                                                     try
                                                     {
@@ -796,117 +806,46 @@ public class Main
                                                         System.out.println("Invalid Input");
                                                     }
 
+                                                //VIEW INVENTORY
                                                 case 3:
                                                     int itemChoice1;
-                                                do {
-                                                        System.out.println();
-                                                        System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                                        "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
-                                                        System.out.println();
-                                                        System.out.println(player.checkInventory());
-                                                        System.out.println("Select inventory action");
-                                                        System.out.println("\t 1. Inspect item");
-                                                        System.out.println("\t 2. Use");
-                                                        System.out.println("\t 3. Eat");
-                                                        System.out.println("\t 0. Go back");
-
-                                                    try
+                                                    do 
                                                     {
-                                                        itemChoice1 = kb.nextInt();
-                                                    }
-                                                    catch (Exception e)
-                                                    {
-                                                        itemChoice1=-1;
-                                                        System.out.println("Invalid Input, you'll have to try that again!");
-                                                        kb.nextLine();
-                                                    }
-                                            }
-                                            while (itemChoice1 ==-1);
-                                            kb.nextLine();
+                                                            System.out.println();
+                                                            System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                                            "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                            System.out.println();
+                                                            System.out.println(player.checkInventory());
+                                                            System.out.println("Select inventory action");
+                                                            System.out.println("\t 1. Inspect item");
+                                                            System.out.println("\t 2. Use");
+                                                            System.out.println("\t 3. Eat");
+                                                            System.out.println("\t 0. Go back");
 
+                                                            try
+                                                            {
+                                                                itemChoice1 = kb.nextInt();
+                                                            }
+                                                            catch (Exception e)
+                                                            {
+                                                                itemChoice1=-1;
+                                                                System.out.println("Invalid Input, you'll have to try that again!");
+                                                                kb.nextLine();
+                                                            }
+                                                    }
+                                                    while (itemChoice1 ==-1);
+                                                    kb.nextLine();
 
 
                                             switch (itemChoice1)
-                                                    {
-                                                        //Inspect
-                                                        case 1:
-                                                            try
-                                                            {
-                                                                System.out.println(" Which Item do you want to check?");
-                                                                player.listInventory();
-                                                                System.out.println(player.inventory.get(kb.nextInt()).description);
-                                                                break;
-                                                            }  
-                                                            catch (Exception e)
-                                                            {
-                                                                System.out.println("Invalid Input");
-                                                            }
-
-                                                        //Use
-                                                        case 2:
-                                                            try
-                                                            {
-                                                                if (player.inventory.size() > 0 && diningRoom.objects.size() > 0) 
-                                                                {
-                                                                    System.out.println(" Choose inventory item number first and press enter, then choose object number and press enter.");
-                                                                    System.out.println("Inventory Items"
-                                                                    );
-                                                                    player.listInventory();
-                                                                    System.out.println("----------");
-                                                                    System.out.println("Room Objects");
-                                                                    diningRoom.listInteractiveObjects();
-                                                                    player.useItem(player, player.inventory.get(kb.nextInt())
-                                                                            , diningRoom.objects.get(kb.nextInt()), diningRoom);
-
-                                                                } 
-                                                                else if (player.inventory.size() <= 0 && diningRoom.objects.size() > 0) 
-                                                                {
-                                                                    System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
-                                                                } 
-                                                                else 
-                                                                {
-                                                                    System.out.println(player.name + ": There isnt anything  " +
-                                                                            "left in here to interact with");
-                                                                }
-                                                                break;
-                                                            }  
-                                                            catch (Exception e)
-                                                            {
-                                                                System.out.println("Invalid Input");
-                                                            }
-
-                                                        //Eat
-                                                        case 3:
-                                                            try
-                                                            {
-                                                                player.listInventory();
-                                                                player.eat(player, player.inventory.get(kb.nextInt()));
-
-                                                                break;
-                                                            }  
-                                                            catch (Exception e)
-                                                            {
-                                                                System.out.println("Invalid Input");
-                                                            }
-
-
-                                                        default:
-                                                            System.out.println("Error in Inventory action selection ");
-                                                    }
-                                                    break;
-
-
-
-                                                case 4:
+                                            {
+                                                //Inspect
+                                                case 1:
                                                     try
                                                     {
-                                                        System.out.println("Choose inventory item number first and press enter, then choose object number and press enter");
+                                                        System.out.println(" Which Item do you want to check?");
                                                         player.listInventory();
-                                                        System.out.println("-----");
-                                                        diningRoom.listInteractiveObjectsHidden();
-                                                        LeverLock lock = new LeverLock();
-                                                        lock.leverLock(player,player.inventory.get(kb.nextInt()),
-                                                                diningRoom.objects.get(kb.nextInt()),magicShelf);
+                                                        System.out.println(player.inventory.get(kb.nextInt()).description);
                                                         break;
                                                     }  
                                                     catch (Exception e)
@@ -914,18 +853,86 @@ public class Main
                                                         System.out.println("Invalid Input");
                                                     }
 
-                                                case 0:
+                                                //Use
+                                                case 2:
                                                     try
                                                     {
-                                                        goBackFromDinning = true;
-                                                        System.out.println();
-                                                        System.out.println("--Back to room selection--");
+                                                        if (player.inventory.size() > 0 && diningRoom.objects.size() > 0) 
+                                                        {
+                                                            System.out.println(" Choose inventory item number first and press enter, then choose object number and press enter.");
+                                                            System.out.println("Inventory Items"
+                                                            );
+                                                            player.listInventory();
+                                                            System.out.println("----------");
+                                                            System.out.println("Room Objects");
+                                                            diningRoom.listInteractiveObjects();
+                                                            player.useItem(player, player.inventory.get(kb.nextInt())
+                                                                    , diningRoom.objects.get(kb.nextInt()), diningRoom);
+
+                                                        } 
+                                                        else if (player.inventory.size() <= 0 && diningRoom.objects.size() > 0) 
+                                                        {
+                                                            System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                        } 
+                                                        else 
+                                                        {
+                                                            System.out.println(player.name + ": There isnt anything  " +
+                                                                    "left in here to interact with");
+                                                        }
                                                         break;
                                                     }  
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
                                                     }
+
+                                                //Eat
+                                                case 3:
+                                                    try
+                                                    {
+                                                        player.listInventory();
+                                                        player.eat(player, player.inventory.get(kb.nextInt()));
+
+                                                        break;
+                                                    }  
+                                                    catch (Exception e)
+                                                    {
+                                                        System.out.println("Invalid Input");
+                                                    }
+                                                default:
+                                                    System.out.println("Error in Inventory action selection ");
+                                            }
+                                            break;
+
+                                        case 4:
+                                            try
+                                            {
+                                                System.out.println("Choose inventory item number first and press enter, then choose object number and press enter");
+                                                player.listInventory();
+                                                System.out.println("-----");
+                                                diningRoom.listInteractiveObjectsHidden();
+                                                LeverLock lock = new LeverLock();
+                                                lock.leverLock(player,player.inventory.get(kb.nextInt()),
+                                                        diningRoom.objects.get(kb.nextInt()),magicShelf);
+                                                break;
+                                            }  
+                                            catch (Exception e)
+                                            {
+                                                System.out.println("Invalid Input");
+                                            }
+
+                                        case 0:
+                                            try
+                                            {
+                                                goBackFromDinning = true;
+                                                System.out.println();
+                                                System.out.println("--Back to room selection--");
+                                                break;
+                                            }  
+                                            catch (Exception e)
+                                            {
+                                                System.out.println("Invalid Input");
+                                            }
                                         }
                                     }
                                     break;
@@ -946,80 +953,184 @@ public class Main
                             case 4:
                                 try
                                 {
-                                if (magicShelf.locked==false) 
-                                {
-                                    boolean goBackFromMagicShelf = false;
-                                    while (goBackFromMagicShelf == false) 
+                                    if (magicShelf.locked==false) 
                                     {
-                                        int actionChoice4;
-                                        //System.out.println(magicShelf.roomName);
-                                        System.out.println("█▀▄▀█ ▄▀█ █▀▀ █ █▀▀   █▀ █░█ █▀▀ █░░ █▀▀" +
-                                                         "\n█░▀░█ █▀█ █▄█ █ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▀░");
-                                        System.out.println();
-                                        System.out.println("Select an action");
-                                        System.out.println("\t 1. Inspect room ");
-                                        System.out.println("\t 2. Talk to (NPC) ");
-                                        System.out.println("\t 3. View inventory");
-                                        System.out.println("\t 4. Give a Treat");
-                                        System.out.println("\t 0. Go Back");
+                                        boolean goBackFromMagicShelf = false;
+                                        while (goBackFromMagicShelf == false) 
+                                        {
+                                            int actionChoice4;
+                                            //System.out.println(magicShelf.roomName);
+                                            System.out.println("█▀▄▀█ ▄▀█ █▀▀ █ █▀▀   █▀ █░█ █▀▀ █░░ █▀▀" +
+                                                            "\n█░▀░█ █▀█ █▄█ █ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▀░");
+                                            System.out.println();
+                                            System.out.println("Select an action");
+                                            System.out.println("\t 1. Inspect room ");
+                                            System.out.println("\t 2. Talk to (NPC) ");
+                                            System.out.println("\t 3. View inventory");
+                                            System.out.println("\t 4. Give a Treat");
+                                            System.out.println("\t 0. Go Back");
 
-                                        actionChoice4 = kb.nextInt();
-                                        switch (actionChoice4) {
-                                            //Kitchen Actions
-                                            case 1:
-                                                try
-                                                {
-                                                int inspectChoice4;
-                                                boolean goBackFromInspectMagicShelf = false;
-                                                while (goBackFromInspectMagicShelf == false) 
-                                                {
-                                                    if (magicShelf.objects.size()<2)
+                                            actionChoice4 = kb.nextInt();
+                                            switch (actionChoice4) {
+                                                //Kitchen Actions
+                                                case 1:
+                                                    try
                                                     {
-                                                        System.out.println(magicShelf.roomDescription2);
-                                                    }
-                                                    else
+                                                    int inspectChoice4;
+                                                    boolean goBackFromInspectMagicShelf = false;
+                                                    while (goBackFromInspectMagicShelf == false) 
                                                     {
-                                                        System.out.println(magicShelf.roomDescription);
-                                                    }
-                                                    System.out.println();
-                                                    if (magicShelf.items.size() >0)
-                                                    {
-                                                        System.out.println("The Items in the room are");
-                                                        magicShelf.listItems();
-                                                    }
-                                                    else
-                                                    {
-                                                        System.out.println("There are no more items of interest in this room");
-                                                    }
-                                                    System.out.println();
-                                                    if ( magicShelf.objects.size()>0)
-                                                    {
-                                                        System.out.println("Some other interesting things are ");
-                                                        System.out.println(magicShelf.objects);
-                                                    }
-                                                    else
-                                                    {
-                                                        System.out.println("There are no interesting objects left in this room");
-                                                    }
-                                                    System.out.println("\t 1. Add Item to Inventory");
-                                                    System.out.println("\t 0. Go Back");
+                                                        if (magicShelf.objects.size()<2)
+                                                        {
+                                                            System.out.println(magicShelf.roomDescription2);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println(magicShelf.roomDescription);
+                                                        }
+                                                        System.out.println();
+                                                        if (magicShelf.items.size() >0)
+                                                        {
+                                                            System.out.println("The Items in the room are");
+                                                            magicShelf.listItems();
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println("There are no more items of interest in this room");
+                                                        }
+                                                        System.out.println();
+                                                        if ( magicShelf.objects.size()>0)
+                                                        {
+                                                            System.out.println("Some other interesting things are ");
+                                                            System.out.println(magicShelf.objects);
+                                                        }
+                                                        else
+                                                        {
+                                                            System.out.println("There are no interesting objects left in this room");
+                                                        }
+                                                        System.out.println("\t 1. Add Item to Inventory");
+                                                        System.out.println("\t 0. Go Back");
 
-                                                    inspectChoice4 = kb.nextInt();
-                                                    switch (inspectChoice4) 
+                                                        inspectChoice4 = kb.nextInt();
+                                                        switch (inspectChoice4) 
+                                                        {
+                                                            case 1:
+                                                                try
+                                                                {
+                                                                    if (magicShelf.items.size()>0) 
+                                                                    {
+                                                                        magicShelf.takeItemFromRoom(player);
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        System.out.println(player.name + ": Cant add " +
+                                                                                "anything to my inventory if there is " +
+                                                                                "nothing to add!");
+                                                                    }
+
+                                                                    break;
+                                                                }
+                                                                catch (Exception e)
+                                                                {
+                                                                    System.out.println("Invalid Input");
+                                                                }
+
+                                                            case 0:
+                                                                goBackFromInspectMagicShelf = true;
+                                                                System.out.println("--Back to kitchen--");
+                                                                break;
+
+                                                            default:
+                                                                System.out.println("Try again");
+                                                                break;
+                                                        }
+
+                                                        break;
+                                                    }
+                                                    break;
+                                                    }  
+                                                    catch (Exception e)
                                                     {
-                                                        case 1:
-                                                            try
+                                                        System.out.println("Invalid Input");
+                                                    }
+                                                case 2:
+                                                    try
+                                                    {
+                                                        player.chat(player, magicShelf.npc);
+                                                        break;
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        System.out.println("Invalid Input");
+                                                    }
+
+                                                case 3:
+                                                    try
+                                                    {
+                                                        int itemChoice1;
+                                                        System.out.println();
+                                                        System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
+                                                                        "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
+                                                        System.out.println();
+                                                        System.out.println(player.checkInventory());
+                                                        System.out.println("Select inventory action");
+                                                        System.out.println("\t 1. Inspect item");
+                                                        System.out.println("\t 2. Use");
+                                                        System.out.println("\t 3. Eat");
+                                                        System.out.println("\t 0. Go back");
+
+                                                        itemChoice1 = kb.nextInt();
+                                                        switch (itemChoice1) 
+                                                        {
+                                                            //Inspect
+                                                            case 1:
+                                                                try{
+                                                                System.out.println(" Which Item do you want to check?");
+                                                                player.listInventory();
+                                                                System.out.println(player.inventory.get(kb.nextInt()).description);
+                                                                break;
+                                                                }
+                                                                catch (Exception e)
+                                                                {
+                                                                    System.out.println("Invalid Input");
+                                                                }
+
+                                                            //Use
+                                                            case 2:
+                                                                try
+                                                                {
+                                                                    if (player.inventory.size()>0 && magicShelf.objects.size()>0) 
+                                                                    {
+                                                                        System.out.println(" Choose inventory item number first and press enter, then choose object number and press enter.");
+                                                                        System.out.println("Inventory Items"
+                                                                        );
+                                                                        player.listInventory();
+                                                                        System.out.println("----------");
+                                                                        System.out.println("Room Objects");
+                                                                        magicShelf.listInteractiveObjects();
+                                                                        player.useItem(player, player.inventory.get(kb.nextInt()), magicShelf.objects.get(kb.nextInt()), magicShelf);
+                                                                    }
+                                                                    else if (player.inventory.size()<=0 && magicShelf.objects.size()>0)
+                                                                    {
+                                                                        System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        System.out.println(player.name + ": There isnt anything  " +
+                                                                                "left in here to interact with");
+                                                                    }
+                                                                    break;
+                                                                }
+                                                                catch (Exception e)
+                                                                {
+                                                                    System.out.println("Invalid Input");
+                                                                }
+
+                                                            //Eat
+                                                            case 3: try
                                                             {
-                                                                if (magicShelf.items.size()>0) 
-                                                                {
-                                                                    magicShelf.takeItemFromRoom(player);
-                                                                }
-                                                                else
-                                                                {
-                                                                    System.out.println(player.name + ": Cant add " +
-                                                                            "anything to my inventory if there is " +
-                                                                            "nothing to add!");
-                                                                }
+                                                                player.listInventory();
+                                                                player.eat(player, player.inventory.get(kb.nextInt()));
 
                                                                 break;
                                                             }
@@ -1027,155 +1138,52 @@ public class Main
                                                             {
                                                                 System.out.println("Invalid Input");
                                                             }
-
-                                                        case 0:
-                                                            goBackFromInspectMagicShelf = true;
-                                                            System.out.println("--Back to kitchen--");
-                                                            break;
-
-                                                        default:
-                                                            System.out.println("Try again");
-                                                            break;
+                                                    }
+                                                    break;
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        System.out.println("Invalid Input");
+                                                    }
+                                                case 4:
+                                                    try
+                                                    {
+                                                        System.out.println(magicShelf.npc.name + ": Have you brought me my " +
+                                                                "favorite " +
+                                                                "treat!?!?!?");
+                                                        System.out.println(player.name + ": How about this?");
+                                                        player.listInventory();
+                                                        System.out.println("------");
+                                                        magicShelf.listInteractiveObjects();
+                                                        GiveFood food = new GiveFood();
+                                                        food.giveFood(player, magicShelf,player.inventory.get(kb.nextInt()),
+                                                                magicShelf.objects.get(kb.nextInt()));
+                                                        break;
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        System.out.println("Invalid Input");
                                                     }
 
-                                                    break;
-                                                }
-                                                break;
-                                                }  
-                                                catch (Exception e)
-                                                {
-                                                    System.out.println("Invalid Input");
-                                                }
-                                            case 2:
-                                                try
-                                                {
-                                                    player.chat(player, magicShelf.npc);
-                                                    break;
-                                                }
-                                                catch (Exception e)
-                                                {
-                                                    System.out.println("Invalid Input");
-                                                }
 
-                                            case 3:
-                                                try
-                                                {
-                                                    int itemChoice1;
+                                                case 0:
+                                                    goBackFromMagicShelf = true;
                                                     System.out.println();
-                                                    System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
-                                                                    "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
-                                                    System.out.println();
-                                                    System.out.println(player.checkInventory());
-                                                    System.out.println("Select inventory action");
-                                                    System.out.println("\t 1. Inspect item");
-                                                    System.out.println("\t 2. Use");
-                                                    System.out.println("\t 3. Eat");
-                                                    System.out.println("\t 0. Go back");
-
-                                                    itemChoice1 = kb.nextInt();
-                                                    switch (itemChoice1) 
-                                                    {
-                                                        //Inspect
-                                                        case 1:
-                                                            try{
-                                                            System.out.println(" Which Item do you want to check?");
-                                                            player.listInventory();
-                                                            System.out.println(player.inventory.get(kb.nextInt()).description);
-                                                            break;
-                                                            }
-                                                            catch (Exception e)
-                                                            {
-                                                                System.out.println("Invalid Input");
-                                                            }
-
-                                                        //Use
-                                                        case 2:
-                                                            try
-                                                            {
-                                                                if (player.inventory.size()>0 && magicShelf.objects.size()>0) 
-                                                                {
-                                                                    System.out.println(" Choose inventory item number first and press enter, then choose object number and press enter.");
-                                                                    System.out.println("Inventory Items"
-                                                                    );
-                                                                    player.listInventory();
-                                                                    System.out.println("----------");
-                                                                    System.out.println("Room Objects");
-                                                                    magicShelf.listInteractiveObjects();
-                                                                    player.useItem(player, player.inventory.get(kb.nextInt()), magicShelf.objects.get(kb.nextInt()), magicShelf);
-                                                                }
-                                                                else if (player.inventory.size()<=0 && magicShelf.objects.size()>0)
-                                                                {
-                                                                    System.out.println(player.name + ": What am i going to use? Ive got nothing in my bag..");
-                                                                }
-                                                                else
-                                                                {
-                                                                    System.out.println(player.name + ": There isnt anything  " +
-                                                                            "left in here to interact with");
-                                                                }
-                                                                break;
-                                                            }
-                                                            catch (Exception e)
-                                                            {
-                                                                System.out.println("Invalid Input");
-                                                            }
-
-                                                        //Eat
-                                                        case 3: try
-                                                        {
-                                                            player.listInventory();
-                                                            player.eat(player, player.inventory.get(kb.nextInt()));
-
-                                                            break;
-                                                        }
-                                                        catch (Exception e)
-                                                        {
-                                                            System.out.println("Invalid Input");
-                                                        }
-                                                }
-                                                break;
-                                                }
-                                                catch (Exception e)
-                                                {
-                                                    System.out.println("Invalid Input");
-                                                }
-                                            case 4:
-                                                try
-                                                {
-                                                    System.out.println(magicShelf.npc.name + ": Have you brought me my " +
-                                                            "favorite " +
-                                                            "treat!?!?!?");
-                                                    System.out.println(player.name + ": How about this?");
-                                                    player.listInventory();
-                                                    System.out.println("------");
-                                                    magicShelf.listInteractiveObjects();
-                                                    GiveFood food = new GiveFood();
-                                                    food.giveFood(player, magicShelf,player.inventory.get(kb.nextInt()),
-                                                            magicShelf.objects.get(kb.nextInt()));
+                                                    System.out.println("--Back to room selection--");
                                                     break;
-                                                }
-                                                catch (Exception e)
-                                                {
-                                                    System.out.println("Invalid Input");
-                                                }
-
-
-                                            case 0:
-                                                goBackFromMagicShelf = true;
-                                                System.out.println();
-                                                System.out.println("--Back to room selection--");
-                                                break;
+                                            }
                                         }
+                                        break;
                                     }
-                                    break;
-                                }
-                                else
-                                {
-                                    System.out.println(player.name + ": Dang I cant get in there... yet");
-                                    System.out.println();
-                                    goBack=false;
-                                    break;
-                                }
-                                }  catch (Exception e)
+                                    else
+                                    {
+                                        System.out.println(player.name + ": Dang I cant get in there... yet");
+                                        System.out.println();
+                                        goBack=false;
+                                        break;
+                                    }
+                                }  
+                                catch (Exception e)
                                 {
                                     System.out.println("Invalid Input");
                                 }
@@ -1213,7 +1221,7 @@ public class Main
                         itemChoice = kb.nextInt();
                         switch (itemChoice)
                         {
-                            //Inspect
+                            //Inspect item
                             case 1:
                                 try{
                                 System.out.println(" Which Item do you want to check?");
@@ -1226,7 +1234,7 @@ public class Main
                                     System.out.println("Invalid Input");
                                 }
 
-                            //Use
+                            //Use item
                             case 2:
                                 try
                                 {
@@ -1238,7 +1246,7 @@ public class Main
                                     System.out.println("Invalid Input");
                                 }
 
-                            //Eat
+                            //Eat item
                             case 3:
                                 try
                                 {
@@ -1255,39 +1263,39 @@ public class Main
                             default:
                             System.out.println("Error in Inventory action selection ");
                         }
-                    break;
-                        }
+                        break;
+                    }
                     catch (Exception e)
                     {
                         System.out.println("Invalid Input");
                     }
 
-                //the freezer/'Exit'
+                //THE FREEZER/ "EXIT"
                 case 3: 
-                try
-                {
-                    if (player.inventory.size()>3) 
+                    try
                     {
-                        Freezer freezer = new Freezer();
-                        System.out.println("Now to place the four key pieces in order.");
-                        player.listInventory();
-                        freezer.Freezer(player, player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()));
+                        if (player.inventory.size()>3) 
+                        {
+                            Freezer freezer = new Freezer();
+                            System.out.println("Now to place the four key pieces in order.");
+                            player.listInventory();
+                            freezer.Freezer(player, player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()));
+                        }
+                        else 
+                        {
+                            System.out.println("The freezer has four keys.. I don't even have four items in my inventory");
+                        }
+                        break;
                     }
-                    else 
+                    catch (Exception e)
                     {
-                        System.out.println("The freezer has four keys.. I don't even have four items in my inventory");
+                        System.out.println("Invalid Input");
                     }
-                    break;
-                }
-                catch (Exception e)
-                {
-                    System.out.println("Invalid Input");
-                }
 
                 default:
                     System.out.println("Invalid selection...Try Again");
 
             }//end Choice action
-        }
+        }//End while door is unlocked
     }//End Main
 }//end Main
