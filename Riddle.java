@@ -37,6 +37,25 @@ public class   Riddle
                 {
                     solved = true;
                     System.out.println(room.npc.name + ": Such a wise thief...");
+                    System.out.println("                      ████████      ");
+                    System.out.println("                    ██        ██     ");
+                    System.out.println("                  ██▒▒▒▒        ██   "); 
+                    System.out.println("                ██▒▒▒▒▒▒      ▒▒▒▒██     ");
+                    System.out.println("                ██▒▒▒▒▒▒      ▒▒▒▒██ ");
+                    System.out.println("              ██  ▒▒▒▒        ▒▒▒▒▒▒██ ");                                                                      
+                    System.out.println("              ██                ▒▒▒▒██ ");
+                    System.out.println("            ██▒▒      ▒▒▒▒▒▒          ██ ");
+                    System.out.println("            ██      ▒▒▒▒▒▒▒▒▒▒        ██ ");
+                    System.out.println("            ██      ▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒██ ");
+                    System.out.println("            ██▒▒▒▒  ▒▒▒▒▒▒▒▒▒▒  ▒▒▒▒▒▒██");
+                    System.out.println("              ██▒▒▒▒  ▒▒▒▒▒▒     ▒▒▒▒██ ");
+                    System.out.println("              ██▒▒▒▒            ▒▒▒▒██ ");
+                    System.out.println("                ██▒▒              ██ ");
+                    System.out.println("                  ████        ████ ");
+                    System.out.println("                      ████████");
+                    System.out.println("");
+
+
                     //add final puzzle clue to inventory
                 } 
                 else 
