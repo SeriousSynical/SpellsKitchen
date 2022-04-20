@@ -1,16 +1,10 @@
-import java.nio.channels.AcceptPendingException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class Main
 {
-
-
-
     public static void main(String[] args) throws InterruptedException
     {
-
 
         Character character = new Character("",Pronouns.masculine,"");
         //Player player = new Player("",Pronouns.masculine,"");
@@ -23,7 +17,6 @@ public class Main
         magicShelf.locked=false;
 
         Scanner kb = new Scanner(System.in);
-
 
 
         System.out.println("Welcome to...");
@@ -67,7 +60,6 @@ public class Main
                 while (choice ==0);
                 kb.nextLine();
             }
-
 
 
             switch (choice)
