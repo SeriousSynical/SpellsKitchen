@@ -53,7 +53,8 @@ public class Main
                     catch (Exception e)
                     {
                         choice=0;
-                        System.out.println("Invalid Input, you'll have to try that again!");
+                        System.out.println("Incorrect Input Type...Try Again");
+                        System.out.println("");
                         kb.nextLine();
                     }
                 }
@@ -89,7 +90,8 @@ public class Main
                             catch (Exception e)
                             {
                                 roomChoice=-1;
-                                System.out.println("Invalid Input, you'll have to try that again!");
+                                System.out.println("Incorrect Input Type...Try Again");
+                                System.out.println("");
                                 kb.nextLine();
                             }
                         }
@@ -123,7 +125,8 @@ public class Main
                                         catch (Exception e)
                                         {
                                             actionChoice=-1;
-                                            System.out.println("Invalid Input, you'll have to try that again!");
+                                            System.out.println("Incorrect Input Type...Try Again");
+                                            System.out.println("");
                                             kb.nextLine();
                                         }
                                     }
@@ -183,7 +186,8 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         inspectChoice = -1;
-                                                        System.out.println("Invalid Input, you'll have to try that again!");
+                                                        System.out.println("Incorrect Input Type...Try Again");
+                                                        System.out.println("");
                                                         kb.nextLine();
                                                     }
                                                 }while (inspectChoice == -1);
@@ -201,6 +205,7 @@ public class Main
                                                                 catch (Exception e)
                                                                 {
                                                                     System.out.println("Invalid Input");
+                                                                    System.out.println("");
                                                                     kb.nextLine();
                                                                 }
                                                             }
@@ -222,6 +227,7 @@ public class Main
 
                                                     default:
                                                         System.out.println("Try again");
+                                                        System.out.println("");
                                                         break;
                                                 }
 
@@ -232,24 +238,74 @@ public class Main
                                         //TALK TO NPC
                                         case 2:
 
+                                            boolean flag = false;
+                                            int answer;
+                                            
+                                            do
+                                            {
+                                                System.out.println("1. Who are you?");
+                                                System.out.println("2. How can i open this?");
+                                                System.out.println("3. Why are you here?");
+                                                System.out.println("0. Exit");
+                                                
                                                 try
                                                 {
-                                                    player.chat(player, kitchenRoom.npc);
-
+                                                    answer = kb.nextInt();
+                                                    if (answer == 1)
+                                                    {
+                                                        System.out.println();
+                                                        System.out.println(player.name + ": Who are you?");
+                                                        System.out.println("Hemisworth: I am Hemisworth the devilish cook.");
+                                                        System.out.println();
+                                        
+                                                    } 
+                                                    else if (answer == 2)
+                                                    {
+                                                        System.out.println();
+                                                        System.out.println(player.name + ": How can I open the freezer?");
+                                                        System.out.println("Hemisworth: The freezer?? Even I haven't unlocked the freezer.");
+                                                        System.out.println("Hemisworth: It is seemingly locked by four things.");
+                                                        System.out.println("Hemisworth: Oh what great ingredients it holds.");
+                                                        System.out.println();
+                                        
+                                                    } 
+                                                    else if (answer == 3)
+                                                    {
+                                                        System.out.println();
+                                                        System.out.println(player.name + ": Why are you here?");
+                                                        System.out.println("Hemisworth: There is a wooden crate loosely hanging on the ceiling... watch your headed.");
+                                                        System.out.println();
+                                        
+                                                    } 
+                                                    else if (answer == 0)
+                                                    {
+                                                        flag = true;
+                                                    }
+                                                    else
+                                                    {
+                                                        System.out.println("Invalid input for chat action...");
+                                                        System.out.println("");
+                                                        System.out.println();
+                                                    }
                                                 }
-                                                catch (Exception e)
+                                                catch (Exception e) 
                                                 {
-                                                    System.out.println("INVALID INPUT");
+                                                    answer = -1;
+                                                    System.out.println("Incorrect Input Type...Try Again");
+                                                    System.out.println("");
+                                                    kb.nextLine();
                                                 }
+                                    
+                                            } while (!flag);
 
-                                            break;
+                                        break;
                                         
                                         //VIEW INVENTORY
                                         case 3:
                                             int itemChoice1;
                                             do
                                             {
-                                                System.out.println();
+                                                System.out.println("");
                                                 System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
                                                                  "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                 System.out.println();
@@ -269,7 +325,8 @@ public class Main
                                                 catch (Exception e)
                                                 {
                                                     itemChoice1=-1;
-                                                    System.out.println("Invalid Input, you'll have to try that again!");
+                                                    System.out.println("Incorrect Input Type...Try Again");
+                                                    System.out.println("");
                                                     kb.nextLine();
                                                 }
                                             }
@@ -291,6 +348,7 @@ public class Main
                                                         catch (Exception e)
                                                         {
                                                             System.out.println("INVALID INPUT");
+                                                            System.out.println("");
                                                         }
                                                         break;
 
@@ -324,6 +382,7 @@ public class Main
                                                         catch (Exception e)
                                                         {
                                                             System.out.println("INVALID INPUT");
+                                                            System.out.println("");
                                                             kb.nextLine();
                                                         }
                                                         break;
@@ -338,6 +397,7 @@ public class Main
                                                         catch (Exception e)
                                                         {
                                                             System.out.println("INVALID INPUT");
+                                                            System.out.println("");
                                                             kb.nextLine();
                                                         }
                                                         break;
@@ -345,14 +405,17 @@ public class Main
 
                                                     default:
                                                         System.out.println("Error in Inventory action selection ");
+                                                        System.out.println("");
                                                         
 
 
                                                 System.out.println("INVALID INPUT");
+                                                System.out.println("");
                                                         kb.nextLine();
                                                 goBackFromKitchen = true;
-                                                System.out.println();
+                                                System.out.println("");
                                                 System.out.println("--Back to room selection--");
+                                                System.out.println("");
 
                                             }
                                             break;
@@ -366,7 +429,8 @@ public class Main
                                             }
                                             catch (Exception e)
                                             {
-                                                System.out.println("INVALID INPUT");
+                                                System.out.println("Incorrect Input Type you FOOL...");
+                                                System.out.println("");
 
                                             }
                                             break;
@@ -388,6 +452,7 @@ public class Main
                                             catch (Exception e)
                                             {
                                                 System.out.println("INVALID INPUT");
+                                                System.out.println("");
                                             }
                                             break;
                                         
@@ -396,18 +461,21 @@ public class Main
                                             try
                                             {
                                                 goBackFromKitchen = true;
-                                                System.out.println();
+                                                System.out.println("");
                                                 System.out.println("--Back to room selection--");
+                                                System.out.println("");
                                             }
                                             catch (Exception e)
                                             {
                                                 System.out.println("INVALID INPUT");
+                                                System.out.println("");
                                             }
                                             break;
 
 
                                                 default:
                                                     System.out.println("Try again");
+                                                    System.out.println("");
                                             }//end switch
                                     }//end while go back
                                     break;
@@ -425,6 +493,7 @@ public class Main
                                             do
                                             {
                                                 //System.out.println(pantry.roomName);
+                                                System.out.println("");
                                                 System.out.println("█▀█ ▄▀█ █▄░█ ▀█▀ █▀█ █▄█" +
                                                                  "\n█▀▀ █▀█ █░▀█ ░█░ █▀▄ ░█░");
                                                 System.out.println();
@@ -443,6 +512,7 @@ public class Main
                                                 {
                                                     actionChoice = -1;
                                                     System.out.println("Invalid Input, you'll have to try that again!");
+                                                    System.out.println("");
                                                     kb.nextLine();
                                                 }
                                             }
@@ -512,17 +582,20 @@ public class Main
                                                                     catch (Exception e)
                                                                     {
                                                                         System.out.println("Invalid Input");
+                                                                        System.out.println("");
                                                                     }
                                                                     break;
 
                                                                 case 0:
                                                                     goBackFromInspectPantry = true;
-                                                                    System.out.println();
+                                                                    System.out.println("");
                                                                     System.out.println("--Back to Pantry--");
+                                                                    System.out.println("");
                                                                     break;
 
                                                                 default:
                                                                     System.out.println("Try again");
+                                                                    System.out.println("");
                                                                     break;
                                                             }
                                                             break;
@@ -531,6 +604,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("INVALID INPUT");
+                                                        System.out.println("");
                                                     }
                                                     break;
                                                 
@@ -543,6 +617,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("INVALID INPUT");
+                                                        System.out.println("");
                                                     }
                                                     break;
 
@@ -551,7 +626,7 @@ public class Main
                                                     try 
                                                     {
                                                         int itemChoice1;
-                                                        System.out.println();
+                                                        System.out.println("");
                                                         System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
                                                                          "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                         System.out.println();
@@ -577,6 +652,8 @@ public class Main
                                                             catch (Exception e)
                                                             {
                                                                 System.out.println("INVALID INPUT");
+                                                                System.out.println("");
+                                                                
                                                             }
 
                                                             //Use
@@ -609,6 +686,7 @@ public class Main
                                                             catch (Exception e)
                                                             {
                                                                 System.out.println("INVALID INPUT");
+                                                                System.out.println("");
                                                             }
 
                                                             //Eat
@@ -622,16 +700,19 @@ public class Main
                                                                 catch (Exception e)
                                                                 {
                                                                     System.out.println("INVALID INPUT");
+                                                                    System.out.println("");
                                                                 }
 
                                                                 default:
                                                                     System.out.println("Error in Inventory action selection ");
+                                                                    System.out.println("");
                                                         }
                                                         break;
                                                     }
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("INVALID INPUT");
+                                                        System.out.println("");
                                                     }
                                                 
                                                 //ATTEMPT PASSCODE
@@ -645,6 +726,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("INVALID INPUT");
+                                                        System.out.println("");
                                                     }
 
                                                 //GO BACK
@@ -652,13 +734,15 @@ public class Main
                                                     try
                                                     {
                                                         goBackFromPantry = true;
-                                                        System.out.println();
+                                                        System.out.println("");
                                                         System.out.println("--Back to room selection--");
+                                                        System.out.println("");
                                                         break;
                                                     }
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("INVALID INPUT");
+                                                        System.out.println("");
                                                     }
                                                     
                                             }
@@ -676,6 +760,7 @@ public class Main
                                 catch (Exception e)
                                 {
                                     System.out.println("INVALID INPUT");
+                                    System.out.println("");
                                 }
 
                             //dining
@@ -689,6 +774,7 @@ public class Main
                                         {
                                         
                                             //System.out.println(diningRoom.roomName);
+                                            System.out.println("");
                                             System.out.println("█▀▄ █ █▄░█ █ █▄░█ █▀▀     █▀█ █▀█ █▀█ █▀▄▀█" +
                                                              "\n█▄▀ █ █░▀█ █ █░▀█ █▄█     █▀▄ █▄█ █▄█ █░▀░█");
                                             System.out.println();
@@ -765,19 +851,22 @@ public class Main
                                                                 catch (Exception e)
                                                                 {
                                                                     System.out.println("Invalid Input");
+                                                                    System.out.println("");
                                                                 }
 
                                                             case 0:
 
                                                                     goBackFromInspectDining = true;
-                                                                    System.out.println();
+                                                                    System.out.println("");
                                                                     System.out.println("--Back to Dining--");
+                                                                    System.out.println("");
                                                                     break;
 
 
 
                                                             default:
                                                                 System.out.println("Try again");
+                                                                System.out.println("");
                                                                 break;
                                                         }
                                                         break;
@@ -796,6 +885,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                         kb.nextLine();
                                                     }
 
@@ -805,6 +895,7 @@ public class Main
                                                     do 
                                                     {
                                                             System.out.println();
+                                                            System.out.println("");
                                                             System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█    █ ▀█▀ █▀▀ █▀▄▀█ █▀" +
                                                                              "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░    █ ░█░ ██▄ █░▀░█ ▄█");
                                                             System.out.println();
@@ -823,6 +914,7 @@ public class Main
                                                             {
                                                                 itemChoice1=-1;
                                                                 System.out.println("Invalid Input, you'll have to try that again!");
+                                                                System.out.println("");
                                                                 kb.nextLine();
                                                             }
                                                     }
@@ -844,6 +936,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
 
                                                 //Use
@@ -877,6 +970,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
 
                                                 //Eat
@@ -891,6 +985,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
                                                 default:
                                                     System.out.println("Error in Inventory action selection ");
@@ -912,19 +1007,22 @@ public class Main
                                             catch (Exception e)
                                             {
                                                 System.out.println("Invalid Input");
+                                                System.out.println("");
                                             }
 
                                         case 0:
                                             try
                                             {
                                                 goBackFromDinning = true;
-                                                System.out.println();
+                                                System.out.println("");
                                                 System.out.println("--Back to room selection--");
+                                                System.out.println("");
                                                 break;
                                             }  
                                             catch (Exception e)
                                             {
                                                 System.out.println("Invalid Input");
+                                                System.out.println("");
                                             }
                                         }
                                     }
@@ -941,6 +1039,7 @@ public class Main
                                 catch (Exception e)
                                 {
                                     System.out.println("INVALID INPUT");
+                                    System.out.println("");
                                 }
                             //Magic shelf
                             case 4:
@@ -953,6 +1052,7 @@ public class Main
                                         {
                                             int actionChoice4;
                                             //System.out.println(magicShelf.roomName);
+                                            System.out.println("");
                                             System.out.println("█▀▄▀█ ▄▀█ █▀▀ █ █▀▀   █▀ █░█ █▀▀ █░░ █▀▀" +
                                                              "\n█░▀░█ █▀█ █▄█ █ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▀░");
                                             System.out.println();
@@ -1026,11 +1126,14 @@ public class Main
                                                                 catch (Exception e)
                                                                 {
                                                                     System.out.println("Invalid Input");
+                                                                    System.out.println("");
                                                                 }
 
                                                             case 0:
                                                                 goBackFromInspectMagicShelf = true;
-                                                                System.out.println("--Back to kitchen--");
+                                                                System.out.println("");
+                                                                System.out.println("--Back to Magic Shelf--");
+                                                                System.out.println("");
                                                                 break;
 
                                                             default:
@@ -1045,6 +1148,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
                                                 case 2:
                                                     try
@@ -1055,6 +1159,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
 
                                                 case 3:
@@ -1086,6 +1191,7 @@ public class Main
                                                                 catch (Exception e)
                                                                 {
                                                                     System.out.println("Invalid Input");
+                                                                    System.out.println("");
                                                                 }
 
                                                             //Use
@@ -1117,6 +1223,7 @@ public class Main
                                                                 catch (Exception e)
                                                                 {
                                                                     System.out.println("Invalid Input");
+                                                                    System.out.println("");
                                                                 }
 
                                                             //Eat
@@ -1130,6 +1237,7 @@ public class Main
                                                             catch (Exception e)
                                                             {
                                                                 System.out.println("Invalid Input");
+                                                                System.out.println("");
                                                             }
                                                     }
                                                     break;
@@ -1137,6 +1245,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
                                                 case 4:
                                                     try
@@ -1156,6 +1265,7 @@ public class Main
                                                     catch (Exception e)
                                                     {
                                                         System.out.println("Invalid Input");
+                                                        System.out.println("");
                                                     }
 
 
@@ -1183,13 +1293,16 @@ public class Main
 
                             case 0:
                                 goBack = true;
-                                System.out.println();
+                        
+                                System.out.println("");
                                 System.out.println("-------Going back------");
+                                System.out.println("");
 
                                 break;
 
                             default:
                             System.out.println("Invalid selection...Try Again");
+                            System.out.println("");
 
                         }//end roomChoice menu
                     }
@@ -1200,7 +1313,7 @@ public class Main
                     try
                     {
                         int itemChoice;
-                        System.out.println();
+                        System.out.println("");
                         System.out.println("█ █▄░█ █░█ █▀▀ █▄░█ ▀█▀ █▀█ █▀█ █▄█" +
                                          "\n█ █░▀█ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ░█░");
                         System.out.println();
@@ -1225,6 +1338,7 @@ public class Main
                                 catch (Exception e)
                                 {
                                     System.out.println("Invalid Input");
+                                    System.out.println("");
                                 }
 
                             //Use item
@@ -1237,6 +1351,7 @@ public class Main
                                 catch (Exception e)
                                 {
                                     System.out.println("Invalid Input");
+                                    System.out.println("");
                                 }
 
                             //Eat item
@@ -1251,16 +1366,19 @@ public class Main
                                 catch (Exception e)
                                 {
                                     System.out.println("Invalid Input");
+                                    System.out.println("");
                                 }
 
                             default:
                             System.out.println("Error in Inventory action selection ");
+                            System.out.println("");
                         }
                         break;
                     }
                     catch (Exception e)
                     {
                         System.out.println("Invalid Input");
+                        System.out.println("");
                     }
 
                 //THE FREEZER/ "EXIT"
@@ -1283,10 +1401,12 @@ public class Main
                     catch (Exception e)
                     {
                         System.out.println("Invalid Input");
+                        System.out.println("");
                     }
 
                 default:
                     System.out.println("Invalid selection...Try Again");
+                    System.out.println("");
 
             }//end Choice action
         }//End while door is unlocked
