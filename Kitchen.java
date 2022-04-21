@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Kitchen extends Rooms
 {
@@ -57,15 +58,6 @@ public class Kitchen extends Rooms
         pantryDoorLock.setHide(true);
         setObjects(kitchenObjects);
 
-
-
-
-
-
-
-
-
     }
-
 
 }

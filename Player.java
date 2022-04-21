@@ -96,7 +96,8 @@ public class Player extends Character
                 } while (!flag);
 
 
-            } else
+            } 
+            else if(npc.hasClue)
             {
                 do
                 {
