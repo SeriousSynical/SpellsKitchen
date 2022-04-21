@@ -8,7 +8,7 @@ public class PadLock {
 
         if (item.objectConnection == io.itemConnection)
         {
-            System.out.println("The room is now unlocked!");
+            System.out.println("The Pantry is now unlocked!");
             room.locked=false;
         }
         else

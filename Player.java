@@ -31,7 +31,69 @@ public class Player extends Character
         this.inventory = inventory;
     }
 
-    //chat with NPC in room
+
+    //---------------------------------------------
+    public void chatSuccess(Player player, NPC npc)
+    {
+        try
+        {
+//----------------------------------------------------------------need to work on
+            boolean flag = false;
+            if (npc.hasClue)
+            {
+                do
+                {
+                    System.out.println("1. Hows the egg?");
+                    System.out.println("2. Now what do I do?");
+                    System.out.println("3. How did you get here?");
+                    System.out.println("0. Exit");
+
+                    int answer = s.nextInt();
+                    if (answer == 1)
+                    {
+                        System.out.println();
+                        System.out.println(player.name + ": Hows the egg?");
+                        System.out.println(npc.name + ": OMG its sooo delicious! Thank you so much!!");
+                        System.out.println();
+
+                    } else if (answer == 2)
+                    {
+                        System.out.println();
+                        System.out.println(player.name + ": Now how can I open the freezer?");
+                        System.out.println(npc.name + ": Use the key I gave you silly! By the looks of it there should be 3 other ones! ");
+                        System.out.println(npc.name + ": I bet they look like a rainbow when you put them in!");
+                        System.out.println();
+
+
+                    } else if (answer == 3)
+                    {
+                        System.out.println();
+                        System.out.println(player.name + ": How did you get here?");
+                        System.out.println(npc.name + ": I just followed the smell of food hehe! I just love food! Especially EGGS!!!!");
+                        System.out.println();
+
+                    } else if (answer == 0)
+                    {
+                        flag = true;
+                    }
+
+        } while (!flag);
+
+    }
+}
+        catch (Exception e)
+                {
+                System.out.println("Invalid Input");
+                s.nextLine();
+                }
+                }
+
+
+
+
+
+
+            //chat with NPC in room
     public void chat(Player player, NPC npc)
     {
         try
@@ -74,7 +136,7 @@ public class Player extends Character
 
                         } else if (choice2 == 2)
                         {
-                            System.out.println("But im just so hungry....");
+                            System.out.println(npc.name +": But im just so hungry....");
                         } else
                         {
                             System.out.println("choose one of the two options.");
@@ -96,8 +158,8 @@ public class Player extends Character
                 } while (!flag);
 
 
-            } 
-            else if(npc.hasClue)
+            }
+            else
             {
                 do
                 {
