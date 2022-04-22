@@ -132,14 +132,19 @@ public class Player extends Character
 
                         if (choice2 == 1)
                         {
+                            System.out.println("");
                             System.out.println(npc.name + ": Ohh, im too famished to remember...");
+                            System.out.println("");
 
                         } else if (choice2 == 2)
                         {
+                            System.out.println("");
                             System.out.println(npc.name +": But im just so hungry....");
+                            System.out.println("");
                         } else
                         {
                             System.out.println("choose one of the two options.");
+                            System.out.println("");
                         }
 
                     } else if (answer == 3)

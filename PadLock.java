@@ -2,19 +2,20 @@ import java.util.Scanner;
 
 public class PadLock {
 
-    public void padLock(Player player, Rooms room, Item item, InteractableObjects io)
+    public void padLock(Player player, Rooms pantry, Item item, InteractableObjects io)
     {
         Scanner s = new Scanner(System.in);
 
         if (item.objectConnection == io.itemConnection)
         {
             System.out.println("The Pantry is now unlocked!");
-            room.locked=false;
+            pantry.locked = false;
         }
         else
         {
             System.out.println(player.name + ": That doesn't work...");
         }
+        
 
 
     }
