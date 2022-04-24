@@ -22,8 +22,8 @@ public class Pantry extends Rooms
         InteractableObjects junk = new InteractableObjects("junk","junk",100,1000);
 
 
-        setRoomDescription("Lots and lots of food stuffs in here! There seems to be a Passcode lock on the next " +
-                "door\n Is that cookie crumbs on on the number pad?");
+        setRoomDescription("Lots and lots of food in here! There seems to be a Passcode lock on the next " +
+                "door\n Is that cookie crumbs on the number pad?");
 
         setNpc(pantryGoblin);
 

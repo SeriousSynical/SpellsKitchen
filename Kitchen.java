@@ -12,7 +12,7 @@ public class Kitchen extends Rooms
 
         NPC kitchenGoblin = new NPC("Henry",Pronouns.masculine,"A devilish creature yet a heavenly cook", false);
         Item knife = new Item("Knife", "A very sharp knife",true,false,false,false,1,"");
-        Item breadBox = new Item("Bread Box", "A locked bread box",false,false,true,false,0,"");
+        Item spatula = new Item("Spatula", "A spatula fit to flip Krabby Patties ",false,false,false,false,0,"");
         Item wood =  new Item("Bundle of wood","Smells like oak",true,false,false,false,20,"");
 
 
@@ -38,7 +38,7 @@ public class Kitchen extends Rooms
 
 
         kitchenItems.add(knife);
-        kitchenItems.add(breadBox);
+        kitchenItems.add(spatula);
         kitchenItems.add(wood);
 
         hiddenKitchenItems.add(key);

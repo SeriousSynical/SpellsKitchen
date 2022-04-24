@@ -26,7 +26,7 @@ public class NumberPuzzle //extends character
            //random insult generator
             ArrayList<String> insultList = new ArrayList<String>();
             insultList.add("Wrong number fool...");
-            insultList.add("Your mom could guessed better...");
+            insultList.add("Your mom could have guessed better...");
             insultList.add("Don't you have a brain?");
             insultList.add("Lost your head?");
             insultList.add("Disgrace...");
@@ -37,7 +37,7 @@ public class NumberPuzzle //extends character
             insultList.add("We are going to be here a while...");
             insultList.add("Sure, take your time...");
             insultList.add("Care to ask your mother?");
-            insultList.add("I outta take a nap...continue...");
+            insultList.add("I ought to take a nap...continue...");
             
             
             
@@ -85,7 +85,7 @@ public class NumberPuzzle //extends character
                 
                     int randomInsult = (int) (Math.random()*insultList.size());
                     
-                    message = "Crow: " + guessedNumber + " is to low... " + insultList.get(randomInsult);
+                    message = "Crow: " + guessedNumber + " is too low... " + insultList.get(randomInsult);
                     System.out.println(message);
                 }
                 else if(guessedNumber > randomNumber)//guess is high
@@ -93,12 +93,12 @@ public class NumberPuzzle //extends character
                     
                     int randomInsult = (int) (Math.random()*insultList.size());
                     
-                    message = "Crow: " + guessedNumber + " is to high... " + insultList.get(randomInsult);
+                    message = "Crow: " + guessedNumber + " is too high... " + insultList.get(randomInsult);
                     System.out.println(message);
                 }
                 else//guess is correct
                 {
-                    message = "Crow: At last " + guessedNumber + " is to correct...\n Now all you need to know is... 24 " +
+                    message = "Crow: At last " + guessedNumber + " is correct...\n Now all you need to know is... 24 " +
                             "goes before! HAHAHAHAHAHA ";
                     System.out.println(message);
                     System.out.println("");

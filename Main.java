@@ -28,8 +28,9 @@ public class Main
                            "\n█▄▄▄▄─██─▄▄▄██─▄█▀██─██▀██─██▀█▄▄▄▄─██████─▄▀███─████─███─███▀█─▄─██─▄█▀██─█▄▀─██"+
                            "\n▀▄▄▄▄▄▀▄▄▄▀▀▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▀▀▀▀▄▄▀▄▄▀▄▄▄▀▀▄▄▄▀▀▄▄▄▄▄▀▄▀▄▀▄▄▄▄▄▀▄▄▄▀▀▄▄▀");
         System.out.println("");
-        System.out.println("Here you will search for the magical object");
-        System.out.println("by finding clues and hints. GOODLUCK");
+        System.out.println("Here your goal is to get into the chef's freezer");
+        System.out.println("where all sorts of goodies are hidden away from");
+        System.out.println("from mortals such as yourself. Good luck!");
         System.out.println("");
 
 
@@ -1105,14 +1106,9 @@ public class Main
                                                     while (goBackFromInspectMagicShelf == false) 
                                                     {
 
-                                                        if (magicShelf.objects.size()<2)
-                                                        {
-                                                            System.out.println(magicShelf.roomDescription2);
-                                                        }
-                                                        else
-                                                        {
+                                                        System.out.println("");
                                                             System.out.println(magicShelf.roomDescription);
-                                                        }
+
                                                         System.out.println();
                                                         if (magicShelf.items.size() >0)
                                                         {
@@ -1381,23 +1377,11 @@ public class Main
                         {
                             //Inspect item
                             case 1:
-                                try{
-                                System.out.println(" Which Item do you want to check?");
-                                player.listInventory();
-                                System.out.println(player.inventory.get(kb.nextInt()).description);
-                                break;
-                                }
-                                catch (Exception e)
-                                {
-                                    System.out.println("Invalid Input");
-                                    System.out.println("");
-                                }
-
-                            //Use item
-                            case 2:
                                 try
                                 {
-                                    System.out.println("I need to be in a room to use anything.");
+                                    System.out.println(" Which Item do you want to check?");
+                                    player.listInventory();
+                                    System.out.println(player.inventory.get(kb.nextInt()).description);
                                     break;
                                 }
                                 catch (Exception e)
@@ -1406,14 +1390,12 @@ public class Main
                                     System.out.println("");
                                 }
 
-                            //Eat item
-                            case 3:
+                                //Use item
+                            case 2:
                                 try
                                 {
-                                    player.listInventory();
-                                    player.eat(player, player.inventory.get(kb.nextInt()));
-
-                                break;
+                                    System.out.println(player.name + ": I need to be in a room to use anything.");
+                                    break;
                                 }
                                 catch (Exception e)
                                 {
@@ -1421,9 +1403,36 @@ public class Main
                                     System.out.println("");
                                 }
 
-                            default:
+                                //Eat item
+                            case 3:
+                                if (player.inventory.size() > 0)
+                                {
+                                    try
+                                    {
+                                        player.listInventory();
+                                        player.eat(player, player.inventory.get(kb.nextInt()));
+
+                                        break;
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        System.out.println("Invalid Input");
+                                        System.out.println("");
+                                    }
+                                }
+                                else
+                                {
+                                    System.out.println("");
+                                    System.out.println(player.name + ": There's nothing in my inventory! What am i going to eat? The backpack??");
+                                    System.out.println("");
+                                }
+
+                       /*     default:
+                                System.out.println("");
                             System.out.println("Error in Inventory action selection ");
                             System.out.println("");
+
+                        */
                         }
                         break;
                     }
@@ -1440,13 +1449,13 @@ public class Main
                         if (player.inventory.size()>3) 
                         {
                             Freezer freezer = new Freezer();
-                            System.out.println("Now to place the four key pieces in order.");
+                            System.out.println(player.name +": Now to place the four key pieces in order.");
                             player.listInventory();
                             freezer.Freezer(player, player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()), player.inventory.get(kb.nextInt()));
                         }
                         else 
                         {
-                            System.out.println("The freezer has four keys.. I don't even have four items in my inventory");
+                            System.out.println(player.name + ": The freezer has four keys.. I don't even have four items in my inventory");
                         }
                         break;
                     }
