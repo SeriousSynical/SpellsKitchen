@@ -4,7 +4,26 @@ public class Freezer {
         
         if (i1.name.equals("Red Crystal") && i2.name.equals("Yellow Crystal") && i3.name.equals("Green Crystal") && i4.name.equals("Blue Crystal"))
         {
-            System.out.println("CONGRATULATIONS!!! "+player.name+ " YOU'VE WON THE GAME!!!");
+            System.out.println(player.name+ " YOU'VE WON THE GAME!!!");
+            System.out.println(
+            "\n █▀▀ █▀█ █▄░█ █▀▀ █▀█ ▄▀█ ▀█▀ █░█ █░░ ▄▀█ ▀█▀ █ █▀█ █▄░█ █▀  █ █"+
+            "\n █▄▄ █▄█ █░▀█ █▄█ █▀▄ █▀█ ░█░ █▄█ █▄▄ █▀█ ░█░ █ █▄█ █░▀█ ▄█  ▄ ▄"+
+            "\n "+
+            "\n              ████████                                                 "+
+            "\n           ████░░     ████                                                    "+
+            "\n      █████░░            ████████                                    "+
+            "\n    ██      ░░                  ████                                  "+
+            "\n ██                                ██                              "+
+            "\n ██                                ██             ██████    ██  ██  ██    ██          "+
+            "\n ██                                ██           ██████████  ██  ██  ██    ████        "+
+            "\n ████                             ██            ██████████  ██  ██  ██    ██████      "+
+            "\n    ██████                    █████               ██████    ██████████    ██████      "+
+            "\n         ██  ▒▒              ██                     ██          ██        ██████      "+
+            "\n         ██  ██    ██    ██  ██                     ██          ██        ████        "+
+            "\n         ██████████████████████                     ██          ██        ██          "+
+            "\n         ██  ░░░░    ░░      ██                     ██          ██        ██          "+
+            "\n         ██                  ██                     ██          ██        ██          "+
+            "\n         ██████████████████████                                                 ");
             System.exit(0);
         }
         else
